@@ -1,7 +1,5 @@
 ﻿using Inoxie.Tools.RedisCache.Abstractions.Interfaces;
-using System;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace Inoxie.Tools.RedisCache.Services
 {

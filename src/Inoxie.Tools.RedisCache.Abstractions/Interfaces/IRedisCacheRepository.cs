@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Inoxie.Tools.RedisCache.Abstractions.Interfaces
+﻿namespace Inoxie.Tools.RedisCache.Abstractions.Interfaces
 {
     public interface IRedisCacheRepository<T> where T : class, new()
     {
