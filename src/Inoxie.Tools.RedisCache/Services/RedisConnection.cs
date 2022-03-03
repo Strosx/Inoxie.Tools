@@ -1,5 +1,8 @@
 ﻿using StackExchange.Redis;
+using System;
 using System.Net.Sockets;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Inoxie.Tools.RedisCache.Services
 {
@@ -21,7 +24,7 @@ namespace Inoxie.Tools.RedisCache.Services
         private readonly TimeSpan RestartConnectionTimeout = TimeSpan.FromSeconds(15);
         private const int RetryMaxAttempts = 5;
 
-        private SemaphoreSlim _reconnectSemaphore = new SemaphoreSlim(initialCount: 1, maxCount: 1);
+        private readonly SemaphoreSlim _reconnectSemaphore = new(initialCount: 1, maxCount: 1);
         private readonly string _connectionString;
         private ConnectionMultiplexer _connection;
         private IDatabase _database;

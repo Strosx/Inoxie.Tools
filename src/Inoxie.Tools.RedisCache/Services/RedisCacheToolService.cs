@@ -1,4 +1,7 @@
-﻿namespace Inoxie.Tools.RedisCache.Services
+﻿using System;
+using System.Threading.Tasks;
+
+namespace Inoxie.Tools.RedisCache.Services
 {
     internal class RedisCacheToolService
     {
