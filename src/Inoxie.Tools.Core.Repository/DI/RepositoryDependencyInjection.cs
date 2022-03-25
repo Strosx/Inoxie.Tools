@@ -21,7 +21,7 @@ namespace Inoxie.Tools.Core.Repository.DI
 
     public static class InoxieToolsRepositoryExtensions
     {
-        public static void AddInoxieRepository<TDatabaseContext>(IServiceCollection services)
+        public static void AddInoxieRepository<TDatabaseContext>(this IServiceCollection services)
             where TDatabaseContext : DbContext
         {
             RepositoryDependencyInjection.Configure<TDatabaseContext>(services);
