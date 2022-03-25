@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.RedisCache", "Inoxie.Tools.RedisCache\Inoxie.Tools.RedisCache.csproj", "{75B34757-451E-4B31-9427-B649A86C362F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.RedisCache", "Inoxie.Tools.RedisCache\Inoxie.Tools.RedisCache.csproj", "{75B34757-451E-4B31-9427-B649A86C362F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RedisCache", "RedisCache", "{DF79CB7C-C70A-4C62-8F48-D650B414B8FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.RedisCache.Abstractions", "Inoxie.Tools.RedisCache.Abstractions\Inoxie.Tools.RedisCache.Abstractions.csproj", "{C2EEE27C-EF34-425B-9D45-B6CB7893E6A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.RedisCache.Abstractions", "Inoxie.Tools.RedisCache.Abstractions\Inoxie.Tools.RedisCache.Abstractions.csproj", "{C2EEE27C-EF34-425B-9D45-B6CB7893E6A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{C1468408-B6FC-4E23-854A-BBF453E4814F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.Core.Repository", "Inoxie.Tools.Core.Repository\Inoxie.Tools.Core.Repository.csproj", "{3B8EEF2D-16DE-42CF-96E3-0CA0C4EDA63D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.Core.Repository.Abstractions", "Inoxie.Tools.Core.Repository.Abstractions\Inoxie.Tools.Core.Repository.Abstractions.csproj", "{256F68E6-BD3E-4CEC-8DAC-DA6E77C2F17A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +29,14 @@ Global
 		{C2EEE27C-EF34-425B-9D45-B6CB7893E6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2EEE27C-EF34-425B-9D45-B6CB7893E6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2EEE27C-EF34-425B-9D45-B6CB7893E6A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B8EEF2D-16DE-42CF-96E3-0CA0C4EDA63D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B8EEF2D-16DE-42CF-96E3-0CA0C4EDA63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B8EEF2D-16DE-42CF-96E3-0CA0C4EDA63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B8EEF2D-16DE-42CF-96E3-0CA0C4EDA63D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{256F68E6-BD3E-4CEC-8DAC-DA6E77C2F17A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256F68E6-BD3E-4CEC-8DAC-DA6E77C2F17A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256F68E6-BD3E-4CEC-8DAC-DA6E77C2F17A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256F68E6-BD3E-4CEC-8DAC-DA6E77C2F17A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +44,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{75B34757-451E-4B31-9427-B649A86C362F} = {DF79CB7C-C70A-4C62-8F48-D650B414B8FB}
 		{C2EEE27C-EF34-425B-9D45-B6CB7893E6A2} = {DF79CB7C-C70A-4C62-8F48-D650B414B8FB}
+		{3B8EEF2D-16DE-42CF-96E3-0CA0C4EDA63D} = {C1468408-B6FC-4E23-854A-BBF453E4814F}
+		{256F68E6-BD3E-4CEC-8DAC-DA6E77C2F17A} = {C1468408-B6FC-4E23-854A-BBF453E4814F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {167565B1-25DA-4F02-BB59-C90CFF9903BC}
