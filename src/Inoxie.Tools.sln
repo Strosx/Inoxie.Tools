@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.Core.Repositor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.Core.Repository.Abstractions", "Inoxie.Tools.Core.Repository.Abstractions\Inoxie.Tools.Core.Repository.Abstractions.csproj", "{256F68E6-BD3E-4CEC-8DAC-DA6E77C2F17A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KeyWarehouse", "KeyWarehouse", "{B6AC7261-0D8A-46DC-B7E4-E259EB23CD56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.KeyWarehouse.Client", "Inoxie.Tools.KeyWarehouse.Client\Inoxie.Tools.KeyWarehouse.Client.csproj", "{45B1D483-90C6-4F5A-A394-66BEE2D5C24A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,10 @@ Global
 		{256F68E6-BD3E-4CEC-8DAC-DA6E77C2F17A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{256F68E6-BD3E-4CEC-8DAC-DA6E77C2F17A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{256F68E6-BD3E-4CEC-8DAC-DA6E77C2F17A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45B1D483-90C6-4F5A-A394-66BEE2D5C24A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45B1D483-90C6-4F5A-A394-66BEE2D5C24A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45B1D483-90C6-4F5A-A394-66BEE2D5C24A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45B1D483-90C6-4F5A-A394-66BEE2D5C24A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +54,7 @@ Global
 		{C2EEE27C-EF34-425B-9D45-B6CB7893E6A2} = {DF79CB7C-C70A-4C62-8F48-D650B414B8FB}
 		{3B8EEF2D-16DE-42CF-96E3-0CA0C4EDA63D} = {C1468408-B6FC-4E23-854A-BBF453E4814F}
 		{256F68E6-BD3E-4CEC-8DAC-DA6E77C2F17A} = {C1468408-B6FC-4E23-854A-BBF453E4814F}
+		{45B1D483-90C6-4F5A-A394-66BEE2D5C24A} = {B6AC7261-0D8A-46DC-B7E4-E259EB23CD56}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {167565B1-25DA-4F02-BB59-C90CFF9903BC}
