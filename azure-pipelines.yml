@@ -42,5 +42,7 @@ steps:
   inputs:
     command: 'push'
     packagesToPush: '**/*.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'NugetOrgConnection'
     arguments: '-NonInteractive -Source https://api.nuget.org/v3/index.json -ApiKey oy2kdrvp25qkio3vuqmq4fekslm4zmyura6c47r64sx5i4 --skip-duplicate -Verbosity Detailed'
 
