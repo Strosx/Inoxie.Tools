@@ -44,4 +44,5 @@ steps:
     packagesToPush: '**/*.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'NugetOrgConnection'
+    arguments: '--skip-duplicate'
 
