@@ -34,13 +34,13 @@ namespace Inoxie.Tools.KeyWarehouse.Client.Implementations
             return await response.Content.ReadFromJsonAsync<Dictionary<Guid, int>>();
         }
 
-        public async Task<WarehouseOrderKeysInDto> Order(WarehouseOrderKeysInDto warehouseOrderKeysInDto)
+        public async Task<WarehouseOrderKeysOutDto> Order(WarehouseOrderKeysInDto warehouseOrderKeysInDto)
         {
             var response = await httpClient.PostAsJsonAsync(Routing.Order, warehouseOrderKeysInDto);
 
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadFromJsonAsync<WarehouseOrderKeysInDto>();
+            return await response.Content.ReadFromJsonAsync<WarehouseOrderKeysOutDto>();
         }
     }
 }
