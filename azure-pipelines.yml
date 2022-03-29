@@ -35,5 +35,4 @@ steps:
     includeNuGetOrg: true
     publishFeedCredentials: NugetOrgConnection
     allowPackageConflicts: true
-  continueOnError: true
 
