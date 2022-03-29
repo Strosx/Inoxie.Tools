@@ -2,6 +2,7 @@
 {
     public class WarehouseOrderKeysOutDto
     {
+        public string OrderId { get; set; }
         public List<WarehouseOrderKeyItemOutDto> Items { get; set; }
     }
 }
