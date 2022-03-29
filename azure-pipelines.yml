@@ -36,6 +36,7 @@ steps:
     includeNuGetOrg: true
     publishFeedCredentials: NugetOrgConnection
     allowPackageConflicts: true
+  continueOnError: true
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -43,3 +44,4 @@ steps:
     packagesToPush: '**/*.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'NugetOrgConnection'
+
