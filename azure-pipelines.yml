@@ -42,5 +42,5 @@ steps:
   inputs:
     command: 'custom'
     custom: nuget
-    arguments: 'push **/*.nupkg -s https://api.nuget.org/v3/index.json -k $(ApiKey) --skip-duplicate'
+    arguments: 'push **/*.nupkg -s https://api.nuget.org/v3/index.json --api-key $(ApiKey) --skip-duplicate'
 
