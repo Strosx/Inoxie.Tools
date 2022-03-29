@@ -6,7 +6,7 @@
 		<Nullable>disable</Nullable>
 
 		<PackageId>Inoxie.Tools.KeyWarehouse.Client</PackageId>
-		<Version>6.0.1</Version>
+		<Version>6.0.2</Version>
 		<Authors>Maciej Kamieniak</Authors>
 		<Company>Inoxie</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>

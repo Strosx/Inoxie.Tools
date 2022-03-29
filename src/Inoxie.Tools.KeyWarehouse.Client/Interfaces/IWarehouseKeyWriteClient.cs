@@ -6,5 +6,6 @@ namespace Inoxie.Tools.KeyWarehouse.Client.Interfaces
     {
         Task Create(WarehouseCreateKeyInDto warehouseCreateKeyInDto);
         Task CreateMany(List<WarehouseCreateKeyInDto> warehouseCreateKeysInDto);
+        Task Return(WarehouseReturnKeysInDto warehouseReturnKeysInDto);
     }
 }

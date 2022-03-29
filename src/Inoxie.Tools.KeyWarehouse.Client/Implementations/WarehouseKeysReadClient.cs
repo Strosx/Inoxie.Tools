@@ -42,5 +42,14 @@ namespace Inoxie.Tools.KeyWarehouse.Client.Implementations
 
             return await response.Content.ReadFromJsonAsync<WarehouseOrderKeysOutDto>();
         }
+
+        public async Task<WarehouseVerifyKeysOutDto> VerifyKeys(WarehouseVerifyKeysInDto warehouseVerifyKeysInDto)
+        {
+            var response = await httpClient.PostAsJsonAsync(Routing.Verify, warehouseVerifyKeysInDto);
+
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<WarehouseVerifyKeysOutDto>();
+        }
     }
 }

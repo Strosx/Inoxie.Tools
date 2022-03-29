@@ -26,5 +26,11 @@ namespace Inoxie.Tools.KeyWarehouse.Client.Implementations
             var response = await httpClient.PostAsJsonAsync(Routing.CreateMany, warehouseCreateKeysInDto);
             response.EnsureSuccessStatusCode();
         }
+
+        public async Task Return(WarehouseReturnKeysInDto warehouseReturnKeysInDto)
+        {
+            var response = await httpClient.PostAsJsonAsync(Routing.Return, warehouseReturnKeysInDto);
+            response.EnsureSuccessStatusCode();
+        }
     }
 }

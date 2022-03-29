@@ -7,5 +7,6 @@ namespace Inoxie.Tools.KeyWarehouse.Client.Interfaces
         Task<WarehouseOrderKeysOutDto> Order(WarehouseOrderKeysInDto warehouseOrderKeysInDto);
         Task<int> GetAvailability(WarehouseGetKeysAvailabilityInDto warehouseGetKeysAvailabilityInDto);
         Task<Dictionary<Guid, int>> GetMultipleAvailability(List<WarehouseGetKeysAvailabilityInDto> warehouseGetKeysAvailabilityInDtos);
+        Task<WarehouseVerifyKeysOutDto> VerifyKeys(WarehouseVerifyKeysInDto warehouseVerifyKeysInDto);
     }
 }
