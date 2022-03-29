@@ -40,6 +40,7 @@ steps:
 
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'push'
-    arguments: '**/*.nupkg --source https://api.nuget.org/v3/index.json --api-key oy2kdrvp25qkio3vuqmq4fekslm4zmyura6c47r64sx5i4 --skip-duplicate -Verbosity Detailed'
+    command: 'custom'
+    custom: nuget
+    arguments: 'push **/*.nupkg -s https://api.nuget.org/v3/index.json -k oy2kdrvp25qkio3vuqmq4fekslm4zmyura6c47r64sx5i4 --skip-duplicate'
 
