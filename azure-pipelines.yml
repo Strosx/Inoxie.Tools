@@ -29,7 +29,7 @@ steps:
 - task: NuGetCommand@2
   displayName: 'NuGet push'
   inputs:
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
+    packagesToPush: '**/*.nupkg'
     command: push
     nuGetFeedType: external
     includeNuGetOrg: true
