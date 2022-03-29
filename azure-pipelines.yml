@@ -27,17 +27,6 @@ steps:
   inputs:
     projects: '**/*.csproj'
 
-- task: NuGetCommand@2
-  displayName: 'NuGet push'
-  inputs:
-    packagesToPush: '**/*.nupkg'
-    command: push
-    nuGetFeedType: external
-    includeNuGetOrg: true
-    publishFeedCredentials: NugetOrgConnection
-    allowPackageConflicts: true
-  continueOnError: true
-
 - task: DotNetCoreCLI@2
   inputs:
     command: 'custom'
