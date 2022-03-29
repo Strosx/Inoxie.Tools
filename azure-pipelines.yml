@@ -30,8 +30,9 @@ steps:
   displayName: 'NuGet push'
   inputs:
     command: push
-    packagesToPush: '**/*.nupkg;**/*.symbols.nupkg'
+    packagesToPush: '**/*.nupkg'
     nuGetFeedType: external
+    includeNuGetOrg: true
     publishFeedCredentials: NugetOrgConnection
     allowPackageConflicts: true
   continueOnError: true
