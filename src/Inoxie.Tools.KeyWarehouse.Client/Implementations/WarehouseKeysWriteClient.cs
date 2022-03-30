@@ -15,15 +15,19 @@ namespace Inoxie.Tools.KeyWarehouse.Client.Implementations
             httpClient = httpClientFactory.CreateClient(KeyWarehouseClientDependencyInjection.KeyWarehouseHttpClientName);
         }
 
-        public async Task Create(WarehouseCreateKeyInDto warehouseCreateKeyInDto)
+        public async Task Create(WarehouseCreateKeyInDto warehouseCreateKeyInDto, HttpClient http = null)
         {
-            var response = await httpClient.PostAsJsonAsync(Routing.Create, warehouseCreateKeyInDto);
+            var httpClientToUse = http ?? httpClient;
+               
+            var response = await httpClientToUse.PostAsJsonAsync(Routing.Create, warehouseCreateKeyInDto);
             response.EnsureSuccessStatusCode();
         }
 
-        public async Task CreateMany(List<WarehouseCreateKeyInDto> warehouseCreateKeysInDto)
+        public async Task CreateMany(List<WarehouseCreateKeyInDto> warehouseCreateKeysInDto, HttpClient http = null)
         {
-            var response = await httpClient.PostAsJsonAsync(Routing.CreateMany, warehouseCreateKeysInDto);
+            var httpClientToUse = http ?? httpClient;
+
+            var response = await httpClientToUse.PostAsJsonAsync(Routing.CreateMany, warehouseCreateKeysInDto);
             response.EnsureSuccessStatusCode();
         }
 
