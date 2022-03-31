@@ -37,6 +37,7 @@ namespace Inoxie.Tools.KeyWarehouse.Client.DI
 
             services.AddScoped<IWarehouseKeysReadClient, WarehouseKeysReadClient>();
             services.AddScoped<IWarehouseKeysWriteClient, WarehouseKeysWriteClient>();
+            services.AddScoped<IWarehouseProductsWriteClient, WarehouseProductsWriteClient>();
         }
     }
 

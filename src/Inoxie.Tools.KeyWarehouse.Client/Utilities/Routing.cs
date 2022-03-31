@@ -12,5 +12,12 @@
         public const string Create = "/api/keys/create";
         public const string CreateMany = "/api/keys/create-many";
         public const string Return = "/api/keys/return";
+
+
+        //products
+
+        //write
+        public const string CreateProduct = "/api/products";
+
     }
 }
