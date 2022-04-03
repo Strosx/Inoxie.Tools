@@ -1,16 +1,15 @@
-﻿namespace Inoxie.Tools.KeyWarehouse.Client.Models
+﻿namespace Inoxie.Tools.KeyWarehouse.Client.Models;
+
+public class WarehouseVerifyKeysOutDto
 {
-    public class WarehouseVerifyKeysOutDto
-    {
-        public List<WarehouseVerifyKeyItemOutDto> Items { get; set; }
-
-    }
-
-    public class WarehouseVerifyKeyItemOutDto
-    {
-        public string Message { get; set; }
-        public string Key { get; set; }
-        public bool IsUsed { get; set; }
-    }
+    public List<WarehouseVerifyKeyItemOutDto> Items { get; set; }
 
 }
+
+public class WarehouseVerifyKeyItemOutDto
+{
+    public string Message { get; set; }
+    public string Key { get; set; }
+    public bool IsUsed { get; set; }
+}
+

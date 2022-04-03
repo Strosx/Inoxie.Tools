@@ -7,7 +7,7 @@
 
 
 		<PackageId>Inoxie.Tools.Core.Repository</PackageId>
-		<Version>6.0.2</Version>
+		<Version>6.0.4</Version>
 		<Authors>Maciej Kamieniak</Authors>
 		<Company>Inoxie</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>

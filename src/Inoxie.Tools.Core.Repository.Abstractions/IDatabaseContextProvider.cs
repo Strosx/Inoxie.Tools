@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Inoxie.Tools.Core.Repository.Abstractions
+namespace Inoxie.Tools.Core.Repository.Abstractions;
+
+public interface IDatabaseContextProvider
 {
-    public interface IDatabaseContextProvider
-    {
-        DbContext Get();
-    }
+    DbContext Get();
 }

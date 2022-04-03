@@ -1,14 +1,12 @@
-﻿namespace Inoxie.Tools.Core.Repository.Abstractions
+﻿namespace Inoxie.Tools.Core.Repository.Abstractions;
+
+public interface IWriteRepository<T> where T : IDataEntity
 {
-    public interface IWriteRepository<T> where T : IDataEntity
-    {
-        Task<Guid> Create(T entity, List<object> attach = null);
-        Task CreateMany(IEnumerable<T> entities);
-        Task<bool> Update(T entity, List<string> includes = null, List<object> attach = null);
-        Task<bool> UpdateWithoutMapping(T entity);
-        Task<bool> Delete(Guid entity);
-        Task<bool> Delete(T entity);
-        Task DeleteMany(IEnumerable<T> entities);
-        Task SaveChangesAsync();
-    }
+    Task<Guid> CreateAsync(T entity, List<object> attach = null);
+    Task CreateManyAsync(IEnumerable<T> entities);
+    Task<bool> UpdateAsync(T entity);
+    Task<bool> DeleteAsync(Guid entity);
+    Task<bool> DeleteAsync(T entity);
+    Task DeleteManyAsync(IEnumerable<T> entities);
+    Task SaveChangesAsync();
 }

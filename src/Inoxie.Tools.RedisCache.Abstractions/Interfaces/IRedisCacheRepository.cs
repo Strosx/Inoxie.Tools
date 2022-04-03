@@ -1,8 +1,7 @@
-﻿namespace Inoxie.Tools.RedisCache.Abstractions.Interfaces
+﻿namespace Inoxie.Tools.RedisCache.Abstractions.Interfaces;
+
+public interface IRedisCacheRepository<T> where T : class, new()
 {
-    public interface IRedisCacheRepository<T> where T : class, new()
-    {
-        Task<T> GetOrCreateAsync(string subKey, Func<Task<T>> fallback);
-        Task RemoveAsync(string subKey);
-    }
+    Task<T> GetOrCreateAsync(string subKey, Func<Task<T>> fallback);
+    Task RemoveAsync(string subKey);
 }

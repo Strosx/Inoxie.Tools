@@ -4,24 +4,23 @@ using Inoxie.Tools.KeyWarehouse.Client.Models;
 using Inoxie.Tools.KeyWarehouse.Client.Utilities;
 using System.Net.Http.Json;
 
-namespace Inoxie.Tools.KeyWarehouse.Client.Implementations
+namespace Inoxie.Tools.KeyWarehouse.Client.Implementations;
+
+internal class WarehouseProductsWriteClient : IWarehouseProductsWriteClient
 {
-    internal class WarehouseProductsWriteClient : IWarehouseProductsWriteClient
+    private readonly HttpClient httpClient;
+
+    public WarehouseProductsWriteClient(IHttpClientFactory httpClientFactory)
     {
-        private readonly HttpClient httpClient;
+        httpClient = httpClientFactory.CreateClient(KeyWarehouseClientDependencyInjection.KeyWarehouseHttpClientName);
+    }
 
-        public WarehouseProductsWriteClient(IHttpClientFactory httpClientFactory)
-        {
-            httpClient = httpClientFactory.CreateClient(KeyWarehouseClientDependencyInjection.KeyWarehouseHttpClientName);
-        }
+    public async Task<Guid> CreateAsync(WarehouseProductInDto warehouseProductInDto)
+    {
+        var response = await httpClient.PostAsJsonAsync(Routing.CreateProduct, warehouseProductInDto);
 
-        public async Task<Guid> CreateAsync(WarehouseProductInDto warehouseProductInDto)
-        {
-            var response = await httpClient.PostAsJsonAsync(Routing.CreateProduct, warehouseProductInDto);
+        response.EnsureSuccessStatusCode();
 
-            response.EnsureSuccessStatusCode();
-
-            return await response.Content.ReadFromJsonAsync<Guid>();
-        }
+        return await response.Content.ReadFromJsonAsync<Guid>();
     }
 }

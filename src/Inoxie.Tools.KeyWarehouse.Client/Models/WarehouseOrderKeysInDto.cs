@@ -1,8 +1,7 @@
-﻿namespace Inoxie.Tools.KeyWarehouse.Client.Models
+﻿namespace Inoxie.Tools.KeyWarehouse.Client.Models;
+
+public class WarehouseOrderKeysInDto
 {
-    public class WarehouseOrderKeysInDto
-    {
-        public string OrderId { get; set; }
-        public List<WarehouseOrderKeyItemInDto> Items { get; set; }
-    }
+    public string OrderId { get; set; }
+    public List<WarehouseOrderKeyItemInDto> Items { get; set; }
 }

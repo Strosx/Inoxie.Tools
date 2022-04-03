@@ -1,9 +1,8 @@
 ﻿using Inoxie.Tools.KeyWarehouse.Client.Models;
 
-namespace Inoxie.Tools.KeyWarehouse.Client.Interfaces
+namespace Inoxie.Tools.KeyWarehouse.Client.Interfaces;
+
+public interface IWarehouseProductsWriteClient
 {
-    public interface IWarehouseProductsWriteClient
-    {
-        Task<Guid> CreateAsync(WarehouseProductInDto warehouseProductInDto);
-    }
+    Task<Guid> CreateAsync(WarehouseProductInDto warehouseProductInDto);
 }

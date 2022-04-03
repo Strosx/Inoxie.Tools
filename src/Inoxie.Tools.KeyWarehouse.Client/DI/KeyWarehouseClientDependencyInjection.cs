@@ -7,45 +7,44 @@ using Microsoft.Extensions.Options;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace Inoxie.Tools.KeyWarehouse.Client.DI
+namespace Inoxie.Tools.KeyWarehouse.Client.DI;
+
+internal static class KeyWarehouseClientDependencyInjection
 {
-    internal static class KeyWarehouseClientDependencyInjection
+    public const string KeyWarehouseHttpClientName = "KeyWarehouseHttpClient";
+
+    public static void Register(IServiceCollection services, IConfiguration configuration)
     {
-        public const string KeyWarehouseHttpClientName = "KeyWarehouseHttpClient";
+        services.Configure<WarehouseClientConfiguration>(options =>
+            configuration.GetSection(WarehouseClientConfiguration.Key).Bind(options));
 
-        public static void Register(IServiceCollection services, IConfiguration configuration)
+        services.AddHttpClient(KeyWarehouseHttpClientName, (services, http) =>
         {
-            services.Configure<WarehouseClientConfiguration>(options =>
-                configuration.GetSection(WarehouseClientConfiguration.Key).Bind(options));
+            var configuration = services.GetService<IOptions<WarehouseClientConfiguration>>();
 
-            services.AddHttpClient(KeyWarehouseHttpClientName, (services, http) =>
+            if (configuration == null)
             {
-                var configuration = services.GetService<IOptions<WarehouseClientConfiguration>>();
+                throw new Exception("Configuration is null");
+            }
 
-                if (configuration == null)
-                {
-                    throw new Exception("Configuration is null");
-                }
+            var username = configuration.Value.Username;
+            var password = configuration.Value.Password;
+            var credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(username + ":" + password));
 
-                var username = configuration.Value.Username;
-                var password = configuration.Value.Password;
-                var credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(username + ":" + password));
+            http.BaseAddress = new Uri(configuration.Value.BaseAddress);
+            http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", credentials);
+        });
 
-                http.BaseAddress = new Uri(configuration.Value.BaseAddress);
-                http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", credentials);
-            });
-
-            services.AddScoped<IWarehouseKeysReadClient, WarehouseKeysReadClient>();
-            services.AddScoped<IWarehouseKeysWriteClient, WarehouseKeysWriteClient>();
-            services.AddScoped<IWarehouseProductsWriteClient, WarehouseProductsWriteClient>();
-        }
+        services.AddScoped<IWarehouseKeysReadClient, WarehouseKeysReadClient>();
+        services.AddScoped<IWarehouseKeysWriteClient, WarehouseKeysWriteClient>();
+        services.AddScoped<IWarehouseProductsWriteClient, WarehouseProductsWriteClient>();
     }
+}
 
-    public static class KeyWarehouseClientDependencyInjectionExtions
+public static class KeyWarehouseClientDependencyInjectionExtions
+{
+    public static void AddKeyWarehouseClient(this IServiceCollection services, IConfiguration configuration)
     {
-        public static void AddKeyWarehouseClient(this IServiceCollection services, IConfiguration configuration)
-        {
-            KeyWarehouseClientDependencyInjection.Register(services, configuration);
-        }
+        KeyWarehouseClientDependencyInjection.Register(services, configuration);
     }
 }

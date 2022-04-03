@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inoxie.Tools.KeyWarehouse.Client.Models
+namespace Inoxie.Tools.KeyWarehouse.Client.Models;
+
+public class WarehouseProductInDto
 {
-    public class WarehouseProductInDto
-    {
-        public string Name { get; set; }
-    }
+    public string Name { get; set; }
 }

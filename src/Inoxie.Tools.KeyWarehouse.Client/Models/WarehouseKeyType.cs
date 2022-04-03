@@ -1,8 +1,7 @@
-﻿namespace Inoxie.Tools.KeyWarehouse.Client.Models
+﻿namespace Inoxie.Tools.KeyWarehouse.Client.Models;
+
+public enum WarehouseKeyType
 {
-    public enum WarehouseKeyType
-    {
-        MAK = 1,
-        ESD = 2
-    }
+    MAK = 1,
+    ESD = 2
 }

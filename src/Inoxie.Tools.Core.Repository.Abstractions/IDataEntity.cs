@@ -1,7 +1,6 @@
-﻿namespace Inoxie.Tools.Core.Repository.Abstractions
+﻿namespace Inoxie.Tools.Core.Repository.Abstractions;
+
+public interface IDataEntity
 {
-    public interface IDataEntity
-    {
-        Guid Id { get; set; }
-    }
+    Guid Id { get; set; }
 }

@@ -1,22 +1,21 @@
-﻿namespace Inoxie.Tools.RedisCache.Services
+﻿namespace Inoxie.Tools.RedisCache.Services;
+
+internal class RedisKeyProvider
 {
-    internal class RedisKeyProvider
+    private readonly string databaseName;
+
+    public RedisKeyProvider(string databaseName)
     {
-        private readonly string databaseName;
+        this.databaseName = databaseName;
+    }
 
-        public RedisKeyProvider(string databaseName)
+    public string GetKey(string key, string subKey)
+    {
+        if (string.IsNullOrWhiteSpace(databaseName))
         {
-            this.databaseName = databaseName;
+            return $"{key}:{subKey}";
         }
 
-        public string GetKey(string key, string subKey)
-        {
-            if (string.IsNullOrWhiteSpace(databaseName))
-            {
-                return $"{key}:{subKey}";
-            }
-
-            return $"{databaseName}:{key}:{subKey}";
-        }
+        return $"{databaseName}:{key}:{subKey}";
     }
 }
