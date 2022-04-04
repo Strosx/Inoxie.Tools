@@ -26,7 +26,7 @@ public class WriteService<TDb, TInDto> : IWriteService<TInDto>
         this.writeAuthorizationService = writeAuthorizationService;
     }
 
-    public async Task<Guid> CreateAsync(TInDto inDto)
+    public virtual async Task<Guid> CreateAsync(TInDto inDto)
     {
         if (!await writeAuthorizationService.AuthorizeAsync(inDto))
         {
@@ -37,7 +37,7 @@ public class WriteService<TDb, TInDto> : IWriteService<TInDto>
         return await writeRepository.CreateAsync(mappedEntity);
     }
 
-    public async Task CreateManyAsync(List<TInDto> inDtos)
+    public virtual async Task CreateManyAsync(List<TInDto> inDtos)
     {
         if (!await writeAuthorizationService.AuthorizeAsync(inDtos))
         {
@@ -48,7 +48,7 @@ public class WriteService<TDb, TInDto> : IWriteService<TInDto>
         await writeRepository.CreateManyAsync(mappedList);
     }
 
-    public async Task DeleteAsync(Guid id)
+    public virtual async Task DeleteAsync(Guid id)
     {
         if (!await writeAuthorizationService.AuthorizeDeleteAsync(id))
         {
@@ -58,7 +58,7 @@ public class WriteService<TDb, TInDto> : IWriteService<TInDto>
         await writeRepository.DeleteAsync(id);
     }
 
-    public async Task UpdateAsync(TInDto inDto, Guid id)
+    public virtual async Task UpdateAsync(TInDto inDto, Guid id)
     {
         if (!await writeAuthorizationService.AuthorizeAsync(inDto))
         {

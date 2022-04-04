@@ -33,7 +33,7 @@ public class FilteredReadService<TEntity, TOutDto, TFilter> : ReadService<TEntit
         this.postProcessor = postProcessor;
     }
 
-    public async Task<PagedDataResponse<TOutDto>> FilterAsync(TFilter filter)
+    public virtual async Task<PagedDataResponse<TOutDto>> FilterAsync(TFilter filter)
     {
         var query = readRepository.AsQueryable().Where(readAuthorizationService.Get());
 
@@ -47,7 +47,7 @@ public class FilteredReadService<TEntity, TOutDto, TFilter> : ReadService<TEntit
         };
     }
 
-    public async Task<TOutDto> GetByFilterFirstAsync(TFilter filter)
+    public virtual async Task<TOutDto> GetByFilterFirstAsync(TFilter filter)
     {
         var query = readRepository.AsQueryable().Where(readAuthorizationService.Get());
 
