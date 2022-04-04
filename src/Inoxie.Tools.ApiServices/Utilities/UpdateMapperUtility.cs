@@ -14,6 +14,8 @@ internal static class UpdateMapperUtility
         foreach (var inDtoProp in inDtoProps)
         {
             var dbPropToUpdate = dbProps.FirstOrDefault(f => f.Name == inDtoProp.Name);
+            if (dbPropToUpdate == null) continue;
+
             dbPropToUpdate.SetValue(entity, inDtoProp.GetValue(inDto));
         }
 

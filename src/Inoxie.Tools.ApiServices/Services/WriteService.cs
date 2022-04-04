@@ -12,36 +12,59 @@ public class WriteService<TDb, TInDto> : IWriteService<TInDto>
     private readonly IWriteRepository<TDb> writeRepository;
     private readonly IReadRepository<TDb> readRepository;
     private readonly IMapper mapper;
+    private readonly IWriteAuthorizationService<TInDto> writeAuthorizationService;
 
     public WriteService(
         IWriteRepository<TDb> writeRepository,
         IReadRepository<TDb> readRepository,
-        IMapper mapper)
+        IMapper mapper,
+        IWriteAuthorizationService<TInDto> writeAuthorizationService)
     {
         this.writeRepository = writeRepository;
         this.readRepository = readRepository;
         this.mapper = mapper;
+        this.writeAuthorizationService = writeAuthorizationService;
     }
 
-    public Task<Guid> CreateAsync(TInDto inDto)
+    public async Task<Guid> CreateAsync(TInDto inDto)
     {
+        if (!await writeAuthorizationService.AuthorizeAsync(inDto))
+        {
+            throw new Exception("Forbidden");
+        }
+
         var mappedEntity = mapper.Map<TDb>(inDto);
-        return writeRepository.CreateAsync(mappedEntity);
+        return await writeRepository.CreateAsync(mappedEntity);
     }
 
-    public Task CreateManyAsync(List<TInDto> inDtos)
+    public async Task CreateManyAsync(List<TInDto> inDtos)
     {
+        if (!await writeAuthorizationService.AuthorizeAsync(inDtos))
+        {
+            throw new Exception("Forbidden");
+        }
+
         var mappedList = mapper.Map<List<TDb>>(inDtos);
-        return writeRepository.CreateManyAsync(mappedList);
+        await writeRepository.CreateManyAsync(mappedList);
     }
 
-    public Task DeleteAsync(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
-        return writeRepository.DeleteAsync(id);
+        if (!await writeAuthorizationService.AuthorizeDeleteAsync(id))
+        {
+            throw new Exception("Forbidden");
+        }
+
+        await writeRepository.DeleteAsync(id);
     }
 
     public async Task UpdateAsync(TInDto inDto, Guid id)
     {
+        if (!await writeAuthorizationService.AuthorizeAsync(inDto))
+        {
+            throw new Exception("Forbidden");
+        }
+
         var entity = await readRepository.AsQueryable(true).FirstOrDefaultAsync(f => f.Id == id);
         entity.MapPropertiesFrom(inDto);
 

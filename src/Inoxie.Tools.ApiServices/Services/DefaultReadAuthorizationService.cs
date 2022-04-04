@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
-internal class DefaultAuthorizationExpressionProvider<TEntity> : IAuthorizationExpressionProvider<TEntity>
+internal class DefaultReadAuthorizationService<TEntity> : IReadAuthorizationService<TEntity>
     where TEntity : IDataEntity
 {
     public Expression<Func<TEntity, bool>> Get() => x => true;

@@ -7,49 +7,55 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
-public class FilteredReadService<TDb, TOutDto, TFilter> : ReadService<TDb, TOutDto>, IFilterReadService<TOutDto, TFilter>
+public class FilteredReadService<TEntity, TOutDto, TFilter> : ReadService<TEntity, TOutDto>, IFilterReadService<TOutDto, TFilter>
     where TOutDto : class
-    where TDb : class, IDataEntity
+    where TEntity : class, IDataEntity
     where TFilter : BaseFilterModel
-
 {
-    private readonly IReadRepository<TDb> readRepository;
+    private readonly IReadRepository<TEntity> readRepository;
     private readonly IMapper mapper;
-    private readonly IDataProcessor<TDb, TFilter> dataProcessor;
-    private readonly IAuthorizationExpressionProvider<TDb> authorizationExpressionProvider;
+    private readonly IDataProcessor<TEntity, TFilter> dataProcessor;
+    private readonly IReadAuthorizationService<TEntity> readAuthorizationService;
+    private readonly IReadServicePostProcessor<TOutDto> postProcessor;
 
     public FilteredReadService(
-        IReadRepository<TDb> readRepository,
+        IReadRepository<TEntity> readRepository,
         IMapper mapper,
-        IDataProcessor<TDb, TFilter> dataProcessor,
-        IAuthorizationExpressionProvider<TDb> authorizationExpressionProvider)
-        : base(readRepository, mapper, authorizationExpressionProvider)
+        IDataProcessor<TEntity, TFilter> dataProcessor,
+        IReadAuthorizationService<TEntity> readAuthorizationService,
+        IReadServicePostProcessor<TOutDto> postProcessor)
+        : base(readRepository, mapper, readAuthorizationService, postProcessor)
     {
         this.readRepository = readRepository;
         this.mapper = mapper;
         this.dataProcessor = dataProcessor;
-        this.authorizationExpressionProvider = authorizationExpressionProvider;
+        this.readAuthorizationService = readAuthorizationService;
+        this.postProcessor = postProcessor;
     }
 
     public async Task<PagedDataResponse<TOutDto>> FilterAsync(TFilter filter)
     {
-        var query = readRepository.AsQueryable().Where(authorizationExpressionProvider.Get());
+        var query = readRepository.AsQueryable().Where(readAuthorizationService.Get());
 
         var queryablePagedDataResponse = dataProcessor.ProcessQueryable(filter, query);
         var collection = await mapper.ProjectTo<TOutDto>(queryablePagedDataResponse.Collection).ToListAsync();
 
         return new PagedDataResponse<TOutDto>()
         {
-            Collection = collection,
+            Collection = await postProcessor.ProcessCollectionAsync(collection),
             Total = queryablePagedDataResponse.Total
         };
     }
 
-    public Task<TOutDto> GetByFilterFirstAsync(TFilter filter)
+    public async Task<TOutDto> GetByFilterFirstAsync(TFilter filter)
     {
-        var query = readRepository.AsQueryable().Where(authorizationExpressionProvider.Get());
+        var query = readRepository.AsQueryable().Where(readAuthorizationService.Get());
 
         var queryablePagedDataResponse = dataProcessor.ProcessQueryable(filter, query);
-        return mapper.ProjectTo<TOutDto>(queryablePagedDataResponse.Collection).FirstOrDefaultAsync();
+        var mapped = await mapper.ProjectTo<TOutDto>(queryablePagedDataResponse.Collection).FirstOrDefaultAsync();
+
+        if (mapped == null) throw new Exception("NotFound");
+
+        return await postProcessor.ProcessAsync(mapped);
     }
 }

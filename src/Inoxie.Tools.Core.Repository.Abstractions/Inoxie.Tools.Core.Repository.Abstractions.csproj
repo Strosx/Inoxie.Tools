@@ -6,7 +6,7 @@
 		<Nullable>disable</Nullable>
 
 		<PackageId>Inoxie.Tools.Core.Repository.Abstractions</PackageId>
-		<Version>6.0.4</Version>
+		<Version>6.0.5</Version>
 		<Authors>Maciej Kamieniak</Authors>
 		<Company>Inoxie</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
