@@ -4,8 +4,8 @@ using System.Linq.Expressions;
 
 namespace Inoxie.Tools.Core.Repository.Repositories;
 
-public class ReadRepository<T> : IReadRepository<T>
-    where T : class, IDataEntity
+public class ReadRepository<T, TId> : IReadRepository<T, TId>
+    where T : class, IDataEntity<TId>
 {
     private readonly DbSet<T> dbSet;
 
@@ -25,9 +25,9 @@ public class ReadRepository<T> : IReadRepository<T>
         return AsQueryable(asTracking: asTracking).FirstOrDefaultAsync(predicate);
     }
 
-    public Task<T> GetAsync(Guid id, bool asTracking = false)
+    public Task<T> GetAsync(TId id, bool asTracking = false)
     {
-        return AsQueryable(asTracking: asTracking).FirstOrDefaultAsync(f => f.Id == id);
+        return AsQueryable(asTracking: asTracking).FirstOrDefaultAsync(f => Equals(f.Id, id));
     }
 
     public Task<List<T>> WhereAsync(Expression<Func<T, bool>> predicate, bool asTracking = false)

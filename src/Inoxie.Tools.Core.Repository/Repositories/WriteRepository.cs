@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.Core.Repository.Repositories;
 
-public class WriteRepository<T> : IWriteRepository<T>
-    where T : class, IDataEntity
+public class WriteRepository<T, TId> : IWriteRepository<T, TId>
+    where T : class, IDataEntity<TId>
 {
     private readonly DbContext context;
     private readonly DbSet<T> dbSet;
@@ -15,7 +15,7 @@ public class WriteRepository<T> : IWriteRepository<T>
         dbSet = context.Set<T>();
     }
 
-    public async Task<Guid> CreateAsync(T entity, List<object> attach = null)
+    public async Task<TId> CreateAsync(T entity, List<object> attach = null)
     {
         if (attach != null)
         {
@@ -33,9 +33,15 @@ public class WriteRepository<T> : IWriteRepository<T>
         await context.SaveChangesAsync();
     }
 
-    public async Task<bool> DeleteAsync(Guid id)
+    public async Task<bool> DeleteAsync(TId id)
     {
-        dbSet.Remove(dbSet.FirstOrDefault(f => f.Id == id));
+        var entity = dbSet.FirstOrDefault(f => Equals(f.Id, id));
+        if (entity == null)
+        {
+            return false;
+        }
+
+        dbSet.Remove(entity);
         await context.SaveChangesAsync();
         return true;
     }

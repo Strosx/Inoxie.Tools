@@ -11,8 +11,8 @@ internal static class RepositoryDependencyInjection
     public static void Configure<TDatabaseContext>(IServiceCollection services)
                     where TDatabaseContext : DbContext
     {
-        services.AddTransient(typeof(IReadRepository<>), typeof(ReadRepository<>));
-        services.AddTransient(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+        services.AddTransient(typeof(IReadRepository<,>), typeof(ReadRepository<,>));
+        services.AddTransient(typeof(IWriteRepository<,>), typeof(WriteRepository<,>));
         services.AddTransient<IDatabaseContextProvider, DatabaseContextProvider<TDatabaseContext>>();
     }
 }
