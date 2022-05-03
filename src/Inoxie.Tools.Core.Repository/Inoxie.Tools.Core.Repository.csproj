@@ -33,6 +33,8 @@
 
     <ItemGroup>
         <InternalsVisibleTo Include="Inoxie.Tools.Core.Repository.GuidId"/>
+        <InternalsVisibleTo Include="Inoxie.Tools.Core.Repository.StringId"/>
+        <InternalsVisibleTo Include="Inoxie.Tools.Core.Repository.LongId"/>
     </ItemGroup>
 
 </Project>
