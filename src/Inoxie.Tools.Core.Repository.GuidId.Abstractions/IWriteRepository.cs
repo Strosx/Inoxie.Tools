@@ -2,5 +2,6 @@
 
 namespace Inoxie.Tools.Core.Repository.GuidId.Abstractions;
 
-public interface IWriteRepository<in TEntity> : IWriteRepository<TEntity, Guid> where TEntity : IDataEntity<Guid>
+public interface IWriteRepository<in TEntity> : IWriteRepository<TEntity, Guid> 
+    where TEntity : IDataEntity<Guid>
 {}
