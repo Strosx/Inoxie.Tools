@@ -1,9 +1,9 @@
 ﻿namespace Inoxie.Tools.ApiServices.Abstractions.Interfaces;
 
-public interface IWriteService<TInDto>
+public interface IWriteService<TInDto, TId>
 {
-    Task<Guid> CreateAsync(TInDto inDto);
+    Task<TId> CreateAsync(TInDto inDto);
     Task CreateManyAsync(List<TInDto> inDtos);
-    Task DeleteAsync(Guid id);
-    Task UpdateAsync(TInDto inDto, Guid id);    
+    Task DeleteAsync(TId id);
+    Task UpdateAsync(TInDto inDto, TId id);    
 }

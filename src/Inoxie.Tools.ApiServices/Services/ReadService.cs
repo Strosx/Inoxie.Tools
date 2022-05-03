@@ -5,18 +5,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
-public class ReadService<TEntity, TOutDto> : IReadService<TOutDto>
-    where TEntity : IDataEntity
+public class ReadService<TEntity, TOutDto, TId> : IReadService<TOutDto, TId>
+    where TEntity : IDataEntity<TId>
 {
-    private readonly IReadRepository<TEntity> readRepository;
     private readonly IMapper mapper;
-    private readonly IReadAuthorizationService<TEntity> readAuthorizationService;
+    private readonly IReadAuthorizationService<TEntity, TId> readAuthorizationService;
+    private readonly IReadRepository<TEntity, TId> readRepository;
     private readonly IReadServicePostProcessor<TOutDto> readServicePostProcessor;
 
     public ReadService(
-        IReadRepository<TEntity> readRepository,
+        IReadRepository<TEntity, TId> readRepository,
         IMapper mapper,
-        IReadAuthorizationService<TEntity> readAuthorizationService,
+        IReadAuthorizationService<TEntity, TId> readAuthorizationService,
         IReadServicePostProcessor<TOutDto> readServicePostProcessor)
     {
         this.readRepository = readRepository;
@@ -32,9 +32,9 @@ public class ReadService<TEntity, TOutDto> : IReadService<TOutDto>
         return await readServicePostProcessor.ProcessCollectionAsync(materializedResults);
     }
 
-    public virtual async Task<TOutDto> GetAsync(Guid id)
+    public virtual async Task<TOutDto> GetAsync(TId id)
     {
-        var query = readRepository.AsQueryable().Where(readAuthorizationService.Get()).Where(x => x.Id == id);
+        var query = readRepository.AsQueryable().Where(readAuthorizationService.Get()).Where(x => Equals(x.Id, id));
         var mapped = await mapper.ProjectTo<TOutDto>(query).FirstAsync();
 
         if (mapped != null)
@@ -44,7 +44,7 @@ public class ReadService<TEntity, TOutDto> : IReadService<TOutDto>
 
         var entity = await readRepository
             .AsQueryable()
-            .FirstOrDefaultAsync(f => f.Id == id);
+            .FirstOrDefaultAsync(f => Equals(f.Id, id));
 
         if (entity != null) throw new Exception("Forbidden");
 

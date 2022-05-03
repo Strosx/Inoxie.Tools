@@ -13,13 +13,13 @@ internal static class ApiServicesDependencyInjection
     public static void Configure(IServiceCollection services)
     {
         services.AddInoxieDataProcessor();
-        services.AddScoped(typeof(IReadAuthorizationService<>), typeof(DefaultReadAuthorizationService<>));
+        services.AddScoped(typeof(IReadAuthorizationService<,>), typeof(DefaultReadAuthorizationService<,>));
         services.AddScoped(typeof(IReadServicePostProcessor<>), typeof(DefaultReadServicePostProcessor<>));
-        services.AddScoped(typeof(IWriteAuthorizationService<>), typeof(DefaultWriteAuthorizationService<>));
+        services.AddScoped(typeof(IWriteAuthorizationService<,>), typeof(DefaultWriteAuthorizationService<,>));
     }
 }
 
-public static class ApiServicesDependencyInjectionExtenstions
+public static class ApiServicesDependencyInjectionExtensions
 {
     public static void AddInoxieApiServices(this IServiceCollection services)
     {
@@ -27,7 +27,7 @@ public static class ApiServicesDependencyInjectionExtenstions
     }
 
     public static void AddWriteService<TEntity, TInDto>(this IServiceCollection services)
-        where TEntity : IDataEntity
+        where TEntity : IDataEntity<TId>
     {
         services.AddScoped<IWriteService<TInDto>, WriteService<TEntity, TInDto>>();
     }
