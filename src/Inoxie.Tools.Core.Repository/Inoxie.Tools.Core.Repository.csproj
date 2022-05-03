@@ -30,4 +30,9 @@
     <ItemGroup>
         <ProjectReference Include="..\Inoxie.Tools.Core.Repository.Abstractions\Inoxie.Tools.Core.Repository.Abstractions.csproj"/>
     </ItemGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="Inoxie.Tools.Core.Repository.GuidId"/>
+    </ItemGroup>
+
 </Project>

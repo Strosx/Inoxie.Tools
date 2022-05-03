@@ -6,17 +6,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
-public class WriteService<TDb, TInDto, TId> : IWriteService<TInDto, TId>
-    where TDb : IDataEntity<TId>
+public class WriteService<TEntity, TInDto, TId> : IWriteService<TInDto, TId>
+    where TEntity : IDataEntity<TId>
 {
     private readonly IMapper mapper;
-    private readonly IReadRepository<TDb, TId> readRepository;
+    private readonly IReadRepository<TEntity, TId> readRepository;
     private readonly IWriteAuthorizationService<TInDto, TId> writeAuthorizationService;
-    private readonly IWriteRepository<TDb, TId> writeRepository;
+    private readonly IWriteRepository<TEntity, TId> writeRepository;
 
     public WriteService(
-        IWriteRepository<TDb, TId> writeRepository,
-        IReadRepository<TDb, TId> readRepository,
+        IWriteRepository<TEntity, TId> writeRepository,
+        IReadRepository<TEntity, TId> readRepository,
         IMapper mapper,
         IWriteAuthorizationService<TInDto, TId> writeAuthorizationService)
     {
@@ -33,7 +33,7 @@ public class WriteService<TDb, TInDto, TId> : IWriteService<TInDto, TId>
             throw new Exception("Forbidden");
         }
 
-        var mappedEntity = mapper.Map<TDb>(inDto);
+        var mappedEntity = mapper.Map<TEntity>(inDto);
         return await writeRepository.CreateAsync(mappedEntity);
     }
 
@@ -44,7 +44,7 @@ public class WriteService<TDb, TInDto, TId> : IWriteService<TInDto, TId>
             throw new Exception("Forbidden");
         }
 
-        var mappedList = mapper.Map<List<TDb>>(inDtos);
+        var mappedList = mapper.Map<List<TEntity>>(inDtos);
         await writeRepository.CreateManyAsync(mappedList);
     }
 
@@ -66,7 +66,7 @@ public class WriteService<TDb, TInDto, TId> : IWriteService<TInDto, TId>
         }
 
         var entity = await readRepository.AsQueryable(true).FirstOrDefaultAsync(f => Equals(f.Id, id));
-        entity.MapPropertiesFrom<TDb, TInDto, TId>(inDto);
+        entity.MapPropertiesFrom<TEntity, TInDto, TId>(inDto);
 
         await writeRepository.SaveChangesAsync();
     }

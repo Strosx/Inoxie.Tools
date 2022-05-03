@@ -1,5 +1,5 @@
-using Inoxie.Tools.ApiServices.DI;
-using Inoxie.Tools.Core.Repository.DI;
+using Inoxie.Tools.ApiServices.GuidId.DI;
+using Inoxie.Tools.Core.Repository.GuidId.DI;
 using Inoxie.Tools.DataProcessor.Abstractions.Models;
 using Inoxie.Tools.Example.Api.Core;
 using Inoxie.Tools.Example.Api.Core.Models;
@@ -23,8 +23,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //inoxie tools
-builder.Services.AddInoxieApiServices();
-builder.Services.AddInoxieRepository<DatabaseContext>();
+builder.Services.AddInoxieApiServicesGuidId();
+builder.Services.AddInoxieRepositoryGuidId<DatabaseContext>();
 builder.Services.AddInoxieExceptions<ErrorCodeMessageProvider>();
 
 //write services

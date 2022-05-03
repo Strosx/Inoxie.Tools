@@ -5,11 +5,11 @@ namespace Inoxie.Tools.ApiServices.Utilities;
 
 internal static class UpdateMapperUtility
 {
-    public static TDb MapPropertiesFrom<TDb, TInDto, TId>(this TDb entity, TInDto inDto)
-        where TDb : IDataEntity<TId>
+    internal static TEntity MapPropertiesFrom<TEntity, TInDto, TId>(this TEntity entity, TInDto inDto)
+        where TEntity : IDataEntity<TId>
     {
         var inDtoProps = typeof(TInDto).GetProperties().Where(p => !Attribute.IsDefined(p, typeof(NoUpdateAttribute)));
-        var dbProps = typeof(TDb).GetProperties();
+        var dbProps = typeof(TEntity).GetProperties();
 
         foreach (var inDtoProp in inDtoProps)
         {

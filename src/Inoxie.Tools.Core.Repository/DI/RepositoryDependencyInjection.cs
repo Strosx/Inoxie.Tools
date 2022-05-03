@@ -17,11 +17,11 @@ internal static class RepositoryDependencyInjection
     }
 }
 
-public static class InoxieToolsRepositoryExtensions
-{
-    public static void AddInoxieRepository<TDatabaseContext>(this IServiceCollection services)
-        where TDatabaseContext : DbContext
-    {
-        RepositoryDependencyInjection.Configure<TDatabaseContext>(services);
-    }
-}
+// public static class InoxieToolsRepositoryExtensions
+// {
+//     public static void AddInoxieRepository<TDatabaseContext>(this IServiceCollection services)
+//         where TDatabaseContext : DbContext
+//     {
+//         RepositoryDependencyInjection.Configure<TDatabaseContext>(services);
+//     }
+// }

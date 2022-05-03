@@ -16,8 +16,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Inoxie.Tools.ApiServices.Abstractions\Inoxie.Tools.ApiServices.Abstractions.csproj" />
+    <ProjectReference Include="..\Inoxie.Tools.ApiServices.GuidId\Inoxie.Tools.ApiServices.GuidId.csproj" />
     <ProjectReference Include="..\Inoxie.Tools.ApiServices\Inoxie.Tools.ApiServices.csproj" />
     <ProjectReference Include="..\Inoxie.Tools.Core.Repository.Abstractions\Inoxie.Tools.Core.Repository.Abstractions.csproj" />
+    <ProjectReference Include="..\Inoxie.Tools.Core.Repository.GuidId\Inoxie.Tools.Core.Repository.GuidId.csproj" />
     <ProjectReference Include="..\Inoxie.Tools.Core.Repository\Inoxie.Tools.Core.Repository.csproj" />
     <ProjectReference Include="..\Inoxie.Tools.DataProcessor.Abstractions\Inoxie.Tools.DataProcessor.Abstractions.csproj" />
     <ProjectReference Include="..\Inoxie.Tools.DataProcessor\Inoxie.Tools.DataProcessor.csproj" />

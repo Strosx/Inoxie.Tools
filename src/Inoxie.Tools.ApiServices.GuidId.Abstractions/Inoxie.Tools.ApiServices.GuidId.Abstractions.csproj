@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Inoxie.Tools.ApiServices.Abstractions\Inoxie.Tools.ApiServices.Abstractions.csproj" />
+      <ProjectReference Include="..\Inoxie.Tools.Core.Repository.GuidId.Abstractions\Inoxie.Tools.Core.Repository.GuidId.Abstractions.csproj" />
+      <ProjectReference Include="..\Inoxie.Tools.DataProcessor.Abstractions\Inoxie.Tools.DataProcessor.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>
