@@ -41,29 +41,33 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.Exceptions", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{F7004323-13D9-438D-8421-BDFA4A03F3B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.Core.Repository.GuidId", "Inoxie.Tools.Core.Repository.GuidId\Inoxie.Tools.Core.Repository.GuidId.csproj", "{D780F575-3D2D-4FB0-93D4-5C85D76611D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.Core.Repository.GuidId", "Inoxie.Tools.Core.Repository.GuidId\Inoxie.Tools.Core.Repository.GuidId.csproj", "{D780F575-3D2D-4FB0-93D4-5C85D76611D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.Core.Repository.GuidId.Abstractions", "Inoxie.Tools.Core.Repository.GuidId.Abstractions\Inoxie.Tools.Core.Repository.GuidId.Abstractions.csproj", "{ECCF6FFA-1DC9-4606-A144-DA8BD03AA224}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.Core.Repository.GuidId.Abstractions", "Inoxie.Tools.Core.Repository.GuidId.Abstractions\Inoxie.Tools.Core.Repository.GuidId.Abstractions.csproj", "{ECCF6FFA-1DC9-4606-A144-DA8BD03AA224}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.ApiServices.GuidId.Abstractions", "Inoxie.Tools.ApiServices.GuidId.Abstractions\Inoxie.Tools.ApiServices.GuidId.Abstractions.csproj", "{3AEE061F-04E9-4912-9CAE-80529B516B25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.ApiServices.GuidId.Abstractions", "Inoxie.Tools.ApiServices.GuidId.Abstractions\Inoxie.Tools.ApiServices.GuidId.Abstractions.csproj", "{3AEE061F-04E9-4912-9CAE-80529B516B25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.ApiServices.GuidId", "Inoxie.Tools.ApiServices.GuidId\Inoxie.Tools.ApiServices.GuidId.csproj", "{6A8D157F-B4D2-49F8-98B7-3033F8A4B573}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.ApiServices.GuidId", "Inoxie.Tools.ApiServices.GuidId\Inoxie.Tools.ApiServices.GuidId.csproj", "{6A8D157F-B4D2-49F8-98B7-3033F8A4B573}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.Core.Repository.StringId", "Inoxie.Tools.Core.Repository.StringId\Inoxie.Tools.Core.Repository.StringId.csproj", "{90396184-A861-42A0-9A14-39E5ED0FE64A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.Core.Repository.StringId", "Inoxie.Tools.Core.Repository.StringId\Inoxie.Tools.Core.Repository.StringId.csproj", "{90396184-A861-42A0-9A14-39E5ED0FE64A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.Core.Repository.StringId.Abstractions", "Inoxie.Tools.Core.Repository.StringId.Abstractions\Inoxie.Tools.Core.Repository.StringId.Abstractions.csproj", "{D60D63A5-7BFA-413C-8743-DAFA23F12530}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.Core.Repository.StringId.Abstractions", "Inoxie.Tools.Core.Repository.StringId.Abstractions\Inoxie.Tools.Core.Repository.StringId.Abstractions.csproj", "{D60D63A5-7BFA-413C-8743-DAFA23F12530}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.ApiServices.StringId", "Inoxie.Tools.ApiServices.StringId\Inoxie.Tools.ApiServices.StringId.csproj", "{213A0576-81FC-4183-8F3A-FC174F5A7483}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.ApiServices.StringId", "Inoxie.Tools.ApiServices.StringId\Inoxie.Tools.ApiServices.StringId.csproj", "{213A0576-81FC-4183-8F3A-FC174F5A7483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.ApiServices.StringId.Abstractions", "Inoxie.Tools.ApiServices.StringId.Abstractions\Inoxie.Tools.ApiServices.StringId.Abstractions.csproj", "{22D27FE8-A277-44F9-822D-DE052527260D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.ApiServices.StringId.Abstractions", "Inoxie.Tools.ApiServices.StringId.Abstractions\Inoxie.Tools.ApiServices.StringId.Abstractions.csproj", "{22D27FE8-A277-44F9-822D-DE052527260D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.Core.Repository.LongId.Abstractions", "Inoxie.Tools.Core.Repository.LongId.Abstractions\Inoxie.Tools.Core.Repository.LongId.Abstractions.csproj", "{BA436BB5-961E-482A-AA4B-F3593564486A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.Core.Repository.LongId.Abstractions", "Inoxie.Tools.Core.Repository.LongId.Abstractions\Inoxie.Tools.Core.Repository.LongId.Abstractions.csproj", "{BA436BB5-961E-482A-AA4B-F3593564486A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.Core.Repository.LongId", "Inoxie.Tools.Core.Repository.LongId\Inoxie.Tools.Core.Repository.LongId.csproj", "{D2524D88-C132-4024-B38A-0CF82755B6AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.Core.Repository.LongId", "Inoxie.Tools.Core.Repository.LongId\Inoxie.Tools.Core.Repository.LongId.csproj", "{D2524D88-C132-4024-B38A-0CF82755B6AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.ApiServices.LongId.Abstractions", "Inoxie.Tools.ApiServices.LongId.Abstractions\Inoxie.Tools.ApiServices.LongId.Abstractions.csproj", "{25299F4A-0A93-4182-AE0B-55F21320D1F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.ApiServices.LongId.Abstractions", "Inoxie.Tools.ApiServices.LongId.Abstractions\Inoxie.Tools.ApiServices.LongId.Abstractions.csproj", "{25299F4A-0A93-4182-AE0B-55F21320D1F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.ApiServices.LongId", "Inoxie.Tools.ApiServices.LongId\Inoxie.Tools.ApiServices.LongId.csproj", "{A1AAFEF5-0452-4A48-B259-F9F33D98135B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.ApiServices.LongId", "Inoxie.Tools.ApiServices.LongId\Inoxie.Tools.ApiServices.LongId.csproj", "{A1AAFEF5-0452-4A48-B259-F9F33D98135B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{88DE2250-D6FB-467A-AEEC-04091C9905BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{1AF22412-C466-4329-B65D-62CAC993D1FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -185,18 +189,20 @@ Global
 		{44221C45-A81F-4EF2-8934-F4EE61D55DF9} = {D7B46D4C-E61A-49CB-8ED0-41AE667B75C1}
 		{D41DFD62-B3CD-4EE3-945C-1533654A9AF0} = {F7004323-13D9-438D-8421-BDFA4A03F3B7}
 		{968DE617-6C78-4ADA-ADD1-2E5C1578141F} = {D41DFD62-B3CD-4EE3-945C-1533654A9AF0}
-		{D780F575-3D2D-4FB0-93D4-5C85D76611D5} = {C1468408-B6FC-4E23-854A-BBF453E4814F}
-		{ECCF6FFA-1DC9-4606-A144-DA8BD03AA224} = {C1468408-B6FC-4E23-854A-BBF453E4814F}
-		{3AEE061F-04E9-4912-9CAE-80529B516B25} = {8B72BE44-0D54-4197-B613-E2BCFF5DE858}
-		{6A8D157F-B4D2-49F8-98B7-3033F8A4B573} = {8B72BE44-0D54-4197-B613-E2BCFF5DE858}
-		{90396184-A861-42A0-9A14-39E5ED0FE64A} = {C1468408-B6FC-4E23-854A-BBF453E4814F}
-		{D60D63A5-7BFA-413C-8743-DAFA23F12530} = {C1468408-B6FC-4E23-854A-BBF453E4814F}
-		{213A0576-81FC-4183-8F3A-FC174F5A7483} = {8B72BE44-0D54-4197-B613-E2BCFF5DE858}
-		{22D27FE8-A277-44F9-822D-DE052527260D} = {8B72BE44-0D54-4197-B613-E2BCFF5DE858}
-		{BA436BB5-961E-482A-AA4B-F3593564486A} = {C1468408-B6FC-4E23-854A-BBF453E4814F}
-		{D2524D88-C132-4024-B38A-0CF82755B6AC} = {C1468408-B6FC-4E23-854A-BBF453E4814F}
-		{25299F4A-0A93-4182-AE0B-55F21320D1F6} = {8B72BE44-0D54-4197-B613-E2BCFF5DE858}
-		{A1AAFEF5-0452-4A48-B259-F9F33D98135B} = {8B72BE44-0D54-4197-B613-E2BCFF5DE858}
+		{D780F575-3D2D-4FB0-93D4-5C85D76611D5} = {1AF22412-C466-4329-B65D-62CAC993D1FD}
+		{ECCF6FFA-1DC9-4606-A144-DA8BD03AA224} = {1AF22412-C466-4329-B65D-62CAC993D1FD}
+		{3AEE061F-04E9-4912-9CAE-80529B516B25} = {88DE2250-D6FB-467A-AEEC-04091C9905BD}
+		{6A8D157F-B4D2-49F8-98B7-3033F8A4B573} = {88DE2250-D6FB-467A-AEEC-04091C9905BD}
+		{90396184-A861-42A0-9A14-39E5ED0FE64A} = {1AF22412-C466-4329-B65D-62CAC993D1FD}
+		{D60D63A5-7BFA-413C-8743-DAFA23F12530} = {1AF22412-C466-4329-B65D-62CAC993D1FD}
+		{213A0576-81FC-4183-8F3A-FC174F5A7483} = {88DE2250-D6FB-467A-AEEC-04091C9905BD}
+		{22D27FE8-A277-44F9-822D-DE052527260D} = {88DE2250-D6FB-467A-AEEC-04091C9905BD}
+		{BA436BB5-961E-482A-AA4B-F3593564486A} = {1AF22412-C466-4329-B65D-62CAC993D1FD}
+		{D2524D88-C132-4024-B38A-0CF82755B6AC} = {1AF22412-C466-4329-B65D-62CAC993D1FD}
+		{25299F4A-0A93-4182-AE0B-55F21320D1F6} = {88DE2250-D6FB-467A-AEEC-04091C9905BD}
+		{A1AAFEF5-0452-4A48-B259-F9F33D98135B} = {88DE2250-D6FB-467A-AEEC-04091C9905BD}
+		{88DE2250-D6FB-467A-AEEC-04091C9905BD} = {8B72BE44-0D54-4197-B613-E2BCFF5DE858}
+		{1AF22412-C466-4329-B65D-62CAC993D1FD} = {C1468408-B6FC-4E23-854A-BBF453E4814F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {167565B1-25DA-4F02-BB59-C90CFF9903BC}

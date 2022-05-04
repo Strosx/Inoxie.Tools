@@ -4,6 +4,6 @@ using Inoxie.Tools.Core.Repository.LongId.Abstractions;
 
 namespace Inoxie.Tools.ApiServices.LongId.Services;
 
-internal class DefaultReadAuthorizationService<TEntity> : DefaultReadAuthorizationService<TEntity, long>, IReadAuthorizationService<TEntity>
+internal class DefaultReadAuthorizationService<TEntity> : BaseDefaultReadAuthorizationService<TEntity, long>, IReadAuthorizationService<TEntity>
     where TEntity : IDataEntity
 {}

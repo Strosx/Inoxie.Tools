@@ -8,7 +8,7 @@ using Inoxie.Tools.DataProcessor.Abstractions.Models;
 
 namespace Inoxie.Tools.ApiServices.GuidId.Services;
 
-public class FilteredReadService<TEntity, TOutDto, TFilter> : FilteredReadService<TEntity, TOutDto, TFilter, Guid>, IFilterReadService<TOutDto, TFilter>
+public class FilteredReadService<TEntity, TOutDto, TFilter> : BaseFilteredReadService<TEntity, TOutDto, TFilter, Guid>, IFilterReadService<TOutDto, TFilter>
     where TOutDto : class
     where TEntity : class, IDataEntity
     where TFilter : BaseFilterModel

@@ -6,7 +6,7 @@ using Inoxie.Tools.Core.Repository.GuidId.Abstractions;
 
 namespace Inoxie.Tools.ApiServices.GuidId.Services;
 
-public class ReadService<TEntity, TOutDto> : ReadService<TEntity, TOutDto, Guid>, IReadService<TOutDto>
+public class ReadService<TEntity, TOutDto> : BaseReadService<TEntity, TOutDto, Guid>, IReadService<TOutDto>
     where TEntity : IDataEntity
 {
     public ReadService(

@@ -2,5 +2,5 @@
 
 namespace Inoxie.Tools.ApiServices.GuidId.Abstractions;
 
-public interface IReadService<TOutDto> : IReadService<TOutDto, Guid>
+public interface IReadService<TOutDto> : IBaseReadService<TOutDto, Guid>
 {}

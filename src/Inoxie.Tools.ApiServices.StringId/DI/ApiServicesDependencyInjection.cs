@@ -3,17 +3,22 @@ using Inoxie.Tools.ApiServices.Services;
 using Inoxie.Tools.ApiServices.StringId.Abstractions;
 using Inoxie.Tools.ApiServices.StringId.Services;
 using Inoxie.Tools.Core.Repository.StringId.Abstractions;
+using Inoxie.Tools.Core.Repository.StringId.DI;
 using Inoxie.Tools.DataProcessor.Abstractions.Interfaces;
 using Inoxie.Tools.DataProcessor.Abstractions.Models;
 using Inoxie.Tools.DataProcessor.DI;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Inoxie.Tools.ApiServices.StringId.DI;
 
 internal static class ApiServicesDependencyInjection
 {
-    public static void Configure(IServiceCollection services)
+    public static void Configure<TContext>(IServiceCollection services)
+        where TContext : DbContext
     {
+        services.AddInoxieRepositoryStringId<TContext>();
+
         services.AddInoxieDataProcessor();
         services.AddScoped(typeof(IReadAuthorizationService<>), typeof(DefaultReadAuthorizationService<>));
         services.AddScoped(typeof(IReadServicePostProcessor<>), typeof(DefaultReadServicePostProcessor<>));
@@ -23,11 +28,12 @@ internal static class ApiServicesDependencyInjection
 
 public static class ApiServicesDependencyInjectionStringIdExtensions
 {
-    public static void AddInoxieApiServicesStringId(this IServiceCollection services)
+    public static void AddInoxieApiServicesStringId<TContext>(this IServiceCollection services)
+        where TContext : DbContext
     {
-        ApiServicesDependencyInjection.Configure(services);
+        ApiServicesDependencyInjection.Configure<TContext>(services);
     }
-    
+
     public static void AddFilteredReadService<TEntity, TOutDto, TFilter>(this IServiceCollection services)
         where TEntity : class, IDataEntity
         where TFilter : BaseFilterModel
@@ -72,7 +78,7 @@ public static class ApiServicesDependencyInjectionStringIdExtensions
         services.AddScoped<IReadAuthorizationService<TEntity>, TReadAuthorizationService>();
         services.AddScoped<IReadServicePostProcessor<TOutDto>, TReadServicePostProcessor>();
     }
-    
+
     public static void AddReadService<TEntity, TOutDto>(this IServiceCollection services)
         where TEntity : IDataEntity
     {

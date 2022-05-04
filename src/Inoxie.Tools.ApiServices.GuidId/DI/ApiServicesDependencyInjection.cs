@@ -3,17 +3,22 @@ using Inoxie.Tools.ApiServices.GuidId.Abstractions;
 using Inoxie.Tools.ApiServices.GuidId.Services;
 using Inoxie.Tools.ApiServices.Services;
 using Inoxie.Tools.Core.Repository.GuidId.Abstractions;
+using Inoxie.Tools.Core.Repository.GuidId.DI;
 using Inoxie.Tools.DataProcessor.Abstractions.Interfaces;
 using Inoxie.Tools.DataProcessor.Abstractions.Models;
 using Inoxie.Tools.DataProcessor.DI;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Inoxie.Tools.ApiServices.GuidId.DI;
 
 internal static class ApiServicesDependencyInjection
 {
-    public static void Configure(IServiceCollection services)
+    public static void Configure<TContext>(IServiceCollection services)
+        where TContext : DbContext
     {
+        services.AddInoxieRepositoryGuidId<TContext>();
+
         services.AddInoxieDataProcessor();
         services.AddScoped(typeof(IReadAuthorizationService<>), typeof(DefaultReadAuthorizationService<>));
         services.AddScoped(typeof(IReadServicePostProcessor<>), typeof(DefaultReadServicePostProcessor<>));
@@ -23,9 +28,10 @@ internal static class ApiServicesDependencyInjection
 
 public static class ApiServicesDependencyInjectionGuidIdExtensions
 {
-    public static void AddInoxieApiServicesGuidId(this IServiceCollection services)
+    public static void AddInoxieApiServicesGuidId<TContext>(this IServiceCollection services)
+        where TContext : DbContext
     {
-        ApiServicesDependencyInjection.Configure(services);
+        ApiServicesDependencyInjection.Configure<TContext>(services);
     }
     
     public static void AddFilteredReadService<TEntity, TOutDto, TFilter>(this IServiceCollection services)

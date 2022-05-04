@@ -4,7 +4,7 @@ using Inoxie.Tools.Core.Repository.Repositories;
 
 namespace Inoxie.Tools.Core.Repository.GuidId.Repositories;
 
-public class WriteRepository<TEntity> : WriteRepository<TEntity, Guid>, IWriteRepository<TEntity>
+public class WriteRepository<TEntity> : BaseWriteRepository<TEntity, Guid>, IWriteRepository<TEntity>
     where TEntity : class, IDataEntity
 {
     public WriteRepository(IDatabaseContextProvider databaseContextProvider) : base(databaseContextProvider)

@@ -1,33 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>disable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Inoxie.Tools.ApiServices.Abstractions\Inoxie.Tools.ApiServices.Abstractions.csproj" />
-    <ProjectReference Include="..\Inoxie.Tools.ApiServices.GuidId\Inoxie.Tools.ApiServices.GuidId.csproj" />
-    <ProjectReference Include="..\Inoxie.Tools.ApiServices\Inoxie.Tools.ApiServices.csproj" />
-    <ProjectReference Include="..\Inoxie.Tools.Core.Repository.Abstractions\Inoxie.Tools.Core.Repository.Abstractions.csproj" />
-    <ProjectReference Include="..\Inoxie.Tools.Core.Repository.GuidId\Inoxie.Tools.Core.Repository.GuidId.csproj" />
-    <ProjectReference Include="..\Inoxie.Tools.Core.Repository\Inoxie.Tools.Core.Repository.csproj" />
-    <ProjectReference Include="..\Inoxie.Tools.DataProcessor.Abstractions\Inoxie.Tools.DataProcessor.Abstractions.csproj" />
-    <ProjectReference Include="..\Inoxie.Tools.DataProcessor\Inoxie.Tools.DataProcessor.csproj" />
-    <ProjectReference Include="..\Inoxie.Tools.Exceptions\Inoxie.Tools.Exceptions.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Inoxie.Tools.ApiServices.GuidId\Inoxie.Tools.ApiServices.GuidId.csproj" />
+		<ProjectReference Include="..\Inoxie.Tools.Exceptions\Inoxie.Tools.Exceptions.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\DataServices\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Services\DataServices\" />
+	</ItemGroup>
 
 </Project>

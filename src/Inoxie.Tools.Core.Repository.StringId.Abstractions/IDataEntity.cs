@@ -2,6 +2,6 @@
 
 namespace Inoxie.Tools.Core.Repository.StringId.Abstractions;
 
-public interface IDataEntity : IDataEntity<string>
+public interface IDataEntity : IBaseDataEntity<string>
 {
 }

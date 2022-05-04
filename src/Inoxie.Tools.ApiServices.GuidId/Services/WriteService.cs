@@ -5,7 +5,7 @@ using Inoxie.Tools.Core.Repository.GuidId.Abstractions;
 
 namespace Inoxie.Tools.ApiServices.GuidId.Services;
 
-public class WriteService<TEntity, TInDto> : WriteService<TEntity, TInDto, Guid>, IWriteService<TInDto>
+public class WriteService<TEntity, TInDto> : BaseWriteService<TEntity, TInDto, Guid>, IWriteService<TInDto>
     where TEntity : IDataEntity
 {
     public WriteService(

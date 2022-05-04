@@ -4,7 +4,7 @@ using Inoxie.Tools.Core.Repository.Repositories;
 
 namespace Inoxie.Tools.Core.Repository.LongId.Repositories;
 
-public class ReadRepository<TEntity> : ReadRepository<TEntity, long>, IReadRepository<TEntity>
+public class ReadRepository<TEntity> : BaseReadRepository<TEntity, long>, IReadRepository<TEntity>
     where TEntity : class, IDataEntity
 {
     public ReadRepository(IDatabaseContextProvider databaseContextProvider) : base(databaseContextProvider)

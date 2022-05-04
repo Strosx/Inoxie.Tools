@@ -4,7 +4,7 @@ using Inoxie.Tools.Core.Repository.GuidId.Abstractions;
 
 namespace Inoxie.Tools.ApiServices.GuidId.Services;
 
-internal class DefaultReadAuthorizationService<TEntity> : DefaultReadAuthorizationService<TEntity, Guid>, IReadAuthorizationService<TEntity>
+internal class DefaultReadAuthorizationService<TEntity> : BaseDefaultReadAuthorizationService<TEntity, Guid>, IReadAuthorizationService<TEntity>
     where TEntity : IDataEntity
 {
 }

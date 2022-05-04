@@ -6,7 +6,7 @@ namespace Inoxie.Tools.ApiServices.Utilities;
 internal static class UpdateMapperUtility
 {
     internal static TEntity MapPropertiesFrom<TEntity, TInDto, TId>(this TEntity entity, TInDto inDto)
-        where TEntity : IDataEntity<TId>
+        where TEntity : IBaseDataEntity<TId>
     {
         var inDtoProps = typeof(TInDto).GetProperties().Where(p => !Attribute.IsDefined(p, typeof(NoUpdateAttribute)));
         var dbProps = typeof(TEntity).GetProperties();

@@ -1,20 +1,34 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 
-        <PackageId>Inoxie.Tools.Core.Repository.LongId</PackageId>
-        <Version>6.1.1</Version>
-        <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
-        <Company>Inoxie</Company>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    </PropertyGroup>
+		<PackageId>Inoxie.Tools.Core.Repository.LongId</PackageId>
+		<Version>6.1.2</Version>
+		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+		<Company>Inoxie</Company>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\Inoxie.Tools.Core.Repository.LongId.Abstractions\Inoxie.Tools.Core.Repository.LongId.Abstractions.csproj"/>
-        <ProjectReference Include="..\Inoxie.Tools.Core.Repository\Inoxie.Tools.Core.Repository.csproj"/>
-    </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Inoxie.Tools.Core.Repository.Abstractions\Inoxie.Tools.Core.Repository.Abstractions.csproj">
+			<ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+			<IncludeAssets>Inoxie.Tools.Core.Repository.Abstractions.dll</IncludeAssets>
+		</ProjectReference>
+
+		<ProjectReference Include="..\Inoxie.Tools.Core.Repository.LongId.Abstractions\Inoxie.Tools.Core.Repository.LongId.Abstractions.csproj" />
+
+		<ProjectReference Include="..\Inoxie.Tools.Core.Repository\Inoxie.Tools.Core.Repository.csproj">
+			<ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+			<IncludeAssets>Inoxie.Tools.Core.Repository.dll</IncludeAssets>
+		</ProjectReference>
+	</ItemGroup>
 
 </Project>

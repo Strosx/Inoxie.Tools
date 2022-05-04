@@ -2,7 +2,7 @@
 
 namespace Inoxie.Tools.Core.Repository.LongId.Abstractions;
 
-public interface IReadRepository<TEntity> : IReadRepository<TEntity, long>
-    where TEntity : IDataEntity<long>
+public interface IReadRepository<TEntity> : IBaseReadRepository<TEntity, long>
+    where TEntity : IBaseDataEntity<long>
 {
 }

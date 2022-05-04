@@ -1,6 +1,6 @@
 ﻿namespace Inoxie.Tools.ApiServices.Abstractions.Interfaces;
 
-public interface IWriteAuthorizationService<TInDto, in TId>
+public interface IBaseWriteAuthorizationService<TInDto, in TId>
 {
     Task<bool> AuthorizeAsync(TInDto dto);
     async Task<bool> AuthorizeAsync(List<TInDto> collection)

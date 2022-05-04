@@ -2,6 +2,6 @@
 
 namespace Inoxie.Tools.ApiServices.LongId.Abstractions;
 
-public interface IWriteAuthorizationService<TInDto> : IWriteAuthorizationService<TInDto, long>
+public interface IWriteAuthorizationService<TInDto> : IBaseWriteAuthorizationService<TInDto, long>
 {
 }

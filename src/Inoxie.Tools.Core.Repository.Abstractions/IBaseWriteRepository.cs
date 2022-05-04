@@ -1,6 +1,6 @@
 ﻿namespace Inoxie.Tools.Core.Repository.Abstractions;
 
-public interface IWriteRepository<in TEntity, TId> where TEntity : IDataEntity<TId>
+public interface IBaseWriteRepository<in TEntity, TId> where TEntity : IBaseDataEntity<TId>
 {
     Task<TId> CreateAsync(TEntity entity, List<object> attach = null);
     Task CreateManyAsync(IEnumerable<TEntity> entities);

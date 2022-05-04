@@ -3,7 +3,7 @@ using Inoxie.Tools.Core.Repository.LongId.Abstractions;
 
 namespace Inoxie.Tools.ApiServices.LongId.Abstractions;
 
-public interface IReadAuthorizationService<TEntity> : IReadAuthorizationService<TEntity, long>
+public interface IReadAuthorizationService<TEntity> : IBaseReadAuthorizationService<TEntity, long>
     where TEntity : IDataEntity
 {
 }

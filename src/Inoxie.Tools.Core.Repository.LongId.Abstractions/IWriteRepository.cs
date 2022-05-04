@@ -2,7 +2,7 @@
 
 namespace Inoxie.Tools.Core.Repository.LongId.Abstractions;
 
-public interface IWriteRepository<in TEntity> : IWriteRepository<TEntity, long>
-    where TEntity : IDataEntity<long>
+public interface IWriteRepository<in TEntity> : IBaseWriteRepository<TEntity, long>
+    where TEntity : IBaseDataEntity<long>
 {
 }

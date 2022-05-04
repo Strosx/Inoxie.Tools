@@ -2,6 +2,6 @@
 
 namespace Inoxie.Tools.ApiServices.GuidId.Abstractions;
 
-public interface IWriteAuthorizationService<TInDto> : IWriteAuthorizationService<TInDto, Guid>
+public interface IWriteAuthorizationService<TInDto> : IBaseWriteAuthorizationService<TInDto, Guid>
 {
 }

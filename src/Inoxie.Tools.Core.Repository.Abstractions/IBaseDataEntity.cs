@@ -1,6 +1,6 @@
 ﻿namespace Inoxie.Tools.Core.Repository.Abstractions;
 
-public interface IDataEntity<TId>
+public interface IBaseDataEntity<TId>
 {
     TId Id { get; set; }
 }

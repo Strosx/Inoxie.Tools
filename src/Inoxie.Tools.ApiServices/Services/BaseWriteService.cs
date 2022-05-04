@@ -6,19 +6,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
-public class WriteService<TEntity, TInDto, TId> : IWriteService<TInDto, TId>
-    where TEntity : IDataEntity<TId>
+public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, TId>
+    where TEntity : IBaseDataEntity<TId>
 {
     private readonly IMapper mapper;
-    private readonly IReadRepository<TEntity, TId> readRepository;
-    private readonly IWriteAuthorizationService<TInDto, TId> writeAuthorizationService;
-    private readonly IWriteRepository<TEntity, TId> writeRepository;
+    private readonly IBaseReadRepository<TEntity, TId> readRepository;
+    private readonly IBaseWriteAuthorizationService<TInDto, TId> writeAuthorizationService;
+    private readonly IBaseWriteRepository<TEntity, TId> writeRepository;
 
-    public WriteService(
-        IWriteRepository<TEntity, TId> writeRepository,
-        IReadRepository<TEntity, TId> readRepository,
+    public BaseWriteService(
+        IBaseWriteRepository<TEntity, TId> writeRepository,
+        IBaseReadRepository<TEntity, TId> readRepository,
         IMapper mapper,
-        IWriteAuthorizationService<TInDto, TId> writeAuthorizationService)
+        IBaseWriteAuthorizationService<TInDto, TId> writeAuthorizationService)
     {
         this.writeRepository = writeRepository;
         this.readRepository = readRepository;

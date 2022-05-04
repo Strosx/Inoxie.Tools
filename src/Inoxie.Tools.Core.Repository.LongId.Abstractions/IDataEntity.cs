@@ -2,6 +2,6 @@
 
 namespace Inoxie.Tools.Core.Repository.LongId.Abstractions;
 
-public interface IDataEntity : IDataEntity<long>
+public interface IDataEntity : IBaseDataEntity<long>
 {
 }

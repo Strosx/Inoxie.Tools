@@ -2,6 +2,6 @@
 
 namespace Inoxie.Tools.ApiServices.LongId.Abstractions;
 
-public interface IReadService<TOutDto> : IReadService<TOutDto, long>
+public interface IReadService<TOutDto> : IBaseReadService<TOutDto, long>
 {
 }

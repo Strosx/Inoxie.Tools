@@ -3,7 +3,7 @@ using Inoxie.Tools.DataProcessor.Abstractions.Models;
 
 namespace Inoxie.Tools.ApiServices.LongId.Abstractions;
 
-public interface IFilterReadService<TOutDto, in TFilter> : IFilterReadService<TOutDto, TFilter, long>, IReadService<TOutDto>
+public interface IFilterReadService<TOutDto, in TFilter> : IBaseFilterReadService<TOutDto, TFilter, long>, IReadService<TOutDto>
     where TOutDto : class
     where TFilter : BaseFilterModel
 {

@@ -3,6 +3,6 @@ using Inoxie.Tools.ApiServices.StringId.Abstractions;
 
 namespace Inoxie.Tools.ApiServices.StringId.Services;
 
-internal class DefaultWriteAuthorizationService<TInDto> : DefaultWriteAuthorizationService<TInDto, string>, IWriteAuthorizationService<TInDto>
+internal class DefaultWriteAuthorizationService<TInDto> : BaseDefaultWriteAuthorizationService<TInDto, string>, IWriteAuthorizationService<TInDto>
 {
 }

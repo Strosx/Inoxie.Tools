@@ -2,7 +2,7 @@
 
 namespace Inoxie.Tools.ApiServices.Services;
 
-internal class DefaultWriteAuthorizationService<TInDto, TId> : IWriteAuthorizationService<TInDto, TId>
+internal class BaseDefaultWriteAuthorizationService<TInDto, TId> : IBaseWriteAuthorizationService<TInDto, TId>
 {
     public Task<bool> AuthorizeAsync(TInDto dto) => Task.FromResult(true);
 

@@ -7,22 +7,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
-public class FilteredReadService<TEntity, TOutDto, TFilter, TId> : ReadService<TEntity, TOutDto, TId>, IFilterReadService<TOutDto, TFilter, TId>
+public class BaseFilteredReadService<TEntity, TOutDto, TFilter, TId> : BaseReadService<TEntity, TOutDto, TId>, IBaseFilterReadService<TOutDto, TFilter, TId>
     where TOutDto : class
-    where TEntity : class, IDataEntity<TId>
+    where TEntity : class, IBaseDataEntity<TId>
     where TFilter : BaseFilterModel
 {
     private readonly IDataProcessor<TEntity, TFilter> dataProcessor;
     private readonly IMapper mapper;
     private readonly IReadServicePostProcessor<TOutDto> postProcessor;
-    private readonly IReadAuthorizationService<TEntity, TId> readAuthorizationService;
-    private readonly IReadRepository<TEntity, TId> readRepository;
+    private readonly IBaseReadAuthorizationService<TEntity, TId> readAuthorizationService;
+    private readonly IBaseReadRepository<TEntity, TId> readRepository;
 
-    public FilteredReadService(
-        IReadRepository<TEntity, TId> readRepository,
+    public BaseFilteredReadService(
+        IBaseReadRepository<TEntity, TId> readRepository,
         IMapper mapper,
         IDataProcessor<TEntity, TFilter> dataProcessor,
-        IReadAuthorizationService<TEntity, TId> readAuthorizationService,
+        IBaseReadAuthorizationService<TEntity, TId> readAuthorizationService,
         IReadServicePostProcessor<TOutDto> postProcessor)
         : base(readRepository, mapper, readAuthorizationService, postProcessor)
     {

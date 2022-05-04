@@ -19,7 +19,7 @@ internal static class RepositoryDependencyInjection
 
 public static class InoxieToolsRepositoryStringIdExtensions
 {
-    public static void AddInoxieRepositoryGuidId<TDatabaseContext>(this IServiceCollection services)
+    public static void AddInoxieRepositoryStringId<TDatabaseContext>(this IServiceCollection services)
         where TDatabaseContext : DbContext
     {
         RepositoryDependencyInjection.Configure<TDatabaseContext>(services);

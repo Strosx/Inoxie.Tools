@@ -4,12 +4,12 @@ using System.Linq.Expressions;
 
 namespace Inoxie.Tools.Core.Repository.Repositories;
 
-public class ReadRepository<TEntity, TId> : IReadRepository<TEntity, TId>
-    where TEntity : class, IDataEntity<TId>
+public class BaseReadRepository<TEntity, TId> : IBaseReadRepository<TEntity, TId>
+    where TEntity : class, IBaseDataEntity<TId>
 {
     private readonly DbSet<TEntity> dbSet;
 
-    public ReadRepository(
+    public BaseReadRepository(
         IDatabaseContextProvider databaseContextProvider)
     {
         dbSet = databaseContextProvider.Get().Set<TEntity>();

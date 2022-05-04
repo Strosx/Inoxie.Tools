@@ -5,18 +5,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
-public class ReadService<TEntity, TOutDto, TId> : IReadService<TOutDto, TId>
-    where TEntity : IDataEntity<TId>
+public class BaseReadService<TEntity, TOutDto, TId> : IBaseReadService<TOutDto, TId>
+    where TEntity : IBaseDataEntity<TId>
 {
     private readonly IMapper mapper;
-    private readonly IReadAuthorizationService<TEntity, TId> readAuthorizationService;
-    private readonly IReadRepository<TEntity, TId> readRepository;
+    private readonly IBaseReadAuthorizationService<TEntity, TId> readAuthorizationService;
+    private readonly IBaseReadRepository<TEntity, TId> readRepository;
     private readonly IReadServicePostProcessor<TOutDto> readServicePostProcessor;
 
-    public ReadService(
-        IReadRepository<TEntity, TId> readRepository,
+    public BaseReadService(
+        IBaseReadRepository<TEntity, TId> readRepository,
         IMapper mapper,
-        IReadAuthorizationService<TEntity, TId> readAuthorizationService,
+        IBaseReadAuthorizationService<TEntity, TId> readAuthorizationService,
         IReadServicePostProcessor<TOutDto> readServicePostProcessor)
     {
         this.readRepository = readRepository;

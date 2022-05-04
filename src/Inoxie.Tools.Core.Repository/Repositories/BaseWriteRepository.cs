@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.Core.Repository.Repositories;
 
-public class WriteRepository<TEntity, TId> : IWriteRepository<TEntity, TId>
-    where TEntity : class, IDataEntity<TId>
+public class BaseWriteRepository<TEntity, TId> : IBaseWriteRepository<TEntity, TId>
+    where TEntity : class, IBaseDataEntity<TId>
 {
     private readonly DbContext context;
     private readonly DbSet<TEntity> dbSet;
 
-    public WriteRepository(IDatabaseContextProvider databaseContextProvider)
+    public BaseWriteRepository(IDatabaseContextProvider databaseContextProvider)
     {
         context = databaseContextProvider.Get();
         dbSet = context.Set<TEntity>();

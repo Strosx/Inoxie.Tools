@@ -3,6 +3,6 @@ using Inoxie.Tools.ApiServices.Services;
 
 namespace Inoxie.Tools.ApiServices.GuidId.Services;
 
-internal class DefaultWriteAuthorizationService<TInDto> : DefaultWriteAuthorizationService<TInDto, Guid>, IWriteAuthorizationService<TInDto>
+internal class DefaultWriteAuthorizationService<TInDto> : BaseDefaultWriteAuthorizationService<TInDto, Guid>, IWriteAuthorizationService<TInDto>
 {
 }

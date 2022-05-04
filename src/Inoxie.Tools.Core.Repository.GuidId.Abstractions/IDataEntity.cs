@@ -2,6 +2,6 @@
 
 namespace Inoxie.Tools.Core.Repository.GuidId.Abstractions;
 
-public interface IDataEntity : IDataEntity<Guid>
+public interface IDataEntity : IBaseDataEntity<Guid>
 {
 }
