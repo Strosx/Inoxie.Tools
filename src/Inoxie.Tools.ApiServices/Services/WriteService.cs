@@ -6,19 +6,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
-public class WriteService<TDb, TInDto> : IWriteService<TInDto>
-    where TDb : IDataEntity
+public class WriteService<TEntity, TInDto, TId> : IWriteService<TInDto, TId>
+    where TEntity : IDataEntity<TId>
 {
-    private readonly IWriteRepository<TDb> writeRepository;
-    private readonly IReadRepository<TDb> readRepository;
     private readonly IMapper mapper;
-    private readonly IWriteAuthorizationService<TInDto> writeAuthorizationService;
+    private readonly IReadRepository<TEntity, TId> readRepository;
+    private readonly IWriteAuthorizationService<TInDto, TId> writeAuthorizationService;
+    private readonly IWriteRepository<TEntity, TId> writeRepository;
 
     public WriteService(
-        IWriteRepository<TDb> writeRepository,
-        IReadRepository<TDb> readRepository,
+        IWriteRepository<TEntity, TId> writeRepository,
+        IReadRepository<TEntity, TId> readRepository,
         IMapper mapper,
-        IWriteAuthorizationService<TInDto> writeAuthorizationService)
+        IWriteAuthorizationService<TInDto, TId> writeAuthorizationService)
     {
         this.writeRepository = writeRepository;
         this.readRepository = readRepository;
@@ -26,14 +26,14 @@ public class WriteService<TDb, TInDto> : IWriteService<TInDto>
         this.writeAuthorizationService = writeAuthorizationService;
     }
 
-    public virtual async Task<Guid> CreateAsync(TInDto inDto)
+    public virtual async Task<TId> CreateAsync(TInDto inDto)
     {
         if (!await writeAuthorizationService.AuthorizeAsync(inDto))
         {
             throw new Exception("Forbidden");
         }
 
-        var mappedEntity = mapper.Map<TDb>(inDto);
+        var mappedEntity = mapper.Map<TEntity>(inDto);
         return await writeRepository.CreateAsync(mappedEntity);
     }
 
@@ -44,11 +44,11 @@ public class WriteService<TDb, TInDto> : IWriteService<TInDto>
             throw new Exception("Forbidden");
         }
 
-        var mappedList = mapper.Map<List<TDb>>(inDtos);
+        var mappedList = mapper.Map<List<TEntity>>(inDtos);
         await writeRepository.CreateManyAsync(mappedList);
     }
 
-    public virtual async Task DeleteAsync(Guid id)
+    public virtual async Task DeleteAsync(TId id)
     {
         if (!await writeAuthorizationService.AuthorizeDeleteAsync(id))
         {
@@ -58,15 +58,15 @@ public class WriteService<TDb, TInDto> : IWriteService<TInDto>
         await writeRepository.DeleteAsync(id);
     }
 
-    public virtual async Task UpdateAsync(TInDto inDto, Guid id)
+    public virtual async Task UpdateAsync(TInDto inDto, TId id)
     {
         if (!await writeAuthorizationService.AuthorizeAsync(inDto))
         {
             throw new Exception("Forbidden");
         }
 
-        var entity = await readRepository.AsQueryable(true).FirstOrDefaultAsync(f => f.Id == id);
-        entity.MapPropertiesFrom(inDto);
+        var entity = await readRepository.AsQueryable(true).FirstOrDefaultAsync(f => Equals(f.Id, id));
+        entity.MapPropertiesFrom<TEntity, TInDto, TId>(inDto);
 
         await writeRepository.SaveChangesAsync();
     }

@@ -7,22 +7,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
-public class FilteredReadService<TEntity, TOutDto, TFilter> : ReadService<TEntity, TOutDto>, IFilterReadService<TOutDto, TFilter>
+public class FilteredReadService<TEntity, TOutDto, TFilter, TId> : ReadService<TEntity, TOutDto, TId>, IFilterReadService<TOutDto, TFilter, TId>
     where TOutDto : class
-    where TEntity : class, IDataEntity
+    where TEntity : class, IDataEntity<TId>
     where TFilter : BaseFilterModel
 {
-    private readonly IReadRepository<TEntity> readRepository;
-    private readonly IMapper mapper;
     private readonly IDataProcessor<TEntity, TFilter> dataProcessor;
-    private readonly IReadAuthorizationService<TEntity> readAuthorizationService;
+    private readonly IMapper mapper;
     private readonly IReadServicePostProcessor<TOutDto> postProcessor;
+    private readonly IReadAuthorizationService<TEntity, TId> readAuthorizationService;
+    private readonly IReadRepository<TEntity, TId> readRepository;
 
     public FilteredReadService(
-        IReadRepository<TEntity> readRepository,
+        IReadRepository<TEntity, TId> readRepository,
         IMapper mapper,
         IDataProcessor<TEntity, TFilter> dataProcessor,
-        IReadAuthorizationService<TEntity> readAuthorizationService,
+        IReadAuthorizationService<TEntity, TId> readAuthorizationService,
         IReadServicePostProcessor<TOutDto> postProcessor)
         : base(readRepository, mapper, readAuthorizationService, postProcessor)
     {

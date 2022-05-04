@@ -1,4 +1,4 @@
-﻿using Inoxie.Tools.ApiServices.Abstractions.Interfaces;
+﻿using Inoxie.Tools.ApiServices.GuidId.Abstractions;
 using Inoxie.Tools.DataProcessor.Abstractions.Models;
 using Inoxie.Tools.Example.Api.Domain.Customers;
 using Microsoft.AspNetCore.Mvc;

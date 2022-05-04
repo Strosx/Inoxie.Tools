@@ -1,12 +1,14 @@
 ﻿using Inoxie.Tools.ApiServices.Abstractions.Interfaces;
+using Inoxie.Tools.ApiServices.LongId.Abstractions;
+using Inoxie.Tools.ApiServices.LongId.Services;
 using Inoxie.Tools.ApiServices.Services;
-using Inoxie.Tools.Core.Repository.Abstractions;
+using Inoxie.Tools.Core.Repository.LongId.Abstractions;
 using Inoxie.Tools.DataProcessor.Abstractions.Interfaces;
 using Inoxie.Tools.DataProcessor.Abstractions.Models;
 using Inoxie.Tools.DataProcessor.DI;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Inoxie.Tools.ApiServices.DI;
+namespace Inoxie.Tools.ApiServices.LongId.DI;
 
 internal static class ApiServicesDependencyInjection
 {
@@ -19,33 +21,13 @@ internal static class ApiServicesDependencyInjection
     }
 }
 
-public static class ApiServicesDependencyInjectionExtenstions
+public static class ApiServicesDependencyInjectionLongIdExtensions
 {
-    public static void AddInoxieApiServices(this IServiceCollection services)
+    public static void AddInoxieApiServicesLongId(this IServiceCollection services)
     {
         ApiServicesDependencyInjection.Configure(services);
     }
-
-    public static void AddWriteService<TEntity, TInDto>(this IServiceCollection services)
-        where TEntity : IDataEntity
-    {
-        services.AddScoped<IWriteService<TInDto>, WriteService<TEntity, TInDto>>();
-    }
-
-    public static void AddWriteService<TEntity, TInDto, TWriteAuthorizationService>(this IServiceCollection services)
-        where TEntity : IDataEntity
-        where TWriteAuthorizationService : class, IWriteAuthorizationService<TInDto>
-    {
-        services.AddScoped<IWriteService<TInDto>, WriteService<TEntity, TInDto>>();
-        services.AddScoped<IWriteAuthorizationService<TInDto>, TWriteAuthorizationService>();
-    }
-
-    public static void AddReadService<TEntity, TOutDto>(this IServiceCollection services)
-        where TEntity : IDataEntity
-    {
-        services.AddScoped<IReadService<TOutDto>, ReadService<TEntity, TOutDto>>();
-    }
-
+    
     public static void AddFilteredReadService<TEntity, TOutDto, TFilter>(this IServiceCollection services)
         where TEntity : class, IDataEntity
         where TFilter : BaseFilterModel
@@ -77,7 +59,7 @@ public static class ApiServicesDependencyInjectionExtenstions
     }
 
     public static void AddFilteredReadService<TEntity, TOutDto, TFilter,
-            TFilterProvider, TReadAuthorizationService, TReadServicePostProcessor>(this IServiceCollection services)
+        TFilterProvider, TReadAuthorizationService, TReadServicePostProcessor>(this IServiceCollection services)
         where TEntity : class, IDataEntity
         where TFilter : BaseFilterModel
         where TOutDto : class
@@ -90,5 +72,24 @@ public static class ApiServicesDependencyInjectionExtenstions
         services.AddScoped<IReadAuthorizationService<TEntity>, TReadAuthorizationService>();
         services.AddScoped<IReadServicePostProcessor<TOutDto>, TReadServicePostProcessor>();
     }
+    
+    public static void AddReadService<TEntity, TOutDto>(this IServiceCollection services)
+        where TEntity : IDataEntity
+    {
+        services.AddScoped<IReadService<TOutDto>, ReadService<TEntity, TOutDto>>();
+    }
 
+    public static void AddWriteService<TEntity, TInDto>(this IServiceCollection services)
+        where TEntity : IDataEntity
+    {
+        services.AddScoped<IWriteService<TInDto>, WriteService<TEntity, TInDto>>();
+    }
+
+    public static void AddWriteService<TEntity, TInDto, TWriteAuthorizationService>(this IServiceCollection services)
+        where TEntity : IDataEntity
+        where TWriteAuthorizationService : class, IWriteAuthorizationService<TInDto>
+    {
+        services.AddScoped<IWriteService<TInDto>, WriteService<TEntity, TInDto>>();
+        services.AddScoped<IWriteAuthorizationService<TInDto>, TWriteAuthorizationService>();
+    }
 }

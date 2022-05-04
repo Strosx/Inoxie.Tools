@@ -1,4 +1,4 @@
-﻿using Inoxie.Tools.Core.Repository.Abstractions;
+﻿using Inoxie.Tools.Core.Repository.GuidId.Abstractions;
 
 namespace Inoxie.Tools.Example.Api.Core.Models;
 

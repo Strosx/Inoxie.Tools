@@ -1,4 +1,4 @@
-﻿using Inoxie.Tools.ApiServices.Abstractions.Interfaces;
+﻿using Inoxie.Tools.ApiServices.GuidId.Abstractions;
 using Inoxie.Tools.Example.Api.Domain.Customers;
 
 namespace Inoxie.Tools.Example.Api.Services.WriteAuthorizationServices;

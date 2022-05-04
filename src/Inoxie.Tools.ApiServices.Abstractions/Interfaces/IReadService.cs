@@ -1,7 +1,7 @@
 ﻿namespace Inoxie.Tools.ApiServices.Abstractions.Interfaces;
 
-public interface IReadService<TOutDto>
+public interface IReadService<TOutDto, in TId>
 {
     Task<List<TOutDto>> GetAllAsync();
-    Task<TOutDto> GetAsync(Guid id);
+    Task<TOutDto> GetAsync(TId id);
 }

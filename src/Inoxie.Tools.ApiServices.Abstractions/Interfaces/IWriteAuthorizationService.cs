@@ -1,6 +1,6 @@
 ﻿namespace Inoxie.Tools.ApiServices.Abstractions.Interfaces;
 
-public interface IWriteAuthorizationService<TInDto>
+public interface IWriteAuthorizationService<TInDto, in TId>
 {
     Task<bool> AuthorizeAsync(TInDto dto);
     async Task<bool> AuthorizeAsync(List<TInDto> collection)
@@ -10,6 +10,6 @@ public interface IWriteAuthorizationService<TInDto>
         return processed.All(x => x);
     }
 
-    Task<bool> AuthorizeDeleteAsync(Guid id);
+    Task<bool> AuthorizeDeleteAsync(TId id);
 }
 
