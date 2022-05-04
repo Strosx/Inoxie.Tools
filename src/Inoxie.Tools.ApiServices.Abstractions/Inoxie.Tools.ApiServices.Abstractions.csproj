@@ -4,12 +4,6 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-
-		<PackageId>Inoxie.Tools.ApiServices.Abstractions</PackageId>
-		<Version>6.0.5</Version>
-		<Authors>Maciej Kamieniak</Authors>
-		<Company>Inoxie</Company>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>

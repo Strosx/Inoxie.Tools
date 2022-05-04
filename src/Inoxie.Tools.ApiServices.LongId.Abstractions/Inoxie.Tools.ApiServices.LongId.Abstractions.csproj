@@ -4,12 +4,18 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+
+        <PackageId>Inoxie.Tools.ApiServices.LongId.Abstractions</PackageId>
+        <Version>6.1.0</Version>
+        <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+        <Company>Inoxie</Company>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Inoxie.Tools.ApiServices.Abstractions\Inoxie.Tools.ApiServices.Abstractions.csproj" />
-      <ProjectReference Include="..\Inoxie.Tools.Core.Repository.LongId.Abstractions\Inoxie.Tools.Core.Repository.LongId.Abstractions.csproj" />
-      <ProjectReference Include="..\Inoxie.Tools.DataProcessor.Abstractions\Inoxie.Tools.DataProcessor.Abstractions.csproj" />
+        <ProjectReference Include="..\Inoxie.Tools.ApiServices.Abstractions\Inoxie.Tools.ApiServices.Abstractions.csproj"/>
+        <ProjectReference Include="..\Inoxie.Tools.Core.Repository.LongId.Abstractions\Inoxie.Tools.Core.Repository.LongId.Abstractions.csproj"/>
+        <ProjectReference Include="..\Inoxie.Tools.DataProcessor.Abstractions\Inoxie.Tools.DataProcessor.Abstractions.csproj"/>
     </ItemGroup>
 
 </Project>
