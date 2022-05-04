@@ -3,19 +3,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.Core.Repository.Repositories;
 
-public class WriteRepository<T, TId> : IWriteRepository<T, TId>
-    where T : class, IDataEntity<TId>
+public class WriteRepository<TEntity, TId> : IWriteRepository<TEntity, TId>
+    where TEntity : class, IDataEntity<TId>
 {
     private readonly DbContext context;
-    private readonly DbSet<T> dbSet;
+    private readonly DbSet<TEntity> dbSet;
 
     public WriteRepository(IDatabaseContextProvider databaseContextProvider)
     {
         context = databaseContextProvider.Get();
-        dbSet = context.Set<T>();
+        dbSet = context.Set<TEntity>();
     }
 
-    public async Task<TId> CreateAsync(T entity, List<object> attach = null)
+    public virtual async Task<TId> CreateAsync(TEntity entity, List<object> attach = null)
     {
         if (attach != null)
         {
@@ -27,7 +27,7 @@ public class WriteRepository<T, TId> : IWriteRepository<T, TId>
         return entity.Id;
     }
 
-    public async Task CreateManyAsync(IEnumerable<T> entities)
+    public virtual async Task CreateManyAsync(IEnumerable<TEntity> entities)
     {
         await dbSet.AddRangeAsync(entities);
         await context.SaveChangesAsync();
@@ -46,14 +46,14 @@ public class WriteRepository<T, TId> : IWriteRepository<T, TId>
         return true;
     }
 
-    public async Task<bool> DeleteAsync(T entity)
+    public async Task<bool> DeleteAsync(TEntity entity)
     {
         dbSet.Remove(entity);
         await context.SaveChangesAsync();
         return true;
     }
 
-    public Task DeleteManyAsync(IEnumerable<T> entities)
+    public Task DeleteManyAsync(IEnumerable<TEntity> entities)
     {
         context.RemoveRange(entities);
         return context.SaveChangesAsync();
@@ -64,7 +64,7 @@ public class WriteRepository<T, TId> : IWriteRepository<T, TId>
         return context.SaveChangesAsync();
     }
 
-    public async Task<bool> UpdateAsync(T entity)
+    public async Task<bool> UpdateAsync(TEntity entity)
     {
         context.Entry(entity).State = EntityState.Modified;
         dbSet.Update(entity);
