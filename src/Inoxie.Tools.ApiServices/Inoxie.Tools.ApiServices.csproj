@@ -1,36 +1,33 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>disable</Nullable>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
 
-		<PackageId>Inoxie.Tools.ApiServices</PackageId>
-		<Version>6.1.4</Version>
-		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
-		<Company>Inoxie</Company>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	</PropertyGroup>
+        <PackageId>Inoxie.Tools.ApiServices</PackageId>
+        <Version>6.1.4</Version>
+        <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+        <Company>Inoxie</Company>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="AutoMapper" Version="11.0.1"/>
-		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0"/>
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0"/>
-	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\Inoxie.Tools.ApiServices.Abstractions\Inoxie.Tools.ApiServices.Abstractions.csproj"/>
-		<ProjectReference Include="..\Inoxie.Tools.Core.Repository\Inoxie.Tools.Core.Repository.csproj">
-			<ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-			<IncludeAssets>Inoxie.Tools.Core.Repository.dll</IncludeAssets>
-		</ProjectReference>
-		<ProjectReference Include="..\Inoxie.Tools.DataProcessor\Inoxie.Tools.DataProcessor.csproj"/>
-	</ItemGroup>
+    <ItemGroup>
+        <InternalsVisibleTo Include="Inoxie.Tools.ApiServices.GuidId"/>
+        <InternalsVisibleTo Include="Inoxie.Tools.ApiServices.StringId"/>
+        <InternalsVisibleTo Include="Inoxie.Tools.ApiServices.LongId"/>
+    </ItemGroup>
 
-	<ItemGroup>
-		<InternalsVisibleTo Include="Inoxie.Tools.ApiServices.GuidId"/>
-		<InternalsVisibleTo Include="Inoxie.Tools.ApiServices.StringId"/>
-		<InternalsVisibleTo Include="Inoxie.Tools.ApiServices.LongId"/>
-	</ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Inoxie.Tools.ApiServices.Abstractions\Inoxie.Tools.ApiServices.Abstractions.csproj"/>
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="11.0.1"/>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0"/>
+    </ItemGroup>
 
 </Project>

@@ -1,26 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
 
-		<PackageId>Inoxie.Tools.ApiServices.StringId.Abstractions</PackageId>
-		<Version>6.1.4</Version>
-		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
-		<Company>Inoxie</Company>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	</PropertyGroup>
+        <PackageId>Inoxie.Tools.ApiServices.StringId.Abstractions</PackageId>
+        <Version>6.1.4</Version>
+        <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+        <Company>Inoxie</Company>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\Inoxie.Tools.Core.Repository.Abstractions\Inoxie.Tools.Core.Repository.Abstractions.csproj">
-			<ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-			<IncludeAssets>Inoxie.Tools.Core.Repository.Abstractions.dll</IncludeAssets>
-		</ProjectReference>
-
-		<ProjectReference Include="..\Inoxie.Tools.ApiServices.Abstractions\Inoxie.Tools.ApiServices.Abstractions.csproj" />
-		<ProjectReference Include="..\Inoxie.Tools.Core.Repository.StringId.Abstractions\Inoxie.Tools.Core.Repository.StringId.Abstractions.csproj" />
-		<ProjectReference Include="..\Inoxie.Tools.DataProcessor.Abstractions\Inoxie.Tools.DataProcessor.Abstractions.csproj" />
-	</ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Inoxie.Tools.ApiServices.Abstractions\Inoxie.Tools.ApiServices.Abstractions.csproj"/>
+        <ProjectReference Include="..\Inoxie.Tools.Core.Repository.StringId.Abstractions\Inoxie.Tools.Core.Repository.StringId.Abstractions.csproj"/>
+    </ItemGroup>
 
 </Project>

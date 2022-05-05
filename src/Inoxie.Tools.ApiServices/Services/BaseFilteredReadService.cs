@@ -33,6 +33,18 @@ public class BaseFilteredReadService<TEntity, TOutDto, TFilter, TId> : BaseReadS
         this.postProcessor = postProcessor;
     }
 
+    public virtual async Task<TOutDto> GetByFilterFirstAsync(TFilter filter)
+    {
+        var query = readRepository.AsQueryable().Where(readAuthorizationService.Get());
+
+        var queryablePagedDataResponse = dataProcessor.ProcessQueryable(filter, query);
+        var mapped = await mapper.ProjectTo<TOutDto>(queryablePagedDataResponse.Collection).FirstOrDefaultAsync();
+
+        if (mapped == null) throw new Exception("NotFound");
+
+        return await postProcessor.ProcessAsync(mapped);
+    }
+
     public virtual async Task<PagedDataResponse<TOutDto>> FilterAsync(TFilter filter)
     {
         var query = readRepository.AsQueryable().Where(readAuthorizationService.Get());
@@ -45,17 +57,5 @@ public class BaseFilteredReadService<TEntity, TOutDto, TFilter, TId> : BaseReadS
             Collection = await postProcessor.ProcessCollectionAsync(collection),
             Total = queryablePagedDataResponse.Total
         };
-    }
-
-    public virtual async Task<TOutDto> GetByFilterFirstAsync(TFilter filter)
-    {
-        var query = readRepository.AsQueryable().Where(readAuthorizationService.Get());
-
-        var queryablePagedDataResponse = dataProcessor.ProcessQueryable(filter, query);
-        var mapped = await mapper.ProjectTo<TOutDto>(queryablePagedDataResponse.Collection).FirstOrDefaultAsync();
-
-        if (mapped == null) throw new Exception("NotFound");
-
-        return await postProcessor.ProcessAsync(mapped);
     }
 }

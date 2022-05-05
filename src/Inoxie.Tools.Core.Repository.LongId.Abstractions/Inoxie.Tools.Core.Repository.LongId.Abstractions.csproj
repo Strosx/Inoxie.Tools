@@ -6,17 +6,14 @@
         <Nullable>enable</Nullable>
 
         <PackageId>Inoxie.Tools.Core.Repository.LongId.Abstractions</PackageId>
-		<Version>6.1.4</Version>
-		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+        <Version>6.1.4</Version>
+        <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
-		<ProjectReference Include="..\Inoxie.Tools.Core.Repository.Abstractions\Inoxie.Tools.Core.Repository.Abstractions.csproj">
-			<ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-			<IncludeAssets>Inoxie.Tools.Core.Repository.Abstractions.dll</IncludeAssets>
-		</ProjectReference>
-	</ItemGroup>
+        <ProjectReference Include="..\Inoxie.Tools.Core.Repository.Abstractions\Inoxie.Tools.Core.Repository.Abstractions.csproj"/>
+    </ItemGroup>
 
 </Project>

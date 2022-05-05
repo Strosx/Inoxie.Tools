@@ -2,5 +2,4 @@
 
 [AttributeUsage(AttributeTargets.Property)]
 public class NoUpdateAttribute : Attribute
-{
-}
+{}

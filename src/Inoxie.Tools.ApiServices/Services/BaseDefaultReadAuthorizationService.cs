@@ -1,6 +1,6 @@
 ﻿using Inoxie.Tools.ApiServices.Abstractions.Interfaces;
-using Inoxie.Tools.Core.Repository.Abstractions;
 using System.Linq.Expressions;
+using Inoxie.Tools.Core.Repository.Abstractions;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
