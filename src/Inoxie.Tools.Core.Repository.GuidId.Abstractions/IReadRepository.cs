@@ -3,5 +3,5 @@
 namespace Inoxie.Tools.Core.Repository.GuidId.Abstractions;
 
 public interface IReadRepository<TEntity> : IBaseReadRepository<TEntity, Guid> 
-    where TEntity : IBaseDataEntity<Guid>
+    where TEntity : IDataEntity
 {}

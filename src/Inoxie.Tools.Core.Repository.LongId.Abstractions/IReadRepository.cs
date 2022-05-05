@@ -3,6 +3,6 @@
 namespace Inoxie.Tools.Core.Repository.LongId.Abstractions;
 
 public interface IReadRepository<TEntity> : IBaseReadRepository<TEntity, long>
-    where TEntity : IBaseDataEntity<long>
+    where TEntity : IDataEntity
 {
 }
