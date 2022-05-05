@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 
 		<PackageId>Inoxie.Tools.ApiServices.StringId</PackageId>
-		<Version>6.1.2</Version>
+		<Version>6.1.3</Version>
 		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
 		<Company>Inoxie</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
