@@ -27,14 +27,14 @@ public class BaseReadService<TEntity, TOutDto, TId> : IBaseReadService<TOutDto, 
 
     public virtual async Task<List<TOutDto>> GetAllAsync()
     {
-        var query = readRepository.AsQueryable().Where(readAuthorizationService.Get());
+        var query = readRepository.AsQueryable().Where(await readAuthorizationService.Get());
         var materializedResults = await mapper.ProjectTo<TOutDto>(query).ToListAsync();
         return await readServicePostProcessor.ProcessCollectionAsync(materializedResults);
     }
 
     public virtual async Task<TOutDto> GetAsync(TId id)
     {
-        var query = readRepository.AsQueryable().Where(readAuthorizationService.Get()).Where(x => Equals(x.Id, id));
+        var query = readRepository.AsQueryable().Where(await readAuthorizationService.Get()).Where(x => Equals(x.Id, id));
         var mapped = await mapper.ProjectTo<TOutDto>(query).FirstAsync();
 
         if (mapped != null)

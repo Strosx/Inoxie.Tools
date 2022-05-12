@@ -7,5 +7,5 @@ namespace Inoxie.Tools.ApiServices.Services;
 internal class BaseDefaultReadAuthorizationService<TEntity, TId> : IBaseReadAuthorizationService<TEntity, TId>
     where TEntity : IBaseDataEntity<TId>
 {
-    public Expression<Func<TEntity, bool>> Get() => x => true;
+    public Task<Expression<Func<TEntity, bool>>> Get() => Task.FromResult<Expression<Func<TEntity, bool>>>(x => true);
 }

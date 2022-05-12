@@ -35,7 +35,7 @@ public class BaseFilteredReadService<TEntity, TOutDto, TFilter, TId> : BaseReadS
 
     public virtual async Task<TOutDto> GetByFilterFirstAsync(TFilter filter)
     {
-        var query = readRepository.AsQueryable().Where(readAuthorizationService.Get());
+        var query = readRepository.AsQueryable().Where(await readAuthorizationService.Get());
 
         var queryablePagedDataResponse = dataProcessor.ProcessQueryable(filter, query);
         var mapped = await mapper.ProjectTo<TOutDto>(queryablePagedDataResponse.Collection).FirstOrDefaultAsync();
@@ -47,7 +47,7 @@ public class BaseFilteredReadService<TEntity, TOutDto, TFilter, TId> : BaseReadS
 
     public virtual async Task<PagedDataResponse<TOutDto>> FilterAsync(TFilter filter)
     {
-        var query = readRepository.AsQueryable().Where(readAuthorizationService.Get());
+        var query = readRepository.AsQueryable().Where(await readAuthorizationService.Get());
 
         var queryablePagedDataResponse = dataProcessor.ProcessQueryable(filter, query);
         var collection = await mapper.ProjectTo<TOutDto>(queryablePagedDataResponse.Collection).ToListAsync();

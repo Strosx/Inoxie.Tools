@@ -6,7 +6,7 @@
         <Nullable>disable</Nullable>
 
         <PackageId>Inoxie.Tools.Core.Repository.Abstractions</PackageId>
-        <Version>6.1.5</Version>
+        <Version>6.1.6</Version>
         <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -16,7 +16,4 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Inoxie.Tools.Core.Repository.Models\Inoxie.Tools.Core.Repository.Models.csproj" />
-    </ItemGroup>
 </Project>

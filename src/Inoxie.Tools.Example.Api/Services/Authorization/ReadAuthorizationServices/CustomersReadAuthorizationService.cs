@@ -6,8 +6,8 @@ namespace Inoxie.Tools.Example.Api.Services.AuthorizationExpressionaProviders;
 
 public class CustomersReadAuthorizationService : IReadAuthorizationService<CustomerEntity>
 {
-    public Expression<Func<CustomerEntity, bool>> Get()
+    public Task<Expression<Func<CustomerEntity, bool>>> Get()
     {
-        return x => true;
+        return Task.FromResult<Expression<Func<CustomerEntity, bool>>>(x => true);
     }
 }
