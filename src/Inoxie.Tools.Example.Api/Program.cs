@@ -6,9 +6,13 @@ using Inoxie.Tools.Example.Api.Domain.Customers;
 using Inoxie.Tools.Example.Api.Exceptions.MessageProvider;
 using Inoxie.Tools.Example.Api.Services.AuthorizationExpressionaProviders;
 using Inoxie.Tools.Example.Api.Services.FilterProviders;
+using Inoxie.Tools.Example.Api.Services.PdfTemplating.ConfigurationProviders;
+using Inoxie.Tools.Example.Api.Services.PdfTemplating.Models;
 using Inoxie.Tools.Example.Api.Services.PostProcessor;
 using Inoxie.Tools.Example.Api.Services.WriteAuthorizationServices;
 using Inoxie.Tools.Exceptions.DI;
+using Inoxie.Tools.PdfTemplating.DI;
+using Inoxie.Tools.PdfTemplating.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +20,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddPdfTemplating();
+builder.Services.AddScoped<IPdfTemplateConfigurationProvider<ExamplePdfTemplateModel>, ExamplePdfTemplateModelConfigurationProvider>();
 
 //swagger
 builder.Services.AddEndpointsApiExplorer();
