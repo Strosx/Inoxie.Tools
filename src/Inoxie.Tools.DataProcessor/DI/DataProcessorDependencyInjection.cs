@@ -20,4 +20,3 @@ public static class DataProcessorExtensions
         DataProcessorDependencyInjection.ConfigureServices(services);
     }
 }
-
