@@ -13,6 +13,8 @@ internal class InoxieBlobClient
         blobServiceClient = new BlobServiceClient(configuration.GetConnectionString("Storage"));
     }
 
+    public string Host => blobServiceClient.Uri.Host;
+
     public async Task<BlobContainerClient> GetContainer(string containerName)
     {
         var existingContainer = blobServiceClient.GetBlobContainerClient(containerName);
@@ -25,5 +27,4 @@ internal class InoxieBlobClient
 
         return await Task.FromResult(existingContainer);
     }
-
 }
