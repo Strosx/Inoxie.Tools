@@ -1,6 +1,7 @@
 ﻿using Azure.Storage.Blobs;
 using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
+using Azure.Storage.Blobs.Models;
 
 namespace Inoxie.Tools.Storage.Implementations.Internal;
 
@@ -17,14 +18,8 @@ internal class InoxieBlobClient
 
     public async Task<BlobContainerClient> GetContainer(string containerName)
     {
-        var existingContainer = blobServiceClient.GetBlobContainerClient(containerName);
-
-        if (existingContainer == null)
-        {
-            var response = await blobServiceClient.CreateBlobContainerAsync(containerName);
-            return response.Value;
-        }
-
-        return await Task.FromResult(existingContainer);
+        var containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+        await containerClient.CreateIfNotExistsAsync(PublicAccessType.Blob);
+        return containerClient;
     }
 }

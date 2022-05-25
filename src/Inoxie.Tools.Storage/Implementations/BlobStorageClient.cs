@@ -52,7 +52,7 @@ internal class BlobStorageClient : IBlobStorageClient
 
         var (containerName, blobName) = GetBlobClient(uri);
 
-        var container = await this.inoxieBlobClient.GetContainer(containerName);
+        var container = await inoxieBlobClient.GetContainer(containerName);
         var blobClient = container.GetBlobClient(blobName);
 
         var properties = await blobClient.GetPropertiesAsync();
@@ -61,9 +61,9 @@ internal class BlobStorageClient : IBlobStorageClient
 
     public async Task<string> UploadAsync(Stream stream, string containerName, string blobName = null, string contentType = null, IDictionary<string, string> metadata = null)
     {
-        var container = await this.inoxieBlobClient.GetContainer(containerName);
+        var container = await inoxieBlobClient.GetContainer(containerName);
 
-        if (blobName == null) blobName = Guid.NewGuid().ToString();
+        blobName ??= Guid.NewGuid().ToString();
 
         var blobClient = container.GetBlobClient(blobName);
 
