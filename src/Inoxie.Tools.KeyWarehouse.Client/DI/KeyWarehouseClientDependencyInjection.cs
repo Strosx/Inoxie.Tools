@@ -41,7 +41,7 @@ internal static class KeyWarehouseClientDependencyInjection
     }
 }
 
-public static class KeyWarehouseClientDependencyInjectionExtions
+public static class KeyWarehouseClientDependencyInjectionExtensions
 {
     public static void AddKeyWarehouseClient(this IServiceCollection services, IConfiguration configuration)
     {
