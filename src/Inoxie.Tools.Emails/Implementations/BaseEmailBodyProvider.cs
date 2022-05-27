@@ -4,7 +4,8 @@ using SendGrid.Helpers.Mail;
 
 namespace Inoxie.Tools.Emails.Implementations;
 
-internal class BaseEmailBodyProvider<TEmailModel> : IEmailBodyProvider<TEmailModel> where TEmailModel : BaseEmailModel
+internal class BaseEmailBodyProvider<TEmailModel> : IEmailBodyProvider<TEmailModel> 
+    where TEmailModel : BaseEmailModel
 {
     public Task<SendGridMessage> CreateMessageAsync(TEmailModel model)
     {

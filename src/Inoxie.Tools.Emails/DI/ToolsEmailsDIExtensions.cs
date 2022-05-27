@@ -16,7 +16,7 @@ public static class ToolsEmailsDIExtensions
 
         services.Configure<SendGridSettings>(options => configuration.GetSection(SendGridSettings.SendGridKey).Bind(options));
         services.AddScoped<ISendGridClient, SendGridClient>(_ => client);
-        services.AddScoped(typeof(BaseEmailBodyProvider<>), typeof(IEmailBodyProvider<>));
+        services.AddScoped(typeof(IEmailBodyProvider<>), typeof(BaseEmailBodyProvider<>));
         services.AddScoped(typeof(ISendEmailService<>), typeof(SendEmailService<>));
     }
 }

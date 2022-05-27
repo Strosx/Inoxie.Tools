@@ -1,5 +1,6 @@
 using Inoxie.Tools.ApiServices.GuidId.DI;
 using Inoxie.Tools.DataProcessor.Abstractions.Models;
+using Inoxie.Tools.Emails.DI;
 using Inoxie.Tools.Example.Api.Core;
 using Inoxie.Tools.Example.Api.Core.Models;
 using Inoxie.Tools.Example.Api.Domain.Customers;
@@ -30,6 +31,7 @@ builder.Services.AddSwaggerGen();
 //inoxie tools
 builder.Services.AddInoxieApiServicesGuidId<DatabaseContext>();
 builder.Services.AddInoxieExceptions<ErrorCodeMessageProvider>();
+builder.Services.AddInoxieEmailsTool(builder.Configuration);
 
 //write services
 builder.Services.AddFilteredReadService<CustomerEntity, CustomerOutDto, BaseSearchableFilterModel, CustomersFilterProvider,
