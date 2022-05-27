@@ -1,7 +1,8 @@
 ﻿using Inoxie.Tools.Excel.Models;
 
 namespace Inoxie.Tools.Excel.Interfaces;
-internal interface ISpreadsheetBuilder
+
+public interface ISpreadsheetBuilder
 {
     ISpreadsheetBuilder Create();
     ISpreadsheetBuilder CreateSheet(string sheetName);
