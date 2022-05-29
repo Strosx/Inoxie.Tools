@@ -7,6 +7,7 @@ using Inoxie.Tools.JwtAuth.Models.Exceptions;
 using Inoxie.Tools.JwtAuth.Services.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using System.Threading.Tasks;
 
 namespace Inoxie.Tools.JwtAuth.Services;
 
@@ -25,7 +26,6 @@ internal class RefreshTokenService : IRefreshTokenService
         this.jwtTokenGenerator = jwtTokenGenerator;
         this.options = options;
     }
-
 
     public async Task<AuthenticationOutDto> RefreshTokenAsync(RefreshTokenInDto refreshTokenInDto)
     {

@@ -19,6 +19,7 @@
 		<ProjectReference Include="..\Inoxie.Tools.Emails\Inoxie.Tools.Emails.csproj" />
 		<ProjectReference Include="..\Inoxie.Tools.Exceptions\Inoxie.Tools.Exceptions.csproj" />
 		<ProjectReference Include="..\Inoxie.Tools.JwtAuth\Inoxie.Tools.JwtAuth.csproj" />
+		<ProjectReference Include="..\Inoxie.Tools.Logging\Inoxie.Tools.Logging.csproj" />
 		<ProjectReference Include="..\Inoxie.Tools.PdfTemplating\Inoxie.Tools.PdfTemplating.csproj" />
 	</ItemGroup>
 
