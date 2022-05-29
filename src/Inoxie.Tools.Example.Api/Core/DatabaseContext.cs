@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Inoxie.Tools.JwtAuth.Core;
+using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.Example.Api.Core;
 
-public class DatabaseContext : DbContext
+public class DatabaseContext : JwtAuthDatabaseContext<DatabaseContext>
 {
     public DatabaseContext(DbContextOptions<DatabaseContext> options)
         : base(options)

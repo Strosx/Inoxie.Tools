@@ -12,6 +12,7 @@ using Inoxie.Tools.Example.Api.Services.PdfTemplating.Models;
 using Inoxie.Tools.Example.Api.Services.PostProcessor;
 using Inoxie.Tools.Example.Api.Services.WriteAuthorizationServices;
 using Inoxie.Tools.Exceptions.DI;
+using Inoxie.Tools.JwtAuth.DI;
 using Inoxie.Tools.PdfTemplating.DI;
 using Inoxie.Tools.PdfTemplating.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +33,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddInoxieApiServicesGuidId<DatabaseContext>();
 builder.Services.AddInoxieExceptions<ErrorCodeMessageProvider>();
 builder.Services.AddInoxieEmailsTool(builder.Configuration);
+builder.Services.AddInoxieJwtAuth(builder.Configuration);
 
 //write services
 builder.Services.AddFilteredReadService<CustomerEntity, CustomerOutDto, BaseSearchableFilterModel, CustomersFilterProvider,
@@ -60,7 +62,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseAuthorization();
+app.UseInoxieJwtAuth();
 app.UseInoxieExceptions();
 app.MapControllers();
 
