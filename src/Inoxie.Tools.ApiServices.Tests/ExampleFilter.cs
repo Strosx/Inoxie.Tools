@@ -2,5 +2,5 @@
 
 namespace Inoxie.Tools.ApiServices.Tests;
 
-public class ExampleFilter : BaseFilterModel
+internal class ExampleFilter : BaseFilterModel
 {}

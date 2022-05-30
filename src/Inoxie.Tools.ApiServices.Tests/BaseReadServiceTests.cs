@@ -73,7 +73,7 @@ internal class BaseReadServiceTests
         var exception = Assert.ThrowsAsync<Exception>(async () => await service.GetAsync(guidId));
 
         // Assert
-        Assert.That(exception?.Message, Is.EqualTo("Forbidden"));
+        Assert.That(exception.Message, Is.EqualTo("Forbidden"));
     }
 
 
@@ -95,7 +95,7 @@ internal class BaseReadServiceTests
         var exception = Assert.ThrowsAsync<Exception>(async () => await service.GetAsync(Guid.NewGuid()));
 
         // Assert
-        Assert.That(exception?.Message, Is.EqualTo("NotFound"));
+        Assert.That(exception.Message, Is.EqualTo("NotFound"));
     }
 
     [Test]

@@ -2,7 +2,7 @@
 
 namespace Inoxie.Tools.ApiServices.Tests;
 
-public class ExampleOutDto
+internal class ExampleOutDto
 {
     public Guid Id { get; set; }
 }
