@@ -52,7 +52,7 @@ public class BaseFilteredReadService<TEntity, TOutDto, TFilter, TId> : BaseReadS
         var queryablePagedDataResponse = dataProcessor.ProcessQueryable(filter, query);
         var collection = await mapper.ProjectTo<TOutDto>(queryablePagedDataResponse.Collection).ToListAsync();
 
-        return new PagedDataResponse<TOutDto>()
+        return new PagedDataResponse<TOutDto>
         {
             Collection = await postProcessor.ProcessCollectionAsync(collection),
             Total = queryablePagedDataResponse.Total

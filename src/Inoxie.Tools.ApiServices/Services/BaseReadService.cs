@@ -35,7 +35,7 @@ public class BaseReadService<TEntity, TOutDto, TId> : IBaseReadService<TOutDto, 
     public virtual async Task<TOutDto> GetAsync(TId id)
     {
         var query = readRepository.AsQueryable().Where(await readAuthorizationService.Get()).Where(x => Equals(x.Id, id));
-        var mapped = await mapper.ProjectTo<TOutDto>(query).FirstAsync();
+        var mapped = await mapper.ProjectTo<TOutDto>(query).FirstOrDefaultAsync();
 
         if (mapped != null)
         {
