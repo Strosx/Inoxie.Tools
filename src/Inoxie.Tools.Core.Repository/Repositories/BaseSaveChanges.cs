@@ -7,9 +7,24 @@ public class DbSaveChanges : IDbSaveChanges
 {
     private readonly DbContext context;
 
+    public DbSaveChanges(DbContext context)
+    {
+        this.context = context;
+    }
+
     public async Task SaveChangesAsync(List<object> modifiedEntities = null)
     {
         modifiedEntities?.ForEach(entity => context.Entry(entity).State = EntityState.Modified);
+        await context.SaveChangesAsync();
+    }
+
+    public async Task SaveChangesAsync(object modifiedEntity = null)
+    {
+        if (modifiedEntity != null)
+        {
+            context.Entry(modifiedEntity).State = EntityState.Modified;
+        }
+
         await context.SaveChangesAsync();
     }
 }

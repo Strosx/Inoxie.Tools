@@ -13,18 +13,18 @@ public class WriteRepository<TEntity> : BaseWriteRepository<TEntity, string>, IW
 
     public override Task<string> CreateAsync(TEntity entity, List<object>? attach = null)
     {
-        entity.Id = Guid.NewGuid().ToString();
+        entity.Id ??= Guid.NewGuid().ToString();
         return base.CreateAsync(entity, attach);
     }
 
     public override Task CreateManyAsync(IEnumerable<TEntity> entities)
     {
-        var dataEntities = entities.Select(e=>
+        var dataEntities = entities.Select(e =>
         {
-            e.Id = Guid.NewGuid().ToString();
+            e.Id ??= Guid.NewGuid().ToString();
             return e;
         });
-        
+
         return base.CreateManyAsync(dataEntities);
     }
 }

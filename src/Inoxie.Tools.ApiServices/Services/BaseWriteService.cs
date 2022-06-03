@@ -13,17 +13,20 @@ public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, 
     private readonly IBaseReadRepository<TEntity, TId> readRepository;
     private readonly IBaseWriteAuthorizationService<TInDto, TId> writeAuthorizationService;
     private readonly IBaseWriteRepository<TEntity, TId> writeRepository;
+    private readonly IDbSaveChanges dbSaveChanges;
 
     public BaseWriteService(
         IBaseWriteRepository<TEntity, TId> writeRepository,
         IBaseReadRepository<TEntity, TId> readRepository,
         IMapper mapper,
-        IBaseWriteAuthorizationService<TInDto, TId> writeAuthorizationService)
+        IBaseWriteAuthorizationService<TInDto, TId> writeAuthorizationService,
+        IDbSaveChanges dbSaveChanges)
     {
         this.writeRepository = writeRepository;
         this.readRepository = readRepository;
         this.mapper = mapper;
         this.writeAuthorizationService = writeAuthorizationService;
+        this.dbSaveChanges = dbSaveChanges;
     }
 
     public virtual async Task<TId> CreateAsync(TInDto inDto)
@@ -68,6 +71,6 @@ public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, 
         var entity = await readRepository.AsQueryable(true).FirstOrDefaultAsync(f => Equals(f.Id, id));
         entity.MapPropertiesFrom<TEntity, TInDto, TId>(inDto);
 
-        await writeRepository.SaveChangesAsync();
+        await dbSaveChanges.SaveChangesAsync(entity);
     }
 }
