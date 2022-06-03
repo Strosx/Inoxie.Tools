@@ -50,7 +50,7 @@ internal class BaseReadServiceTests
         var outDto = await service.GetAsync(guidId);
 
         // Assert
-        Assert.AreEqual(guidId, outDto.Id);
+        Assert.AreEqual(guidId, outDto.Id, "Id should be equal");
     }
 
 
@@ -73,7 +73,7 @@ internal class BaseReadServiceTests
         var exception = Assert.ThrowsAsync<Exception>(async () => await service.GetAsync(guidId));
 
         // Assert
-        Assert.That(exception.Message, Is.EqualTo("Forbidden"));
+        Assert.That(exception.Message, Is.EqualTo("Forbidden"), "Exception message should be equal");
     }
 
 
@@ -95,7 +95,7 @@ internal class BaseReadServiceTests
         var exception = Assert.ThrowsAsync<Exception>(async () => await service.GetAsync(Guid.NewGuid()));
 
         // Assert
-        Assert.That(exception.Message, Is.EqualTo("NotFound"));
+        Assert.That(exception.Message, Is.EqualTo("NotFound"), "Exception message should be equal");
     }
 
     [Test]

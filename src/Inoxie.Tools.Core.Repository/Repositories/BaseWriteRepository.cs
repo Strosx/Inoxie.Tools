@@ -15,6 +15,12 @@ public class BaseWriteRepository<TEntity, TId> : IBaseWriteRepository<TEntity, T
         dbSet = context.Set<TEntity>();
     }
 
+    [Obsolete("Use IDbSaveChanges.SaveChangesAsync instead")]
+    public Task SaveChangesAsync()
+    {
+        return context.SaveChangesAsync();
+    }
+
     public virtual async Task<TId> CreateAsync(TEntity entity, List<object> attach = null)
     {
         if (attach != null)
@@ -56,11 +62,6 @@ public class BaseWriteRepository<TEntity, TId> : IBaseWriteRepository<TEntity, T
     public Task DeleteManyAsync(IEnumerable<TEntity> entities)
     {
         context.RemoveRange(entities);
-        return context.SaveChangesAsync();
-    }
-
-    public Task SaveChangesAsync()
-    {
         return context.SaveChangesAsync();
     }
 

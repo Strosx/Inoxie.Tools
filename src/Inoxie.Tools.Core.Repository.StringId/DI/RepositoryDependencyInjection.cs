@@ -1,5 +1,6 @@
 ﻿using Inoxie.Tools.Core.Repository.Abstractions;
 using Inoxie.Tools.Core.Repository.Implementations;
+using Inoxie.Tools.Core.Repository.Repositories;
 using Inoxie.Tools.Core.Repository.StringId.Abstractions;
 using Inoxie.Tools.Core.Repository.StringId.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ internal static class RepositoryDependencyInjection
 {
     public static void Configure<TDatabaseContext>(IServiceCollection services) where TDatabaseContext : DbContext
     {
+        services.AddTransient(typeof(IDbSaveChanges), typeof(DbSaveChanges));
         services.AddTransient(typeof(IReadRepository<>), typeof(ReadRepository<>));
         services.AddTransient(typeof(IWriteRepository<>), typeof(WriteRepository<>));
         services.AddTransient<IDatabaseContextProvider, DatabaseContextProvider<TDatabaseContext>>();

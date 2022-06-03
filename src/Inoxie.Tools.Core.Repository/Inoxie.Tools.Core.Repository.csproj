@@ -17,7 +17,7 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.4"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.4" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -25,13 +25,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Inoxie.Tools.Core.Repository.Abstractions\Inoxie.Tools.Core.Repository.Abstractions.csproj"/>
+        <ProjectReference Include="..\Inoxie.Tools.Core.Repository.Abstractions\Inoxie.Tools.Core.Repository.Abstractions.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <InternalsVisibleTo Include="Inoxie.Tools.Core.Repository.GuidId"/>
-        <InternalsVisibleTo Include="Inoxie.Tools.Core.Repository.StringId"/>
-        <InternalsVisibleTo Include="Inoxie.Tools.Core.Repository.LongId"/>
+        <InternalsVisibleTo Include="Inoxie.Tools.Core.Repository.GuidId" />
+        <InternalsVisibleTo Include="Inoxie.Tools.Core.Repository.StringId" />
+        <InternalsVisibleTo Include="Inoxie.Tools.Core.Repository.LongId" />
     </ItemGroup>
 
 </Project>

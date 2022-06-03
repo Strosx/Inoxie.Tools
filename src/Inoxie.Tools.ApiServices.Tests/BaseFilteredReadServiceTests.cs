@@ -61,6 +61,6 @@ internal class BaseFilteredReadServiceTests
         var pagedDataResponse = await service.FilterAsync(new ExampleFilter());
 
         // Assert
-        Assert.AreEqual(exampleOutDtos, pagedDataResponse.Collection);
+        Assert.AreEqual(exampleOutDtos, pagedDataResponse.Collection, "Collection should be equal");
     }
 }
