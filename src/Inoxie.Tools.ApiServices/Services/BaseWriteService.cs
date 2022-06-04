@@ -9,11 +9,11 @@ namespace Inoxie.Tools.ApiServices.Services;
 public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, TId>
     where TEntity : IBaseDataEntity<TId>
 {
+    private readonly IDbSaveChanges dbSaveChanges;
     private readonly IMapper mapper;
     private readonly IBaseReadRepository<TEntity, TId> readRepository;
     private readonly IBaseWriteAuthorizationService<TInDto, TId> writeAuthorizationService;
     private readonly IBaseWriteRepository<TEntity, TId> writeRepository;
-    private readonly IDbSaveChanges dbSaveChanges;
 
     public BaseWriteService(
         IBaseWriteRepository<TEntity, TId> writeRepository,

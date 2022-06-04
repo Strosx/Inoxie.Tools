@@ -2,6 +2,8 @@
 
 public interface IDbSaveChanges
 {
-    Task SaveChangesAsync(List<object> modifiedEntities = null);
     Task SaveChangesAsync(object modifiedEntity = null);
+
+    Task SaveChangesAsync<TEntity>(List<TEntity> modifiedEntities)
+        where TEntity : class;
 }

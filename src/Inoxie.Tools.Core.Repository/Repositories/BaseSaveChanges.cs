@@ -1,4 +1,5 @@
-﻿using Inoxie.Tools.Core.Repository.Abstractions;
+﻿using System.Collections;
+using Inoxie.Tools.Core.Repository.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.Core.Repository.Repositories;
@@ -12,12 +13,6 @@ public class DbSaveChanges : IDbSaveChanges
         this.context = context;
     }
 
-    public async Task SaveChangesAsync(List<object> modifiedEntities = null)
-    {
-        modifiedEntities?.ForEach(entity => context.Entry(entity).State = EntityState.Modified);
-        await context.SaveChangesAsync();
-    }
-
     public async Task SaveChangesAsync(object modifiedEntity = null)
     {
         if (modifiedEntity != null)
@@ -25,6 +20,13 @@ public class DbSaveChanges : IDbSaveChanges
             context.Entry(modifiedEntity).State = EntityState.Modified;
         }
 
+        await context.SaveChangesAsync();
+    }
+
+    public async Task SaveChangesAsync<TEntity>(List<TEntity> modifiedEntities)
+        where TEntity : class
+    {
+        modifiedEntities.ForEach(entity => context.Entry(entity).State = EntityState.Modified);
         await context.SaveChangesAsync();
     }
 }
