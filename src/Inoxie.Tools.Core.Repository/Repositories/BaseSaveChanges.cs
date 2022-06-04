@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Inoxie.Tools.Core.Repository.Abstractions;
+﻿using Inoxie.Tools.Core.Repository.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.Core.Repository.Repositories;
@@ -8,9 +7,9 @@ public class DbSaveChanges : IDbSaveChanges
 {
     private readonly DbContext context;
 
-    public DbSaveChanges(DbContext context)
+    public DbSaveChanges(IDatabaseContextProvider databaseContextProvider)
     {
-        this.context = context;
+        context = databaseContextProvider.Get();
     }
 
     public async Task SaveChangesAsync(object modifiedEntity = null)
