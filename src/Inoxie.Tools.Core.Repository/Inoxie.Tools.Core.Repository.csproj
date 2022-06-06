@@ -6,7 +6,7 @@
         <Nullable>disable</Nullable>
 
         <PackageId>Inoxie.Tools.Core.Repository</PackageId>
-        <Version>6.2.0</Version>
+        <Version>6.2.1</Version>
         <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

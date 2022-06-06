@@ -71,6 +71,6 @@ public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, 
         var entity = await readRepository.AsQueryable(true).FirstOrDefaultAsync(f => Equals(f.Id, id));
         entity.MapPropertiesFrom<TEntity, TInDto, TId>(inDto);
 
-        await dbSaveChanges.SaveChangesAsync(entity);
+        await dbSaveChanges.SaveChangesAsync();
     }
 }

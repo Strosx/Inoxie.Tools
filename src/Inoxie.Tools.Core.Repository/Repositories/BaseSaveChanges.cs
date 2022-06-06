@@ -12,20 +12,9 @@ public class DbSaveChanges : IDbSaveChanges
         context = databaseContextProvider.Get();
     }
 
-    public async Task SaveChangesAsync(object modifiedEntity = null)
+    public async Task SaveChangesAsync(Action<DbContext> action = null)
     {
-        if (modifiedEntity != null)
-        {
-            context.Entry(modifiedEntity).State = EntityState.Modified;
-        }
-
-        await context.SaveChangesAsync();
-    }
-
-    public async Task SaveChangesAsync<TEntity>(List<TEntity> modifiedEntities)
-        where TEntity : class
-    {
-        modifiedEntities.ForEach(entity => context.Entry(entity).State = EntityState.Modified);
+        action?.Invoke(context);
         await context.SaveChangesAsync();
     }
 }
