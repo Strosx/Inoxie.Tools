@@ -2,8 +2,13 @@
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>Inoxie.Tools.JwtAuth</PackageId>
+		<Version>6.0.1</Version>
+		<Authors>Maciej Kamieniak, Aleksander Górka</Authors>
+		<Company>Inoxie</Company>
 		<Nullable>disable</Nullable>
+		<ImplicitUsings>true</ImplicitUsings>
 	</PropertyGroup>
 
 	<ItemGroup>

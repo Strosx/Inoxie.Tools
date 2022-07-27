@@ -3,7 +3,7 @@ using Inoxie.Tools.JwtAuth.Models.Entities;
 
 namespace Inoxie.Tools.JwtAuth.Services.Utilities;
 
-internal class RefreshTokenGenerator
+public class RefreshTokenGenerator
 {
     private readonly IWriteRepository<RefreshTokenEntity> refreshTokensWriteRepository;
 
