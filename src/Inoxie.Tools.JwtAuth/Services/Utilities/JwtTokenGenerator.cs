@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Inoxie.Tools.JwtAuth.Services.Utilities;
 
-internal class JwtTokenGenerator
+public class JwtTokenGenerator
 {
     private readonly IOptions<JwtAuthConfiguration> options;
 
