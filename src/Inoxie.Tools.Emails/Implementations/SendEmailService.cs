@@ -8,7 +8,7 @@ using SendGrid.Helpers.Mail;
 namespace Inoxie.Tools.Emails.Implementations;
 
 internal class SendEmailService<TEmailModel> : ISendEmailService<TEmailModel>
-    where TEmailModel : BaseEmailModel
+    where TEmailModel : BaseEmailModel, ITemplatedEmailModel
 {
     private readonly IEmailBodyProvider<TEmailModel> provider;
     private readonly ISendGridClient sendGridClient;

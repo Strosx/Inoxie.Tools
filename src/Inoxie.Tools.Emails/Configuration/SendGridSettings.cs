@@ -6,4 +6,6 @@ public class SendGridSettings
 
     public string ApiKey { get; set; }
     public string BackupEmail { get; set; }
+    public string SendFromEmail { get; set; }
+    public string SendFromName { get; set; }
 }

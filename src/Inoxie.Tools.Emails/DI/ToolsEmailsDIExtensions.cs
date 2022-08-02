@@ -18,5 +18,6 @@ public static class ToolsEmailsDIExtensions
         services.AddScoped<ISendGridClient, SendGridClient>(_ => client);
         services.AddScoped(typeof(IEmailBodyProvider<>), typeof(BaseEmailBodyProvider<>));
         services.AddScoped(typeof(ISendEmailService<>), typeof(SendEmailService<>));
+        services.AddScoped(typeof(IEmailTemplateIdProvider<>), typeof(EmailTemplateIdProvider<>));
     }
 }
