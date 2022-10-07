@@ -97,7 +97,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{329F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.Logging", "Inoxie.Tools.Logging\Inoxie.Tools.Logging.csproj", "{4E6471AF-7431-4F84-90C6-DCDDDC4B8767}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.ApiServices.Tests", "Inoxie.Tools.ApiServices.Tests\Inoxie.Tools.ApiServices.Tests.csproj", "{90B0D775-E25C-491C-A859-3F4780197BBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.ApiServices.Tests", "Inoxie.Tools.ApiServices.Tests\Inoxie.Tools.ApiServices.Tests.csproj", "{90B0D775-E25C-491C-A859-3F4780197BBD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PdfGeneratorClient", "PdfGeneratorClient", "{216795AF-54D3-4577-BEF7-3474BB8CC354}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.PdfGeneratorClient", "Inoxie.Tools.PdfGeneratorClient\Inoxie.Tools.PdfGeneratorClient.csproj", "{91AB3FED-0081-434B-87B2-7B96F40AC3F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -229,6 +233,10 @@ Global
 		{90B0D775-E25C-491C-A859-3F4780197BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90B0D775-E25C-491C-A859-3F4780197BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90B0D775-E25C-491C-A859-3F4780197BBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91AB3FED-0081-434B-87B2-7B96F40AC3F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91AB3FED-0081-434B-87B2-7B96F40AC3F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91AB3FED-0081-434B-87B2-7B96F40AC3F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91AB3FED-0081-434B-87B2-7B96F40AC3F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -280,6 +288,8 @@ Global
 		{329F1EC8-7163-4E4E-8F1F-D4B54279EF5D} = {F7004323-13D9-438D-8421-BDFA4A03F3B7}
 		{4E6471AF-7431-4F84-90C6-DCDDDC4B8767} = {329F1EC8-7163-4E4E-8F1F-D4B54279EF5D}
 		{90B0D775-E25C-491C-A859-3F4780197BBD} = {8B72BE44-0D54-4197-B613-E2BCFF5DE858}
+		{216795AF-54D3-4577-BEF7-3474BB8CC354} = {F7004323-13D9-438D-8421-BDFA4A03F3B7}
+		{91AB3FED-0081-434B-87B2-7B96F40AC3F7} = {216795AF-54D3-4577-BEF7-3474BB8CC354}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {167565B1-25DA-4F02-BB59-C90CFF9903BC}

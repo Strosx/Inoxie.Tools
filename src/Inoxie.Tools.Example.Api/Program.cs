@@ -36,6 +36,7 @@ builder.Services.AddInoxieExceptions<ErrorCodeMessageProvider>();
 builder.Services.AddInoxieEmailsTool(builder.Configuration);
 builder.Services.AddInoxieJwtAuth(builder.Configuration);
 builder.Services.AddInoxieToolsLogging();
+builder.Services.AddHttpClient();
 
 //write services
 builder.Services.AddFilteredReadService<CustomerEntity, CustomerOutDto, BaseSearchableFilterModel, CustomersFilterProvider,
@@ -65,7 +66,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseInoxieJwtAuth();
-app.UseInoxieExceptions();
+//app.UseInoxieExceptions();
 app.MapControllers();
 
 app.Run();
