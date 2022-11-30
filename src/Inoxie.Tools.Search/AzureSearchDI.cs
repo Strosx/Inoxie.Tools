@@ -30,7 +30,6 @@ public static class AzureSearchDI
 
         var indexConfig = new AzureIndexSearchOptions<T>
         {
-            ApiKey = searchConfig.Value.ApiKey,
             IndexName = index.Name,
             IndexUrl = new Uri(index.IndexUrl),
         };
@@ -40,26 +39,7 @@ public static class AzureSearchDI
             .AddHttpClient(indexConfig.IndexName, (http) =>
             {
                 http.BaseAddress = indexConfig.IndexUrl;
-                http.DefaultRequestHeaders.TryAddWithoutValidation("api-key", indexConfig.ApiKey);
-            });
-
-        services.AddScoped<IAzureSearchClient<T>, AzureSearchClient<T>>();
-
-        return services;
-    }
-
-    public static IServiceCollection AddAzureSearchIndex<T>(this IServiceCollection services, Action<AzureIndexSearchOptionsBuilder<T>> optionsAction)
-        where T : class
-    {
-        var optionsBuilder = AzureIndexSearchOptionsBuilder<T>.Init;
-        optionsAction.Invoke(optionsBuilder);
-
-        services
-            .AddSingleton(optionsBuilder.Options)
-            .AddHttpClient(optionsBuilder.Options.IndexName, (http) =>
-            {
-                http.BaseAddress = optionsBuilder.Options.IndexUrl;
-                http.DefaultRequestHeaders.TryAddWithoutValidation("api-key", optionsBuilder.Options.ApiKey);
+                http.DefaultRequestHeaders.TryAddWithoutValidation("api-key", searchConfig.Value.ApiKey);
             });
 
         services.AddScoped<IAzureSearchClient<T>, AzureSearchClient<T>>();

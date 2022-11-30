@@ -1,4 +1,5 @@
-﻿using Inoxie.Tools.Search.Options;
+﻿using Inoxie.Tools.Search.Models;
+using Inoxie.Tools.Search.Options;
 using System.Net.Http.Json;
 
 namespace Inoxie.Tools.Search.Client;
@@ -25,6 +26,8 @@ internal class AzureSearchClient<T> : IAzureSearchClient<T> where T : class
             throw new Exception($"Failed to request data from Az search, ex: {message}");
         }
 
-        return await response.Content.ReadFromJsonAsync<ICollection<T>>(cancellationToken: cancellationToken) ?? new List<T>();
+        var content = await response.Content.ReadFromJsonAsync<AzureSearchResponse<T>>(cancellationToken: cancellationToken);
+
+        return content?.Value ?? new List<T>();
     }
 }
