@@ -1,4 +1,5 @@
 ﻿using Inoxie.Tools.AzureSearch.Client;
+using Inoxie.Tools.AzureSearch.Models;
 using Inoxie.Tools.AzureSearch.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +17,7 @@ public static class AzureSearchDI
     }
 
     public static IServiceCollection AddAzureSearchIndex<T>(this IServiceCollection services, string indexName)
-        where T : class
+        where T : class, IAzureSearchModel
     {
         var searchConfig = services.BuildServiceProvider().GetService<IOptions<AzureSearchConfig>>();
 

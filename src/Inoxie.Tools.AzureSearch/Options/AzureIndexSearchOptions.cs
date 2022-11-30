@@ -1,6 +1,8 @@
-﻿namespace Inoxie.Tools.AzureSearch.Options;
+﻿using Inoxie.Tools.AzureSearch.Models;
 
-internal class AzureIndexSearchOptions<T>
+namespace Inoxie.Tools.AzureSearch.Options;
+
+internal class AzureIndexSearchOptions<T> where T : class, IAzureSearchModel
 {
     internal string IndexName { get; set; } = string.Empty;
 

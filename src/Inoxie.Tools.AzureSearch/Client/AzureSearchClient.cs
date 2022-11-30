@@ -4,7 +4,7 @@ using System.Net.Http.Json;
 
 namespace Inoxie.Tools.AzureSearch.Client;
 
-internal class AzureSearchClient<T> : IAzureSearchClient<T> where T : class
+internal class AzureSearchClient<T> : IAzureSearchClient<T> where T : class, IAzureSearchModel
 {
     private readonly IHttpClientFactory httpClientFactory;
     private readonly AzureIndexSearchOptions<T> options;
