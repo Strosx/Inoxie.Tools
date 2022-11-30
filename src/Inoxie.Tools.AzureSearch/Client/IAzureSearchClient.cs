@@ -1,4 +1,4 @@
-﻿namespace Inoxie.Tools.Search.Client;
+﻿namespace Inoxie.Tools.AzureSearch.Client;
 
 public interface IAzureSearchClient<T> where T : class
 {

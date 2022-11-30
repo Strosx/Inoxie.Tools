@@ -1,8 +1,8 @@
-﻿using Inoxie.Tools.Search.Models;
-using Inoxie.Tools.Search.Options;
+﻿using Inoxie.Tools.AzureSearch.Models;
+using Inoxie.Tools.AzureSearch.Options;
 using System.Net.Http.Json;
 
-namespace Inoxie.Tools.Search.Client;
+namespace Inoxie.Tools.AzureSearch.Client;
 
 internal class AzureSearchClient<T> : IAzureSearchClient<T> where T : class
 {

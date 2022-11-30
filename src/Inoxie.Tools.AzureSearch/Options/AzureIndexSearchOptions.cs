@@ -1,4 +1,4 @@
-﻿namespace Inoxie.Tools.Search.Options;
+﻿namespace Inoxie.Tools.AzureSearch.Options;
 
 internal class AzureIndexSearchOptions<T>
 {

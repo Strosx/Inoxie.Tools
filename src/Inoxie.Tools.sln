@@ -105,7 +105,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inoxie.Tools.PdfGeneratorCl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureSearch", "AzureSearch", "{B2F1D603-35F3-4FA7-863D-F8D432B6C5A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.Search", "Inoxie.Tools.Search\Inoxie.Tools.Search.csproj", "{A5031ADC-BDAC-423D-B5D6-DB4022724900}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inoxie.Tools.AzureSearch", "Inoxie.Tools.AzureSearch\Inoxie.Tools.AzureSearch.csproj", "{A5031ADC-BDAC-423D-B5D6-DB4022724900}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

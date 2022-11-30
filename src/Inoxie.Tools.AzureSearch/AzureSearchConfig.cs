@@ -1,4 +1,4 @@
-﻿namespace Inoxie.Tools.Search;
+﻿namespace Inoxie.Tools.AzureSearch;
 
 public class AzureSearchConfig
 {

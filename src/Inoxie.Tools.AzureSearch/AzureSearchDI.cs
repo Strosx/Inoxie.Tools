@@ -1,10 +1,10 @@
-﻿using Inoxie.Tools.Search.Client;
-using Inoxie.Tools.Search.Options;
+﻿using Inoxie.Tools.AzureSearch.Client;
+using Inoxie.Tools.AzureSearch.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace Inoxie.Tools.Search;
+namespace Inoxie.Tools.AzureSearch;
 
 public static class AzureSearchDI
 {

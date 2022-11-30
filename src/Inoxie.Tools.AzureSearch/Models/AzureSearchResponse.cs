@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Inoxie.Tools.Search.Models;
+namespace Inoxie.Tools.AzureSearch.Models;
 
 internal class AzureSearchResponse<T> where T : class
 {

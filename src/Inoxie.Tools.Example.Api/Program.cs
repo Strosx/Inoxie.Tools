@@ -17,7 +17,7 @@ using Inoxie.Tools.Logging.DI;
 using Inoxie.Tools.PdfTemplating.DI;
 using Inoxie.Tools.PdfTemplating.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Inoxie.Tools.Search;
+using Inoxie.Tools.AzureSearch;
 
 var builder = WebApplication.CreateBuilder(args);
 

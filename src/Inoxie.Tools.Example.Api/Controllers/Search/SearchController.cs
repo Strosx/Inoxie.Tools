@@ -1,8 +1,8 @@
 ﻿using Inoxie.Tools.ApiServices.GuidId.Abstractions;
+using Inoxie.Tools.AzureSearch.Client;
 using Inoxie.Tools.DataProcessor.Abstractions.Models;
 using Inoxie.Tools.Example.Api.Core.Models;
 using Inoxie.Tools.Example.Api.Domain.Customers;
-using Inoxie.Tools.Search.Client;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inoxie.Tools.Example.Api.Controllers.Search;

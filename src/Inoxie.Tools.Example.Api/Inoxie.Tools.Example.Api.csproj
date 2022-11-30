@@ -21,7 +21,7 @@
 		<ProjectReference Include="..\Inoxie.Tools.JwtAuth\Inoxie.Tools.JwtAuth.csproj" />
 		<ProjectReference Include="..\Inoxie.Tools.Logging\Inoxie.Tools.Logging.csproj" />
 		<ProjectReference Include="..\Inoxie.Tools.PdfTemplating\Inoxie.Tools.PdfTemplating.csproj" />
-		<ProjectReference Include="..\Inoxie.Tools.Search\Inoxie.Tools.Search.csproj" />
+		<ProjectReference Include="..\Inoxie.Tools.AzureSearch\Inoxie.Tools.AzureSearch.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
