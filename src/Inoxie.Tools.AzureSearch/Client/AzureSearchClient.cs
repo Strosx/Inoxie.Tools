@@ -6,19 +6,19 @@ namespace Inoxie.Tools.AzureSearch.Client;
 
 internal class AzureSearchClient<T> : IAzureSearchClient<T> where T : class
 {
-    private readonly IHttpClientFactory _httpClientFactory;
-    private readonly AzureIndexSearchOptions<T> _options;
+    private readonly IHttpClientFactory httpClientFactory;
+    private readonly AzureIndexSearchOptions<T> options;
 
     public AzureSearchClient(IHttpClientFactory httpClientFactory, AzureIndexSearchOptions<T> options)
     {
-        _httpClientFactory = httpClientFactory;
-        _options = options;
+        this.httpClientFactory = httpClientFactory;
+        this.options = options;
     }
 
     public async Task<ICollection<T>> Search(string search, CancellationToken cancellationToken = default)
     {
-        var httpClient = _httpClientFactory.CreateClient(_options.IndexName);
-        var response = await httpClient.GetAsync($"{_options.IndexUrl.PathAndQuery}&search={search}", cancellationToken);
+        var httpClient = httpClientFactory.CreateClient(options.IndexName);
+        var response = await httpClient.GetAsync($"{options.IndexUrl.PathAndQuery}&search={search}", cancellationToken);
 
         if (!response.IsSuccessStatusCode)
         {
