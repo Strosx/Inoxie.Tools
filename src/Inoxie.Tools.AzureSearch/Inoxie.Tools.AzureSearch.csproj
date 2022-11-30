@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PackageId>Inoxie.Tools.Search</PackageId>
+    <PackageId>Inoxie.Tools.AzureSearch</PackageId>
     <Version>1.0.0</Version>
     <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
     <Company>Inoxie</Company>

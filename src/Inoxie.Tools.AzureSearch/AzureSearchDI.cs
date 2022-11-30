@@ -10,7 +10,7 @@ public static class AzureSearchDI
 {
     public static IServiceCollection InstallAzureSearch(this IServiceCollection services, IConfiguration configuration)
     {
-        services.Configure<AzureSearchConfig>(options => configuration.GetSection("AzureSearchConfig").Bind(options));
+        services.Configure<AzureSearchConfig>(options => configuration.GetSection(AzureSearchConfig.Key).Bind(options));
 
         return services;
     }
