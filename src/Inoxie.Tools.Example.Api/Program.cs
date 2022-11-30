@@ -17,6 +17,7 @@ using Inoxie.Tools.Logging.DI;
 using Inoxie.Tools.PdfTemplating.DI;
 using Inoxie.Tools.PdfTemplating.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Inoxie.Tools.Search;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +38,16 @@ builder.Services.AddInoxieEmailsTool(builder.Configuration);
 builder.Services.AddInoxieJwtAuth(builder.Configuration);
 builder.Services.AddInoxieToolsLogging();
 builder.Services.AddHttpClient();
+builder.Services
+    //option 1
+    .InstallAzureSearch(builder.Configuration)
+    .AddAzureSearchIndex<CustomerEntity>("search1")
+    // option 2
+    .AddAzureSearchIndex<object>(
+        options => options
+            .AddIndexName("test")
+            .AddIndexUrl("https://test.search.windows.net/indexes/test-index/docs?api-version=2021-04-30-Preview")
+            .AddApiKey("test"));
 
 //write services
 builder.Services.AddFilteredReadService<CustomerEntity, CustomerOutDto, BaseSearchableFilterModel, CustomersFilterProvider,
