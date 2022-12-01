@@ -6,8 +6,8 @@
         <Nullable>enable</Nullable>
 
         <PackageId>Inoxie.Tools.ApiServices.GuidId</PackageId>
-        <Version>6.2.2</Version>
-        <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+		<Version>6.3.0</Version>
+		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>

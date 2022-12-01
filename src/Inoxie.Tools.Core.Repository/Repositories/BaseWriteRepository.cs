@@ -21,7 +21,7 @@ public class BaseWriteRepository<TEntity, TId> : IBaseWriteRepository<TEntity, T
         return context.SaveChangesAsync();
     }
 
-    public virtual async Task<TId> CreateAsync(TEntity entity, List<object> attach = null)
+    public virtual async Task<TId> CreateAsync(TEntity entity, List<object> attach = null, bool saveChanges = true)
     {
         if (attach != null)
         {
@@ -29,17 +29,23 @@ public class BaseWriteRepository<TEntity, TId> : IBaseWriteRepository<TEntity, T
         }
 
         await dbSet.AddAsync(entity);
-        await context.SaveChangesAsync();
+        if (saveChanges)
+        {
+            await context.SaveChangesAsync();
+        }
         return entity.Id;
     }
 
-    public virtual async Task CreateManyAsync(IEnumerable<TEntity> entities)
+    public virtual async Task CreateManyAsync(IEnumerable<TEntity> entities, bool saveChanges = true)
     {
         await dbSet.AddRangeAsync(entities);
-        await context.SaveChangesAsync();
+        if (saveChanges)
+        {
+            await context.SaveChangesAsync();
+        }
     }
 
-    public async Task<bool> DeleteAsync(TId id)
+    public async Task<bool> DeleteAsync(TId id, bool saveChanges = true)
     {
         var entity = dbSet.FirstOrDefault(f => Equals(f.Id, id));
         if (entity == null)
@@ -48,29 +54,41 @@ public class BaseWriteRepository<TEntity, TId> : IBaseWriteRepository<TEntity, T
         }
 
         dbSet.Remove(entity);
-        await context.SaveChangesAsync();
+        if (saveChanges)
+        {
+            await context.SaveChangesAsync();
+        }
         return true;
     }
 
-    public async Task<bool> DeleteAsync(TEntity entity)
+    public async Task<bool> DeleteAsync(TEntity entity, bool saveChanges = true)
     {
         dbSet.Remove(entity);
-        await context.SaveChangesAsync();
+        if (saveChanges)
+        {
+            await context.SaveChangesAsync();
+        }
         return true;
     }
 
-    public Task DeleteManyAsync(IEnumerable<TEntity> entities)
+    public async Task DeleteManyAsync(IEnumerable<TEntity> entities, bool saveChanges = true)
     {
         context.RemoveRange(entities);
-        return context.SaveChangesAsync();
+        if (saveChanges)
+        {
+            await context.SaveChangesAsync();
+        }
     }
 
-    public async Task<bool> UpdateAsync(TEntity entity)
+    public async Task<bool> UpdateAsync(TEntity entity, bool saveChanges = true)
     {
         context.Entry(entity).State = EntityState.Modified;
         dbSet.Update(entity);
 
-        await context.SaveChangesAsync();
+        if (saveChanges)
+        {
+            await context.SaveChangesAsync();
+        }
         return true;
     }
 }

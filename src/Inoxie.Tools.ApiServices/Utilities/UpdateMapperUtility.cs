@@ -3,9 +3,9 @@ using Inoxie.Tools.Core.Repository.Abstractions;
 
 namespace Inoxie.Tools.ApiServices.Utilities;
 
-internal static class UpdateMapperUtility
+public static class UpdateMapperUtility
 {
-    internal static TEntity MapPropertiesFrom<TEntity, TInDto, TId>(this TEntity entity, TInDto inDto)
+    public static TEntity MapPropertiesFrom<TEntity, TInDto, TId>(this TEntity entity, TInDto inDto)
         where TEntity : IBaseDataEntity<TId>
     {
         var inDtoProps = typeof(TInDto).GetProperties().Where(p => !Attribute.IsDefined(p, typeof(NoUpdateAttribute)));

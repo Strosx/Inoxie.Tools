@@ -11,13 +11,13 @@ public class WriteRepository<TEntity> : BaseWriteRepository<TEntity, string>, IW
     {
     }
 
-    public override Task<string> CreateAsync(TEntity entity, List<object>? attach = null)
+    public override Task<string> CreateAsync(TEntity entity, List<object>? attach = null, bool saveChanges = true)
     {
         entity.Id = string.IsNullOrWhiteSpace(entity.Id) ? Guid.NewGuid().ToString() : entity.Id;
-        return base.CreateAsync(entity, attach);
+        return base.CreateAsync(entity, attach, saveChanges);
     }
 
-    public override Task CreateManyAsync(IEnumerable<TEntity> entities)
+    public override Task CreateManyAsync(IEnumerable<TEntity> entities, bool saveChanges = true)
     {
         var dataEntities = entities.Select(entity =>
         {
@@ -25,6 +25,6 @@ public class WriteRepository<TEntity> : BaseWriteRepository<TEntity, string>, IW
             return entity;
         });
 
-        return base.CreateManyAsync(dataEntities);
+        return base.CreateManyAsync(dataEntities, saveChanges);
     }
 }
