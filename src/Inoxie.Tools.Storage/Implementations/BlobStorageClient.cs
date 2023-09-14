@@ -13,6 +13,10 @@ internal class BlobStorageClient : IBlobStorageClient
 {
     private readonly InoxieBlobClient inoxieBlobClient;
 
+    /// <summary>
+    /// Represents a client for managing interactions with Azure Blob Storage.
+    /// This client provides functionalities for uploading, downloading, deleting blobs, and retrieving metadata, specifically tailored for Inoxie's needs.
+    /// </summary>
     public BlobStorageClient(InoxieBlobClient inoxieBlobClient)
     {
         this.inoxieBlobClient = inoxieBlobClient;

@@ -4,9 +4,18 @@
         <TargetFramework>net6.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>Inoxie.Tools.Storage</PackageId>
-        <Version>6.0.2</Version>
+        <Version>6.0.4</Version>
         <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
+
+        <Description>A utility library for Inoxie, designed to simplify Azure Blob Storage operations. Provides functionalities like uploading, downloading, deleting blobs, and retrieving metadata with built-in error checks and conveniences specific to Inoxie's needs.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+        <PackageTags>AzureBlobStorage;Inoxie;BlobUtilities;CloudStorage</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+
     </PropertyGroup>
 
     <ItemGroup>
