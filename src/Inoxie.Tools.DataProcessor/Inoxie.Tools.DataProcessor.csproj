@@ -6,10 +6,19 @@
 		<Nullable>enable</Nullable>
 
 		<PackageId>Inoxie.Tools.DataProcessor</PackageId>
-		<Version>6.0.1</Version>
-		<Authors>Maciej Kamieniak</Authors>
+		<Version>6.0.4</Version>
+		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
 		<Company>Inoxie</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+		<Description>Implementation of the Inoxie DataProcessor abstraction. Offers utilities for paginating and filtering data from databases. Can be tailored to specific database entities by extending base or searchable filter models.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+		<PackageTags>Inoxie;DataProcessor;Pagination;Filtering;Implementation</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+
 	</PropertyGroup>
 
 	<ItemGroup>
