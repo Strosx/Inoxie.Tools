@@ -5,6 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
+/// <summary>
+/// Provides basic implementation for reading operations on entities of type <typeparamref name="TEntity"/>.
+/// </summary>
+/// <remarks>
+/// This service handles authorization, mapping, and post-processing of data entities. It primarily uses <see cref="IBaseReadRepository{TEntity, TId}"/>, <see cref="IMapper"/>, <see cref="IBaseReadAuthorizationService{TEntity, TId}"/>, and <see cref="IReadServicePostProcessor{TOutDto}"/>.
+/// </remarks>
 public class BaseReadService<TEntity, TOutDto, TId> : IBaseReadService<TOutDto, TId>
     where TEntity : IBaseDataEntity<TId>
 {
@@ -46,7 +52,10 @@ public class BaseReadService<TEntity, TOutDto, TId> : IBaseReadService<TOutDto, 
             .AsQueryable()
             .FirstOrDefaultAsync(f => Equals(f.Id, id));
 
-        if (entity != null) throw new Exception("Forbidden");
+        if (entity != null)
+        {
+            throw new Exception("Forbidden");
+        }
 
         throw new Exception("NotFound");
     }
