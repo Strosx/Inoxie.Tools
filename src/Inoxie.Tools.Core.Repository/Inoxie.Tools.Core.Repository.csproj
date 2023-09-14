@@ -6,10 +6,19 @@
         <Nullable>disable</Nullable>
 
         <PackageId>Inoxie.Tools.Core.Repository</PackageId>
-        <Version>6.3.0</Version>
+        <Version>6.4.0</Version>
         <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <Description>This package provides a robust implementation of core repository abstractions for Entity Framework Core (EF Core), emphasizing flexibility with a generic ID model as the database key. By integrating the core principles of EF Core, this toolkit streamlines and standardizes database operations, assisting developers in writing efficient and modular code. Crafted with pride by Inoxie, it's a must-have toolset for modern .NET developers working with databases.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+        <PackageTags>EntityFrameworkCore; EFCore; repository; implementation; generic; id; key; database; Inoxie; dotnet; abstractions; .NET6; ORM</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+
     </PropertyGroup>
 
     <ItemGroup>

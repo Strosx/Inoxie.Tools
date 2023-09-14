@@ -4,6 +4,14 @@ using System.Linq.Expressions;
 
 namespace Inoxie.Tools.Core.Repository.Repositories;
 
+/// <summary>
+/// Provides a base implementation for read-only repository operations for a given entity type and its ID type.
+/// This class offers fundamental read operations like fetching an entity by its ID, querying entities based on a predicate, 
+/// and other common reading functionalities. 
+/// The provided methods support both tracking and non-tracking queries, optimizing performance and data manipulation according to the developer's intent.
+/// </summary>
+/// <typeparam name="TEntity">The type of the entity the repository operates on.</typeparam>
+/// <typeparam name="TId">The type of the entity's ID.</typeparam>
 public class BaseReadRepository<TEntity, TId> : IBaseReadRepository<TEntity, TId>
     where TEntity : class, IBaseDataEntity<TId>
 {

@@ -6,10 +6,18 @@
         <Nullable>enable</Nullable>
 
         <PackageId>Inoxie.Tools.Core.Repository.StringId</PackageId>
-		<Version>6.3.0</Version>
-		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+		    <Version>6.4.0</Version>
+		    <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <Description>This package delivers practical implementations extending the core repository abstractions for Entity Framework Core (EF Core), with a specialized focus on using strings as database IDs. Drawing from the foundational abstractions of its predecessor, this toolkit offers .NET developers efficient methods to interface with databases where entities possess string-based identifiers. A refined product from Inoxie, catering to projects that utilize string as their primary database key.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+        <PackageTags>EntityFrameworkCore; EFCore; repository; stringId; implementation; database; Inoxie; dotnet; .NET6; ORM; concrete; stringKey</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>

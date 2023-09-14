@@ -3,12 +3,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.Core.Repository.Implementations;
 
-internal class DatabaseContextProvider<TContext> : IDatabaseContextProvider
-    where TContext : DbContext
+/// <summary>
+/// Supplies the designated database context for operations within the repository.
+/// </summary>
+/// <typeparam name="TDatabaseContext">Type of the database context.</typeparam>
+internal class DatabaseContextProvider<TDatabaseContext> : IDatabaseContextProvider
+    where TDatabaseContext : DbContext
 {
-    private readonly TContext context;
+    private readonly TDatabaseContext context;
 
-    public DatabaseContextProvider(TContext context)
+    public DatabaseContextProvider(TDatabaseContext context)
     {
         this.context = context;
     }
