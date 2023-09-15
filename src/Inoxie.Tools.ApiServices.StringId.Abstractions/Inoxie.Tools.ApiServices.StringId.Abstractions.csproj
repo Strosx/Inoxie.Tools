@@ -6,10 +6,17 @@
 		<Nullable>enable</Nullable>
 
 		<PackageId>Inoxie.Tools.ApiServices.StringId.Abstractions</PackageId>
-		<Version>6.3.0</Version>
+		<Version>6.4.0</Version>
 		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
 		<Company>Inoxie</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+		<Description>Abstract layer of Inoxie API services, specifically designed for identifiers based on text strings (`StringId`). It contains foundational interfaces and definitions that allow for authentication, reading, and filtering operations on data using `StringId` identifiers. This is a key component in the Inoxie tools architecture, providing support for specific `StringId` scenarios.</Description>		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+		<PackageTags>API;Services;Abstractions;Inoxie;Tools;ASP.NET;Interfaces;Patterns;StringId</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
 
 	<ItemGroup>

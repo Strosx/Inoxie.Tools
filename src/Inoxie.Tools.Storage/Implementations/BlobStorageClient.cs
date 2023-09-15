@@ -25,7 +25,10 @@ internal class BlobStorageClient : IBlobStorageClient
     public async Task DeleteAsync(string blobUri)
     {
         var uri = new Uri(blobUri);
-        if (uri.Host != inoxieBlobClient.Host) throw new Exception("Wrong storage Host!");
+        if (uri.Host != inoxieBlobClient.Host)
+        {
+            throw new Exception("Wrong storage Host!");
+        }
 
         var (containerName, blobName) = GetBlobClient(uri);
 
@@ -38,7 +41,10 @@ internal class BlobStorageClient : IBlobStorageClient
     public async Task<Stream> DownloadAsync(string blobUri)
     {
         var uri = new Uri(blobUri);
-        if (uri.Host != inoxieBlobClient.Host) throw new Exception("Wrong storage Host!");
+        if (uri.Host != inoxieBlobClient.Host)
+        {
+            throw new Exception("Wrong storage Host!");
+        }
 
         var (containerName, blobName) = GetBlobClient(uri);
 
@@ -52,7 +58,10 @@ internal class BlobStorageClient : IBlobStorageClient
     public async Task<IDictionary<string, string>> GetMetadataAsync(string blobUri)
     {
         var uri = new Uri(blobUri);
-        if (uri.Host != inoxieBlobClient.Host) throw new Exception("Wrong storage Host!");
+        if (uri.Host != inoxieBlobClient.Host)
+        {
+            throw new Exception("Wrong storage Host!");
+        }
 
         var (containerName, blobName) = GetBlobClient(uri);
 
@@ -77,7 +86,6 @@ internal class BlobStorageClient : IBlobStorageClient
 
         return blobClient.Uri.AbsoluteUri;
     }
-
 
     private static (string containerName, string blobName) GetBlobClient(Uri uri)
     {

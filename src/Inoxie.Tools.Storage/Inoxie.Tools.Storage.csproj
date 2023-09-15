@@ -15,7 +15,6 @@
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-
     </PropertyGroup>
 
     <ItemGroup>

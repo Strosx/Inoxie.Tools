@@ -46,9 +46,7 @@ public class BaseFilteredReadService<TEntity, TOutDto, TFilter, TId> : BaseReadS
         var queryablePagedDataResponse = dataProcessor.ProcessQueryable(filter, query);
         var mapped = await mapper.ProjectTo<TOutDto>(queryablePagedDataResponse.Collection).FirstOrDefaultAsync();
 
-        if (mapped == null) throw new Exception("NotFound");
-
-        return await postProcessor.ProcessAsync(mapped);
+        return mapped == null ? null : await postProcessor.ProcessAsync(mapped);
     }
 
     public virtual async Task<PagedDataResponse<TOutDto>> FilterAsync(TFilter filter)

@@ -14,7 +14,7 @@ internal class DefaultFilterProvider<TModel, TFilter> : IDataProcessorFilterProv
 {
     public Func<TFilter, (IQueryable<TModel> query, int count)> GetFunc(IQueryable<TModel> queryable)
     {
-        return (filterModel) =>
+        return filterModel =>
         {
             return new(queryable
                 .Skip(filterModel.Skip)

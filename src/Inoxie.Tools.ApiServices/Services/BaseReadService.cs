@@ -54,9 +54,9 @@ public class BaseReadService<TEntity, TOutDto, TId> : IBaseReadService<TOutDto, 
 
         if (entity != null)
         {
-            throw new Exception("Forbidden");
+            throw new UnauthorizedAccessException($"Access denied for the entity of type {typeof(TEntity).Name} with ID '{id}'.");
         }
 
-        throw new Exception("NotFound");
+        throw new KeyNotFoundException($"Entity of type {typeof(TEntity).Name} with ID '{id}' was not found.");
     }
 }
