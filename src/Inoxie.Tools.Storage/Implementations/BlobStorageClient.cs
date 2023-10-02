@@ -13,6 +13,10 @@ internal class BlobStorageClient : IBlobStorageClient
 {
     private readonly InoxieBlobClient inoxieBlobClient;
 
+    /// <summary>
+    /// Represents a client for managing interactions with Azure Blob Storage.
+    /// This client provides functionalities for uploading, downloading, deleting blobs, and retrieving metadata, specifically tailored for Inoxie's needs.
+    /// </summary>
     public BlobStorageClient(InoxieBlobClient inoxieBlobClient)
     {
         this.inoxieBlobClient = inoxieBlobClient;
@@ -21,7 +25,10 @@ internal class BlobStorageClient : IBlobStorageClient
     public async Task DeleteAsync(string blobUri)
     {
         var uri = new Uri(blobUri);
-        if (uri.Host != inoxieBlobClient.Host) throw new Exception("Wrong storage Host!");
+        if (uri.Host != inoxieBlobClient.Host)
+        {
+            throw new Exception("Wrong storage Host!");
+        }
 
         var (containerName, blobName) = GetBlobClient(uri);
 
@@ -34,7 +41,10 @@ internal class BlobStorageClient : IBlobStorageClient
     public async Task<Stream> DownloadAsync(string blobUri)
     {
         var uri = new Uri(blobUri);
-        if (uri.Host != inoxieBlobClient.Host) throw new Exception("Wrong storage Host!");
+        if (uri.Host != inoxieBlobClient.Host)
+        {
+            throw new Exception("Wrong storage Host!");
+        }
 
         var (containerName, blobName) = GetBlobClient(uri);
 
@@ -48,7 +58,10 @@ internal class BlobStorageClient : IBlobStorageClient
     public async Task<IDictionary<string, string>> GetMetadataAsync(string blobUri)
     {
         var uri = new Uri(blobUri);
-        if (uri.Host != inoxieBlobClient.Host) throw new Exception("Wrong storage Host!");
+        if (uri.Host != inoxieBlobClient.Host)
+        {
+            throw new Exception("Wrong storage Host!");
+        }
 
         var (containerName, blobName) = GetBlobClient(uri);
 
@@ -73,7 +86,6 @@ internal class BlobStorageClient : IBlobStorageClient
 
         return blobClient.Uri.AbsoluteUri;
     }
-
 
     private static (string containerName, string blobName) GetBlobClient(Uri uri)
     {

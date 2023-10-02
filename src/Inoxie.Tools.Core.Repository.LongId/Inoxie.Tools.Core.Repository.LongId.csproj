@@ -6,10 +6,18 @@
         <Nullable>enable</Nullable>
 
         <PackageId>Inoxie.Tools.Core.Repository.LongId</PackageId>
-		<Version>6.3.0</Version>
-		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+        <Version>6.4.0</Version>
+        <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <Description>This package provides robust implementations extending the core repository abstractions for Entity Framework Core (EF Core), emphasizing the utilization of long integers as auto-generated database IDs. Drawing upon the foundational principles of its precursor, this toolkit facilitates .NET developers with streamlined methods to work with databases where entities' identifiers are auto-managed long integers. A meticulously crafted solution by Inoxie, tailored for projects that employ database-managed long identifiers.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+        <PackageTags>EntityFrameworkCore; EFCore; repository; longId; implementation; database; Inoxie; dotnet; .NET6; ORM; concrete; longKey</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>

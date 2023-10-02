@@ -6,10 +6,18 @@
         <Nullable>enable</Nullable>
 
         <PackageId>Inoxie.Tools.ApiServices.GuidId.Abstractions</PackageId>
-		<Version>6.3.0</Version>
-		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+        <Version>6.4.0</Version>
+        <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <Description>The abstraction layer for the Inoxie API services tailored for globally unique identifier (GUID) based entities. This project encapsulates foundational interfaces and type definitions to enable uniform operations on data entities identified by GUIDs, providing a robust base for subsequent concrete implementations.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+        <PackageTags>API;Services;Abstractions;Inoxie;Tools;ASP.NET;Interfaces;Patterns;GuidId</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>

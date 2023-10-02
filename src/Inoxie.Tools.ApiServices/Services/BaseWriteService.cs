@@ -6,6 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
+/// <summary>
+/// Provides a fundamental implementation for write operations on entities of type <typeparamref name="TEntity"/>.
+/// </summary>
+/// <remarks>
+/// This service caters to the creation, update, and deletion of entities. It incorporates <see cref="IBaseWriteRepository{TEntity, TId}"/>, <see cref="IBaseReadRepository{TEntity, TId}"/>, <see cref="IMapper"/>, <see cref="IBaseWriteAuthorizationService{TInDto, TId}"/>, and <see cref="IDbSaveChanges"/> to conduct its operations.
+/// </remarks>
 public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, TId>
     where TEntity : IBaseDataEntity<TId>
 {
@@ -33,7 +39,7 @@ public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, 
     {
         if (!await writeAuthorizationService.AuthorizeAsync(inDto))
         {
-            throw new Exception("Forbidden");
+            throw new UnauthorizedAccessException($"Access denied for creating an entity of type {typeof(TEntity).Name}.");
         }
 
         var mappedEntity = mapper.Map<TEntity>(inDto);
@@ -44,7 +50,7 @@ public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, 
     {
         if (!await writeAuthorizationService.AuthorizeAsync(inDtos))
         {
-            throw new Exception("Forbidden");
+            throw new UnauthorizedAccessException($"Access denied for creating multiple entities of type {typeof(TEntity).Name}.");
         }
 
         var mappedList = mapper.Map<List<TEntity>>(inDtos);
@@ -55,7 +61,7 @@ public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, 
     {
         if (!await writeAuthorizationService.AuthorizeDeleteAsync(id))
         {
-            throw new Exception("Forbidden");
+            throw new UnauthorizedAccessException($"Access denied for deleting the entity of type {typeof(TEntity).Name} with ID '{id}'.");
         }
 
         await writeRepository.DeleteAsync(id);
@@ -65,10 +71,10 @@ public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, 
     {
         if (!await writeAuthorizationService.AuthorizeAsync(inDto))
         {
-            throw new Exception("Forbidden");
+            throw new UnauthorizedAccessException($"Access denied for updating the entity of type {typeof(TEntity).Name} with ID '{id}'.");
         }
 
-        var entity = await readRepository.AsQueryable(true).FirstOrDefaultAsync(f => Equals(f.Id, id));
+        var entity = await readRepository.AsQueryable(true).FirstAsync(f => Equals(f.Id, id));
         entity.MapPropertiesFrom<TEntity, TInDto, TId>(inDto);
 
         await dbSaveChanges.SaveChangesAsync();

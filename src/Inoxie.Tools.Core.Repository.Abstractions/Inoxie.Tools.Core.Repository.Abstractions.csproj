@@ -6,10 +6,18 @@
         <Nullable>disable</Nullable>
 
         <PackageId>Inoxie.Tools.Core.Repository.Abstractions</PackageId>
-		<Version>6.3.0</Version>
-		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+		    <Version>6.4.0</Version>
+		    <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <Description>This package offers a comprehensive set of core repository abstractions specifically tailored for Entity Framework Core (EF Core). The design prioritizes flexibility, allowing for various database ID types and ensures decoupled database interactions by leveraging the provider pattern. By adhering to the principles of EF Core, this package aims to streamline and standardize database operations, helping developers craft efficient and maintainable code. Proudly developed by Inoxie, it's an essential toolkit for .NET developers.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+        <PackageTags>EntityFrameworkCore; EFCore; repository; abstractions; inoxie; dotnet .NET6; ORM</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>

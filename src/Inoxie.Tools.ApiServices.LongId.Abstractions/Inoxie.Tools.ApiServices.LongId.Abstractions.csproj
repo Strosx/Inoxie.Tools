@@ -6,10 +6,18 @@
         <Nullable>enable</Nullable>
 
         <PackageId>Inoxie.Tools.ApiServices.LongId.Abstractions</PackageId>
-		<Version>6.3.0</Version>
-		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+        <Version>6.4.0</Version>
+        <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <Description> The abstract layer of Inoxie API services, specially crafted for long integer-based identifiers (`LongId`). It contains foundational interfaces and definitions that enable the creation of authorization, reading, and filtering operations on data utilizing the `LongId` identifiers. This abstraction ensures a flexible foundation for further concrete implementations in the API services domain.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+        <PackageTags>API;Services;Abstractions;Inoxie;Tools;ASP.NET;Interfaces;Patterns;LongId</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>

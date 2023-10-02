@@ -6,10 +6,18 @@
         <Nullable>enable</Nullable>
 
         <PackageId>Inoxie.Tools.ApiServices.StringId</PackageId>
-		<Version>6.3.0</Version>
-		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+        <Version>6.4.0</Version>
+        <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <Description>Concrete implementation of the Inoxie API services layer focused on identifiers based on text strings (`StringId`). Building on abstractions provided by `Inoxie.Tools.ApiServices.StringId.Abstractions`, this project delivers actual methods and classes that facilitate interaction with data using `StringId` identifiers. It collaborates with other Inoxie tools, including data repositories and processors, to ensure consistency and efficiency in the API services ecosystem.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+        <PackageTags>API;Services;Inoxie;Tools;ASP.NET;Interfaces;Patterns;StringId;Implementation;ApiServices</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>

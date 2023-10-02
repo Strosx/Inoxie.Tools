@@ -6,10 +6,18 @@
         <Nullable>enable</Nullable>
 
         <PackageId>Inoxie.Tools.ApiServices.LongId</PackageId>
-		<Version>6.3.0</Version>
-		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+        <Version>6.4.0</Version>
+        <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <Description> The concrete implementation layer of the Inoxie API services centered around long integer-based identifiers (`LongId`). Building on the abstractions provided by `Inoxie.Tools.ApiServices.LongId.Abstractions`, this project offers the actual methods and classes that facilitate interactions with data using the `LongId` identifiers. It collaborates with other Inoxie tools, such as data repositories and processors, to ensure cohesion and efficiency within the API services ecosystem.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+        <PackageTags>API;Services;Inoxie;Tools;ASP.NET;Interfaces;Patterns;LongId;Implementation;ApiServices</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>

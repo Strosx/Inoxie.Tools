@@ -7,6 +7,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.ApiServices.Services;
 
+/// <summary>
+/// Provides an enhanced read service implementation that supports filtering on entities of type <typeparamref name="TEntity"/>.
+/// </summary>
+/// <remarks>
+/// This service extends the basic reading capabilities of <see cref="BaseReadService{TEntity, TOutDto, TId}"/> with the addition of filtering. It leverages the <see cref="IDataProcessor{TEntity, TFilter}"/> to apply filters and return filtered results. This service also makes use of <see cref="IBaseReadRepository{TEntity, TId}"/>, <see cref="IMapper"/>, <see cref="IBaseReadAuthorizationService{TEntity, TId}"/>, and <see cref="IReadServicePostProcessor{TOutDto}"/> for its operations.
+/// </remarks>
 public class BaseFilteredReadService<TEntity, TOutDto, TFilter, TId> : BaseReadService<TEntity, TOutDto, TId>, IBaseFilterReadService<TOutDto, TFilter, TId>
     where TOutDto : class
     where TEntity : class, IBaseDataEntity<TId>
@@ -40,9 +46,7 @@ public class BaseFilteredReadService<TEntity, TOutDto, TFilter, TId> : BaseReadS
         var queryablePagedDataResponse = dataProcessor.ProcessQueryable(filter, query);
         var mapped = await mapper.ProjectTo<TOutDto>(queryablePagedDataResponse.Collection).FirstOrDefaultAsync();
 
-        if (mapped == null) throw new Exception("NotFound");
-
-        return await postProcessor.ProcessAsync(mapped);
+        return mapped == null ? null : await postProcessor.ProcessAsync(mapped);
     }
 
     public virtual async Task<PagedDataResponse<TOutDto>> FilterAsync(TFilter filter)

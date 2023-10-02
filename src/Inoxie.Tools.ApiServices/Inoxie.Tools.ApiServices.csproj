@@ -6,10 +6,18 @@
         <Nullable>disable</Nullable>
 
         <PackageId>Inoxie.Tools.ApiServices</PackageId>
-        <Version>6.3.0</Version>
+        <Version>6.4.0</Version>
         <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <Description>A collection of tools designed to facilitate and optimize API service operations, built by Inoxie. This package provides implementations for common API service patterns and integrates with tools like AutoMapper for enhanced functionality.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+        <PackageTags>API;Services;Inoxie;Tools;AutoMapper;ASP.NET;Middleware;Patterns</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
 

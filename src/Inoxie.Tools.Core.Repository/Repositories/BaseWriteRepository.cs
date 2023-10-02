@@ -3,6 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inoxie.Tools.Core.Repository.Repositories;
 
+/// <summary>
+/// Provides the basic write operations for an Entity Framework repository, tailored for entities with generic ID types.
+/// </summary>
+/// <typeparam name="TEntity">Type of the entity.</typeparam>
+/// <typeparam name="TId">Type of the entity's identifier.</typeparam>
 public class BaseWriteRepository<TEntity, TId> : IBaseWriteRepository<TEntity, TId>
     where TEntity : class, IBaseDataEntity<TId>
 {
@@ -13,12 +18,6 @@ public class BaseWriteRepository<TEntity, TId> : IBaseWriteRepository<TEntity, T
     {
         context = databaseContextProvider.Get();
         dbSet = context.Set<TEntity>();
-    }
-
-    [Obsolete("Use IDbSaveChanges.SaveChangesAsync instead")]
-    public Task SaveChangesAsync()
-    {
-        return context.SaveChangesAsync();
     }
 
     public virtual async Task<TId> CreateAsync(TEntity entity, List<object> attach = null, bool saveChanges = true)

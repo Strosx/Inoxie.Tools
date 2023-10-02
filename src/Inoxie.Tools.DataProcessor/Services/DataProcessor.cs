@@ -3,6 +3,11 @@ using Inoxie.Tools.DataProcessor.Abstractions.Models;
 
 namespace Inoxie.Tools.DataProcessor.Services;
 
+/// <summary>
+/// A data processor service responsible for paginating and optionally filtering database entities.
+/// </summary>
+/// <typeparam name="TModel">The type of the data model/entity.</typeparam>
+/// <typeparam name="TFilter">The type of the filtering model.</typeparam>
 internal class DataProcessor<TModel, TFilter> : IDataProcessor<TModel, TFilter>
     where TModel : class
     where TFilter : BaseFilterModel

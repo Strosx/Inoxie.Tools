@@ -6,10 +6,18 @@
         <Nullable>enable</Nullable>
 
         <PackageId>Inoxie.Tools.Core.Repository.GuidId.Abstractions</PackageId>
-		<Version>6.3.0</Version>
-		<Authors>Maciej Kamieniak | Aleksander Górka</Authors>
+        <Version>6.4.0</Version>
+        <Authors>Maciej Kamieniak | Aleksander Górka</Authors>
         <Company>Inoxie</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <Description>This package extends the core repository abstractions tailored for Entity Framework Core (EF Core), offering a specialized implementation that employs GUIDs as database IDs. Building upon the foundational principles set by its parent project, this toolkit simplifies interactions with databases where entities use globally unique identifiers. Developed by Inoxie, it fills a niche for .NET developers focusing on database models with GUID-based keys.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Strosx/Inoxie.Tools.git</PackageProjectUrl>
+        <PackageTags>EntityFrameworkCore; EFCore; repository; guidId; guidIdentifier; database; Inoxie; dotnet; abstractions; .NET6; ORM; specialized; extension</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/Strosx/Inoxie.Tools.git</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>
