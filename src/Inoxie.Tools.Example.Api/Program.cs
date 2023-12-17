@@ -18,6 +18,7 @@ using Inoxie.Tools.PdfTemplating.DI;
 using Inoxie.Tools.PdfTemplating.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Inoxie.Tools.AzureSearch;
+using Inoxie.Tools.Excel.DI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +38,7 @@ builder.Services.AddInoxieExceptions<ErrorCodeMessageProvider>();
 builder.Services.AddInoxieEmailsTool(builder.Configuration);
 builder.Services.AddInoxieJwtAuth(builder.Configuration);
 builder.Services.AddInoxieToolsLogging();
+builder.Services.AddInoxieToolsExcel();
 builder.Services.AddHttpClient();
 builder.Services
     .InstallAzureSearch(builder.Configuration)

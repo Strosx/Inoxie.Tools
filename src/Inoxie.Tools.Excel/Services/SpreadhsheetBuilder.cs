@@ -8,6 +8,7 @@ namespace Inoxie.Tools.Spreadsheet.Services;
 internal class SpreadsheetBuilder : ISpreadsheetBuilder
 {
     private IWorkbook _workbook;
+    private Dictionary<string, int> _sheetRows = new();
 
     public ISpreadsheetBuilder Create()
     {
@@ -39,27 +40,55 @@ internal class SpreadsheetBuilder : ISpreadsheetBuilder
 
     public ISpreadsheetBuilder InsertRowData(string sheetName, IEnumerable<object[]> dataRows)
     {
-        var rowNumber = 1;
-        var sheet = _workbook.GetSheet(sheetName);
-
         foreach (var dataRow in dataRows)
-        {
-            var row = sheet.CreateRow(rowNumber);
-            int columnIndex = 0;
-            foreach (var data in dataRow)
-            {
-                var value = data?.ToString();
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    value = " ";
-                }
+            InsertRowData(sheetName, dataRow);
 
-                row.CreateCell(columnIndex).SetCellValue(value);
-                columnIndex++;
+        return this;
+    }
+
+    public ISpreadsheetBuilder InsertRowData(string sheetName, object[] dataRow)
+    {
+        var sheet = _workbook.GetSheet(sheetName);
+        var rowNumber = GetNextRowNumber(sheetName);
+        var row = sheet.CreateRow(rowNumber);
+        int columnIndex = 0;
+
+        foreach (var data in dataRow)
+        {
+            var value = data?.ToString();
+            if (string.IsNullOrWhiteSpace(value))     
+                value = " ";
+
+            var cell = row.CreateCell(columnIndex);
+
+            if (double.TryParse(value, out var numericValue))
+            {
+                cell.SetCellType(CellType.Numeric);
+                cell.SetCellValue(numericValue);
+            }
+            else if (bool.TryParse(value, out var boolValue))
+            {
+                cell.SetCellType(CellType.Boolean);
+                cell.SetCellValue(boolValue);
+            }
+            else
+            {
+                cell.SetCellType(CellType.String);
+                cell.SetCellValue(value);
             }
 
-            rowNumber++;
+            columnIndex++;
         }
+
+        return this;
+    }
+
+    public ISpreadsheetBuilder InsertEmptyRow(string sheetName)
+    {
+        var sheet = _workbook.GetSheet(sheetName);
+        var rowNumber = GetNextRowNumber(sheetName);
+        sheet.SetRowBreak(rowNumber);
+
         return this;
     }
 
@@ -77,4 +106,15 @@ internal class SpreadsheetBuilder : ISpreadsheetBuilder
         return stream;
     }
 
+    private int GetNextRowNumber(string sheetName)
+    {
+        if (_sheetRows.TryGetValue(sheetName, out var rowNumber))
+        {
+            _sheetRows[sheetName] = ++rowNumber;
+            return _sheetRows[sheetName];
+        }
+
+        _sheetRows.Add(sheetName, 1);
+        return 1;
+    }
 }
