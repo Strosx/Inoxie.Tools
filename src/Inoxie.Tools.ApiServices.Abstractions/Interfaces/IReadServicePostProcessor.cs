@@ -9,12 +9,12 @@ public interface IReadServicePostProcessor<TOutDto>
     /// <summary>
     /// Processes a single DTO after reading. This can be used for operations like data anonymization.
     /// </summary>
-    Task<TOutDto> ProcessAsync(TOutDto dto);
-    
+    virtual Task<TOutDto> ProcessAsync(TOutDto dto) => Task.FromResult(dto);
+
     /// <summary>
     /// Processes a collection of DTOs after reading. Suitable for batch processing.
     /// </summary>
-    async Task<List<TOutDto>> ProcessCollectionAsync(List<TOutDto> collection)
+    virtual async Task<List<TOutDto>> ProcessCollectionAsync(List<TOutDto> collection)
     {
         var tasks = collection.Select(ProcessAsync);
         var processed = await Task.WhenAll(tasks);

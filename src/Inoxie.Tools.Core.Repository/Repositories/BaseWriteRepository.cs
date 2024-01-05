@@ -14,6 +14,8 @@ public class BaseWriteRepository<TEntity, TId> : IBaseWriteRepository<TEntity, T
     private readonly DbContext context;
     private readonly DbSet<TEntity> dbSet;
 
+    private TEntity lastAddedEntity { get; set; }
+
     public BaseWriteRepository(IDatabaseContextProvider databaseContextProvider)
     {
         context = databaseContextProvider.Get();
@@ -32,6 +34,8 @@ public class BaseWriteRepository<TEntity, TId> : IBaseWriteRepository<TEntity, T
         {
             await context.SaveChangesAsync();
         }
+
+        lastAddedEntity = entity;
         return entity.Id;
     }
 
@@ -79,6 +83,7 @@ public class BaseWriteRepository<TEntity, TId> : IBaseWriteRepository<TEntity, T
         }
     }
 
+
     public async Task<bool> UpdateAsync(TEntity entity, bool saveChanges = true)
     {
         context.Entry(entity).State = EntityState.Modified;
@@ -89,5 +94,10 @@ public class BaseWriteRepository<TEntity, TId> : IBaseWriteRepository<TEntity, T
             await context.SaveChangesAsync();
         }
         return true;
+    }
+
+    public TId GetLastAddedId()
+    {
+        return lastAddedEntity.Id;
     }
 }

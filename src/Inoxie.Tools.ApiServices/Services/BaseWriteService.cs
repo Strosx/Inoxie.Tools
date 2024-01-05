@@ -35,7 +35,8 @@ public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, 
         this.dbSaveChanges = dbSaveChanges;
     }
 
-    public virtual async Task<TId> CreateAsync(TInDto inDto)
+
+    public virtual async Task<TId> CreateAsync(TInDto inDto, bool saveChanges = true)
     {
         if (!await writeAuthorizationService.AuthorizeAsync(inDto))
         {
@@ -43,10 +44,10 @@ public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, 
         }
 
         var mappedEntity = mapper.Map<TEntity>(inDto);
-        return await writeRepository.CreateAsync(mappedEntity);
+        return await writeRepository.CreateAsync(mappedEntity, null, saveChanges);
     }
 
-    public virtual async Task CreateManyAsync(List<TInDto> inDtos)
+    public virtual async Task CreateManyAsync(List<TInDto> inDtos, bool saveChanges = true)
     {
         if (!await writeAuthorizationService.AuthorizeAsync(inDtos))
         {
@@ -54,20 +55,25 @@ public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, 
         }
 
         var mappedList = mapper.Map<List<TEntity>>(inDtos);
-        await writeRepository.CreateManyAsync(mappedList);
+        await writeRepository.CreateManyAsync(mappedList, saveChanges);
     }
 
-    public virtual async Task DeleteAsync(TId id)
+    public virtual async Task DeleteAsync(TId id, bool saveChanges = true)
     {
         if (!await writeAuthorizationService.AuthorizeDeleteAsync(id))
         {
             throw new UnauthorizedAccessException($"Access denied for deleting the entity of type {typeof(TEntity).Name} with ID '{id}'.");
         }
 
-        await writeRepository.DeleteAsync(id);
+        await writeRepository.DeleteAsync(id, saveChanges);
     }
 
-    public virtual async Task UpdateAsync(TInDto inDto, TId id)
+    public virtual TId GetLastAddedId()
+    {
+        return writeRepository.GetLastAddedId();
+    }
+
+    public virtual async Task UpdateAsync(TInDto inDto, TId id, bool saveChanges = true)
     {
         if (!await writeAuthorizationService.AuthorizeAsync(inDto))
         {
@@ -77,6 +83,9 @@ public class BaseWriteService<TEntity, TInDto, TId> : IBaseWriteService<TInDto, 
         var entity = await readRepository.AsQueryable(true).FirstAsync(f => Equals(f.Id, id));
         entity.MapPropertiesFrom<TEntity, TInDto, TId>(inDto);
 
-        await dbSaveChanges.SaveChangesAsync();
+        if (saveChanges)
+        {
+            await dbSaveChanges.SaveChangesAsync();
+        }
     }
 }

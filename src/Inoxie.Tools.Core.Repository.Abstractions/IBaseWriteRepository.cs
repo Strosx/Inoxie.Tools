@@ -51,4 +51,10 @@ public interface IBaseWriteRepository<in TEntity, TId> where TEntity : IBaseData
     /// <param name="saveChanges">Indicates if changes should be saved immediately after update.</param>
     /// <returns>True if update was successful.</returns>
     Task<bool> UpdateAsync(TEntity entity, bool saveChanges = true);
+
+    /// <summary>
+    /// Get last added id.
+    /// </summary>
+    /// <returns>Returns id of last added entity.</returns>
+    TId GetLastAddedId();
 }

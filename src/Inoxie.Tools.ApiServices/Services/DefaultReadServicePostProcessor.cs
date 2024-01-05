@@ -8,7 +8,7 @@ namespace Inoxie.Tools.ApiServices.Services;
 /// </summary>
 internal class DefaultReadServicePostProcessor<TOutDto> : IReadServicePostProcessor<TOutDto>
 {
-    public Task<TOutDto> ProcessAsync(TOutDto dto) => Task.FromResult(dto);
-    public Task<List<TOutDto>> ProcessCollectionAsync(List<TOutDto> collection) => Task.FromResult(collection);
+    public virtual Task<TOutDto> ProcessAsync(TOutDto dto) => Task.FromResult(dto);
+    public virtual Task<List<TOutDto>> ProcessCollectionAsync(List<TOutDto> collection) => Task.FromResult(collection);
 }
 

@@ -12,20 +12,25 @@ public interface IBaseWriteService<TInDto, TId>
     /// <summary>
     /// Creates a record based on the provided DTO.
     /// </summary>
-    Task<TId> CreateAsync(TInDto inDto);
-    
+    Task<TId> CreateAsync(TInDto inDto, bool saveChanges = true);
+
     /// <summary>
     /// Creates multiple records based on the provided list of DTOs.
     /// </summary>
-    Task CreateManyAsync(List<TInDto> inDtos);
-    
+    Task CreateManyAsync(List<TInDto> inDtos, bool saveChanges = true);
+
     /// <summary>
     /// Deletes a record based on the provided ID.
     /// </summary>
-    Task DeleteAsync(TId id);
-    
+    Task DeleteAsync(TId id, bool saveChanges = true);
+
     /// <summary>
     /// Updates a record based on the provided DTO and ID.
     /// </summary>
-    Task UpdateAsync(TInDto inDto, TId id);
+    Task UpdateAsync(TInDto inDto, TId id, bool saveChanges = true);
+
+    /// <summary>
+    /// Use this when using UnitOfWork pattern without instant save changes.
+    /// </summary>
+    TId GetLastAddedId();
 }
