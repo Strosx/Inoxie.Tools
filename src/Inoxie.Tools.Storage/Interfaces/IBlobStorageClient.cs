@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -39,4 +40,13 @@ public interface IBlobStorageClient
     /// </summary>
     /// <param name="downloadUri">The URI of the blob to delete.</param>
     Task DeleteAsync(string downloadUri);
+
+    /// <summary>
+    /// Generates a SAS (Shared Access Signature) URL for uploading a blob.
+    /// </summary>
+    /// <param name="containerName">The name of the container.</param>
+    /// <param name="blobName">The name of the blob.</param>
+    /// <param name="expiresAt">The expiration time for the SAS token.</param>
+    /// <returns>A SAS URL that allows uploading to the specified blob location.</returns>
+    Task<string> GenerateUploadSasUrlAsync(string containerName, string blobName, DateTime expiresAt);
 }
