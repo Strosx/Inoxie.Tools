@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>Inoxie.Tools.JwtAuth</PackageId>
-		<Version>6.5.0</Version>
+		<Version>6.6.0</Version>
 		<Authors>Maciej Kamieniak, Aleksander Górka</Authors>
 		<Company>Inoxie</Company>
 		<Nullable>disable</Nullable>
@@ -15,7 +15,7 @@
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
-		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.10.0" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.36.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
 	</ItemGroup>
 
