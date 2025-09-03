@@ -1,5 +1,6 @@
 ﻿using Inoxie.Tools.Core.Repository.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Inoxie.Tools.Core.Repository.Repositories;
 
@@ -19,5 +20,10 @@ public class DbSaveChanges : IDbSaveChanges
     {
         action?.Invoke(context);
         await context.SaveChangesAsync();
+    }
+
+    public async Task<IDbContextTransaction> BeginTransactionAsync()
+    {
+        return await context.Database.BeginTransactionAsync();
     }
 }
