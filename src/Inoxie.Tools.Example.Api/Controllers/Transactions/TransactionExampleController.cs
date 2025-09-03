@@ -29,7 +29,7 @@ public class TransactionExampleController : ControllerBase
 
         try
         {
-            // Step 1: Create customer
+            // Step 1: Create a customer
             var customerId = await writeService.CreateAsync(customer, saveChanges: false);
 
             // Step 2: Perform some validation or additional logic
